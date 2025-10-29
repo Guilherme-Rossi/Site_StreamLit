@@ -20,7 +20,7 @@ html_string = """
             --dark-blue: #0d1b2a;
             --medium-blue: #1b263b;
             --light-blue: #415a77;
-            --text-gray: #778da9;
+            --text-gray: #111184;
             --white: #ffffff;
             --primary-gradient: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%);
             --border-radius: 12px;
@@ -102,12 +102,12 @@ html_string = """
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1rem; }
         .section-subtitle { text-align: center; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--light-blue); }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
+        .feature-card { background: var(--dark-blue); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
+        .pricing-card { background: var(--dark-blue); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover, .pricing-card.popular { transform: translateY(-10px); box-shadow: var(--shadow-md); }
         .pricing-card.popular { border: 2px solid #3a86ff; }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue); }
@@ -213,7 +213,7 @@ html_string = """
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
                         <h3>Gestão de Tarefas</h3>
-                        <p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
+                        <p style="color: black !important;">Crie, atribua e ampanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
