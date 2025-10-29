@@ -4,7 +4,6 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 # 2. Armazenar todo o código HTML e CSS em uma única string
-# Nenhuma alteração foi feita aqui, o código original está correto.
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +27,6 @@ html_string = """
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* Removendo a margem padrão que o Streamlit pode adicionar ao corpo do iframe */
         body {
             margin: 0;
             font-family: 'Inter', sans-serif; 
@@ -42,12 +40,9 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* --- Animação --- */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
 
-        /* --- Cabeçalho e Navegação --- */
-        /* O cabeçalho foi ajustado de 'fixed' para 'sticky' para melhor compatibilidade */
         header { 
             padding: 1.5rem 0; 
             position: sticky; 
@@ -69,7 +64,6 @@ html_string = """
         .login-link { text-decoration: none; color: var(--medium-blue); font-weight: 600; transition: color 0.3s; }
         .login-link:hover { color: #3a86ff; }
         
-        /* Dropdown agora funciona com hover (CSS puro), pois JS não é executado */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-toggle { cursor: pointer; display: flex; align-items: center; }
         .dropdown-menu { display: none; position: absolute; top: 130%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow-md); list-style: none; padding: 0.5rem; width: 200px; z-index: 1; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
@@ -79,15 +73,12 @@ html_string = """
         .arrow { display: inline-block; transition: transform 0.3s ease; margin-left: 4px; }
         .dropdown:hover .arrow { transform: rotate(180deg); }
 
-
-        /* --- Botões --- */
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white); box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
         .btn-outline { background: transparent; color: var(--dark-blue); border: 2px solid #e0e1dd; }
         .btn-outline:hover { background: var(--dark-blue); color: var(--white); }
 
-        /* --- Seções e Conteúdo --- */
         #hero { padding: 100px 0 120px 0; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
@@ -101,25 +92,36 @@ html_string = """
         .section-light { background-color: #f8f9fa; }
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1rem; }
         .section-subtitle { text-align: center; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--light-blue); }
+        
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--light-blue); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
+        /* --- CORREÇÃO AQUI: Fundo do feature-card restaurado para branco --- */
+        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        /* --- CORREÇÃO AQUI: Cor do título do feature-card garantida --- */
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
+        /* --- CORREÇÃO AQUI: Cor do parágrafo do feature-card garantida --- */
+        .feature-card p { color: var(--text-gray); }
+
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .pricing-card { background: var(--dark-blue); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
+        /* --- CORREÇÃO AQUI: Fundo do pricing-card restaurado para branco --- */
+        .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover, .pricing-card.popular { transform: translateY(-10px); box-shadow: var(--shadow-md); }
         .pricing-card.popular { border: 2px solid #3a86ff; }
+        /* --- CORREÇÃO AQUI: Cor do título e do preço garantida para ter contraste --- */
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue); }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue); margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray); }
         .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; }
-        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; }
+        /* --- CORREÇÃO AQUI: Cor dos itens da lista garantida --- */
+        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray); }
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+        
         #final-cta { background: var(--medium-blue); color: var(--white); text-align: center; }
         #final-cta h2 { color: var(--white); }
-        #final-cta p { color: #E8E8E8; } /* Cor ajustada para melhor contraste */
+        #final-cta p { color: #E8E8E8; }
+        
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 4rem; }
         .footer-column .logo { margin-bottom: 1rem; }
@@ -136,7 +138,6 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* --- Responsividade --- */
         .mobile-menu-icon, .nav-links-mobile { display: none; }
         @media (max-width: 992px) {
             .nav-links, .nav-actions { display: none; }
@@ -213,7 +214,7 @@ html_string = """
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
                         <h3>Gestão de Tarefas</h3>
-                        <p style="color: black !important;">Crie, atribua e ampanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
+                        <p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
@@ -327,11 +328,9 @@ html_string = """
             </div>
         </div>
     </footer>
-    <!-- A tag <script> é ignorada pelo Streamlit, então a interatividade do menu não funcionará -->
 </body>
 </html>
 """
 
 # 3. RENDERIZAR O HTML NO STREAMLIT
-# Esta é a linha mais importante. Ela diz ao Streamlit para interpretar o texto como HTML.
 st.markdown(html_string, unsafe_allow_html=True)
