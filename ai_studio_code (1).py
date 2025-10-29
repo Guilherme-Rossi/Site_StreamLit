@@ -20,7 +20,7 @@ html_string = """
             --dark-blue: #0d1b2a;
             --medium-blue: #1b263b;
             --light-blue: #415a77;
-            --text-gray: #111184;
+            --text-gray: #778da9;
             --white: #ffffff;
             --primary-gradient: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%);
             --border-radius: 12px;
