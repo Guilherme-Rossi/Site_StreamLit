@@ -190,7 +190,7 @@ html_string = """
             </ul>
             <div class="nav-actions">
                 <a href="#" class="login-link">Login</a>
-                <a href="#final-cta" class="btn btn-gradient">Começar Grátis</a>
+                <a href="#final-cta" class="btn btn-gradient" style="text-decoration: none; color:var(--text-gray);">Começar Grátis</a>
             </div>
             <div class="mobile-menu-icon">
                 <div class="line1"></div>
