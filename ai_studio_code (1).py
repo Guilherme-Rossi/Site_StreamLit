@@ -100,8 +100,7 @@ html_string = """
         
         .section-subtitle { 
             /* --- CORREÇÃO FINAL APLICADA AQUI --- */
-            display: flex;
-            justify-content: center;
+            align-self: center;
             text-align: center; /* Esta linha centraliza o texto dentro do parágrafo */
             font-size: 1.15rem; 
             margin-bottom: 5rem; 
