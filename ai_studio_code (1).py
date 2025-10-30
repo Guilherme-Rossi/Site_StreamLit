@@ -57,7 +57,7 @@ html_string = """
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px;}
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px; margin-bottom: 8px}
         .nav-links a { text-decoration: none; color: var(--medium-blue); font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: #3a86ff; }
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
