@@ -40,11 +40,6 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        /* --- CORREÇÃO ADICIONADA: Classe utilitária para centralizar texto --- */
-        .text-center {
-            text-align: center;
-        }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
 
@@ -95,9 +90,18 @@ html_string = """
         .mockup-content { width: 100%; height: 85%; background: var(--white); border-radius: 8px; }
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
-        .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1rem; }
         
+        /* --- CORREÇÃO APLICADA AQUI (Cor do título) --- */
+        .section-title { 
+            text-align: center; 
+            font-size: 2.8rem; 
+            color: var(--dark-blue); /* Garantindo a cor correta */
+            margin-bottom: 1rem; 
+        }
+        
+        /* --- CORREÇÃO APLICADA AQUI (Centralização do subtítulo) --- */
         .section-subtitle { 
+            text-align: center; /* Adicionada esta linha para centralizar o texto */
             font-size: 1.15rem; 
             margin-bottom: 5rem; 
             max-width: 700px; 
@@ -216,7 +220,8 @@ html_string = """
         <section id="features" class="section section-light fade-in">
              <div class="container">
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
-                <p class="section-subtitle text-center">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
+                <!-- Agora este parágrafo usará a classe corrigida e será centralizado -->
+                <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
@@ -244,8 +249,7 @@ html_string = """
         <section id="pricing" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
-                <!-- CORREÇÃO APLICADA AQUI -->
-                <p class="section-subtitle text-center">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Básico</h3>
@@ -287,7 +291,7 @@ html_string = """
         <section id="final-cta" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Pronto para transformar sua gestão?</h2>
-                <p class="section-subtitle text-center">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
+                <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
                 <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
             </div>
         </section>
