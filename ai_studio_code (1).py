@@ -39,6 +39,11 @@ html_string = """
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* --- CORREÇÃO ADICIONADA: Classe utilitária para centralizar texto --- */
+        .text-center {
+            text-align: center;
+        }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
@@ -91,29 +96,31 @@ html_string = """
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1rem; }
-        .section-subtitle { text-align: center; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--light-blue); }
+        
+        .section-subtitle { 
+            font-size: 1.15rem; 
+            margin-bottom: 5rem; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            color: var(--light-blue); 
+        }
         
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        /* --- CORREÇÃO AQUI: Fundo do feature-card restaurado para branco --- */
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        /* --- CORREÇÃO AQUI: Cor do título do feature-card garantida --- */
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
-        /* --- CORREÇÃO AQUI: Cor do parágrafo do feature-card garantida --- */
         .feature-card p { color: var(--text-gray); }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        /* --- CORREÇÃO AQUI: Fundo do pricing-card restaurado para branco --- */
         .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover, .pricing-card.popular { transform: translateY(-10px); box-shadow: var(--shadow-md); }
         .pricing-card.popular { border: 2px solid #3a86ff; }
-        /* --- CORREÇÃO AQUI: Cor do título e do preço garantida para ter contraste --- */
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue); }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue); margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray); }
         .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; }
-        /* --- CORREÇÃO AQUI: Cor dos itens da lista garantida --- */
         .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray); }
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
@@ -209,7 +216,7 @@ html_string = """
         <section id="features" class="section section-light fade-in">
              <div class="container">
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
-                <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
+                <p class="section-subtitle text-center">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
@@ -237,6 +244,7 @@ html_string = """
         <section id="pricing" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
+                <!-- CORREÇÃO APLICADA AQUI -->
                 <p class="section-subtitle text-center">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
@@ -279,7 +287,7 @@ html_string = """
         <section id="final-cta" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Pronto para transformar sua gestão?</h2>
-                <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
+                <p class="section-subtitle text-center">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
                 <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
             </div>
         </section>
