@@ -141,7 +141,7 @@ html_string = """
         .footer-column h4 { font-size: 1rem; color: var(--dark-blue); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--text-gray); transition: color 0.3s; }
+        .footer-column ul li a { text-decoration: none; color: var(--dark-blue); transition: color 0.3s; }
         .footer-column ul li a:hover { color: #3a86ff; }
         .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
         .sminex-logo { text-align: right; }
