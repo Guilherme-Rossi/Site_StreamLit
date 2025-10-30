@@ -57,7 +57,7 @@ html_string = """
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px;"}
         .nav-links a { text-decoration: none; color: var(--medium-blue); font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: #3a86ff; }
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
@@ -190,7 +190,7 @@ html_string = """
             </ul>
             <div class="nav-actions">
                 <a href="#" class="login-link">Login</a>
-                <a href="#final-cta" class="btn btn-gradient" style="text-decoration: none; color:var(--text-gray);">Começar Grátis</a>
+                <a href="#final-cta" class="btn btn-gradient" style="text-decoration: none; color:var(--white);">Começar Grátis</a>
             </div>
             <div class="mobile-menu-icon">
                 <div class="line1"></div>
@@ -205,7 +205,7 @@ html_string = """
                 <div class="hero-text">
                     <h1>Gestão de projetos, sem a complexidade.</h1>
                     <p>O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
-                    <a href="#pricing" class="btn btn-gradient">Comece seu teste de 1 mês</a>
+                    <a href="#pricing" class="btn btn-gradient; color: var(--white); text-decoration: none;">Comece seu teste de 1 mês</a>
                 </div>
                 <div class="hero-mockup">
                     <div class="mockup-header">
