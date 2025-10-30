@@ -237,7 +237,7 @@ html_string = """
         <section id="pricing" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
-                <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <p class="section-subtitle text-center">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Básico</h3>
