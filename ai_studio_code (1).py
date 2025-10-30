@@ -91,17 +91,16 @@ html_string = """
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
         
-        /* --- CORREÇÃO APLICADA AQUI (Cor do título) --- */
         .section-title { 
             text-align: center; 
             font-size: 2.8rem; 
-            color: var(--dark-blue); /* Garantindo a cor correta */
+            color: var(--dark-blue);
             margin-bottom: 1rem; 
         }
         
-        /* --- CORREÇÃO APLICADA AQUI (Centralização do subtítulo) --- */
         .section-subtitle { 
-            text-align: center; /* Adicionada esta linha para centralizar o texto */
+            /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+            text-align: center; /* Esta linha centraliza o texto dentro do parágrafo */
             font-size: 1.15rem; 
             margin-bottom: 5rem; 
             max-width: 700px; 
@@ -220,7 +219,6 @@ html_string = """
         <section id="features" class="section section-light fade-in">
              <div class="container">
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
-                <!-- Agora este parágrafo usará a classe corrigida e será centralizado -->
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
                     <div class="feature-card">
