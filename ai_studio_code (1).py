@@ -2,6 +2,57 @@ import streamlit as st
 
 # 1. Configurar a página para usar a largura total da tela
 st.set_page_config(layout="wide")
+import streamlit as st
+
+# Configuração básica da página
+st.set_page_config(
+    page_title="Meu App com Tema Branco",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Força o tema branco via CSS
+st.markdown("""
+    <style>
+        /* Fundo principal */
+        .stApp {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        /* Barra lateral */
+        section[data-testid="stSidebar"] {
+            background-color: white !important;
+        }
+
+        /* Cabeçalhos e textos */
+        h1, h2, h3, h4, h5, h6, p, span, div {
+            color: black !important;
+        }
+
+        /* Botões */
+        button[kind="primary"] {
+            background-color: #007bff !important;
+            color: white !important;
+            border: none !important;
+        }
+        button[kind="primary"]:hover {
+            background-color: #0056b3 !important;
+            color: white !important;
+        }
+
+        /* Remover sombra ou borda escura em alguns elementos */
+        .st-emotion-cache-16txtl3 {
+            box-shadow: none !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Conteúdo do app
+st.title("🌞 Tema Branco Fixo")
+st.write("Este app usa apenas tema claro, sem modo escuro.")
+st.button("Clique aqui")
+
 
 # 2. Armazenar todo o código HTML e CSS em uma única string
 html_string = """
