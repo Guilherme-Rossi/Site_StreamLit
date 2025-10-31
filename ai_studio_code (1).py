@@ -203,8 +203,8 @@ html_string = """
         <section id="hero" class="section fade-in">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <h1>Gestão de projetos, sem a complexidade.</h1>
-                    <p>O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
+                    <h1 style="color= var(--text-gray)">Gestão de projetos, sem a complexidade.</h1>
+                    <p style="color= var(--text-gray)>O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
                     <a href="#pricing" class="btn btn-gradient" style="color: var(--white); text-decoration: none;">Comece seu teste de 1 mês</a>
                 </div>
                 <div class="hero-mockup">
