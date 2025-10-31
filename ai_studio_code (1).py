@@ -5,7 +5,7 @@ st.set_page_config(layout="wide")
 import streamlit as st
 # Configuração básica da página
 st.set_page_config(
-    page_title="Meu App com Tema Branco",
+    page_title="Doing WorK",
     layout="wide",
     initial_sidebar_state="expanded"
 )
