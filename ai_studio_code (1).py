@@ -235,7 +235,7 @@ html_string = """
                 </li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="login-link">Login</a>
+                <a href="#" class="login-link" style="text-decoration: none; margin-right:10px;">Login</a>
                 <a href="#final-cta" class="btn btn-gradient" style="text-decoration: none; color:var(--white);">Começar Grátis</a>
             </div>
             <div class="mobile-menu-icon">
@@ -334,7 +334,7 @@ html_string = """
             </div>
         </section>
         <section id="final-cta" class="section fade-in">
-            <div class="container">
+            <div class="container" style="display:flex; flex-direction:column;">
                 <h2 class="section-title">Pronto para transformar sua gestão?</h2>
                 <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
                 <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
