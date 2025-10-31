@@ -305,7 +305,7 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li>
                         </ul>
-                        <a href="#" class="btn btn-outline">Começar Teste</a>
+                        <a href="#" class="btn btn-outline"  style="text-decoration: none;">Começar Teste</a>
                     </div>
                     <div class="pricing-card popular">
                         <span class="popular-badge">Mais Popular</span>
@@ -317,7 +317,7 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li>
                         </ul>
-                        <a href="#" class="btn btn-gradient">Começar Teste</a>
+                        <a href="#" class="btn btn-gradient"  style="text-decoration: none;">Começar Teste</a>
                     </div>
                     <div class="pricing-card">
                         <h3 style="margin-left:10px">Enterprise</h3>
@@ -328,7 +328,7 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li>
                         </ul>
-                        <a href="#" class="btn btn-outline">Fale Conosco</a>
+                        <a href="#" class="btn btn-outline"  style="text-decoration: none;">Fale Conosco</a>
                     </div>
                 </div>
             </div>
