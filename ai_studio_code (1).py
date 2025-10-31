@@ -218,7 +218,7 @@ html_string = """
             </div>
         </section>
         <section id="features" class="section section-light fade-in">
-             <div class="container">
+             <div class="container" style="display:flex; flex-direction:column;">
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
