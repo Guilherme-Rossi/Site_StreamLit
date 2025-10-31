@@ -3,7 +3,6 @@ import streamlit as st
 # 1. Configurar a página para usar a largura total da tela
 st.set_page_config(layout="wide")
 import streamlit as st
-
 # Configuração básica da página
 st.set_page_config(
     page_title="Meu App com Tema Branco",
@@ -47,12 +46,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Conteúdo do app
-st.title("🌞 Tema Branco Fixo")
-st.write("Este app usa apenas tema claro, sem modo escuro.")
-st.button("Clique aqui")
-
 
 # 2. Armazenar todo o código HTML e CSS em uma única string
 html_string = """
@@ -299,7 +292,7 @@ html_string = """
         <section id="pricing" class="section fade-in">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
-                <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <p class="section-subtitle" style="display:flex; justify-content:column;">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Básico</h3>
