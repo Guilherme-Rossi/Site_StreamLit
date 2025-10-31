@@ -297,7 +297,7 @@ html_string = """
                 <p class="section-subtitle" >Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3>Básico</h3>
+                        <h3 style="margin-left:10px">Básico</h3>
                         <div class="price">R$50<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li>
@@ -309,7 +309,7 @@ html_string = """
                     </div>
                     <div class="pricing-card popular">
                         <span class="popular-badge">Mais Popular</span>
-                        <h3>Premium</h3>
+                        <h3 style="margin-left:10px">Premium</h3>
                         <div class="price">R$150<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li>
@@ -320,7 +320,7 @@ html_string = """
                         <a href="#" class="btn btn-gradient">Começar Teste</a>
                     </div>
                     <div class="pricing-card">
-                        <h3>Enterprise</h3>
+                        <h3 style="margin-left:10px">Enterprise</h3>
                         <div class="price">R$500<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li>
