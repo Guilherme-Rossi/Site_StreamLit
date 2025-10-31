@@ -3,6 +3,7 @@ import streamlit as st
 # 1. Configurar a página para usar a largura total da tela
 st.set_page_config(layout="wide")
 import streamlit as st
+
 # Configuração básica da página
 st.set_page_config(
     page_title="Doing WorK",
