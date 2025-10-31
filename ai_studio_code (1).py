@@ -6,6 +6,7 @@ import streamlit as st
 # Configuração básica da página
 st.set_page_config(
     page_title="Doing WorK",
+    page_icon="doingwork_icon.ico",
     layout="wide",
     initial_sidebar_state="expanded"
 )
