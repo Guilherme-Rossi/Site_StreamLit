@@ -380,4 +380,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
