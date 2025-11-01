@@ -126,23 +126,40 @@ html_string = """
         .feature-card p { color: var(--text-gray) !important; }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI (1/2) --- */
+        .pricing-card { 
+            display: flex; 
+            flex-direction: column; 
+            background: var(--white); 
+            border-radius: var(--border-radius); 
+            padding: 2.5rem; 
+            text-align: center; 
+            border: 1px solid #e0e1dd; 
+            transition: all 0.3s ease; 
+            position: relative; 
+            box-shadow: var(--shadow-sm); 
+        }
+
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; transform: scale(1.05); transform-origin: top; }
-        .pricing-card.popular:hover { transform: scale(1.05) translateY(-10px); }
+        .pricing-card.popular { border: 2px solid #3a86ff; }
+        .pricing-card.popular:hover { transform: translateY(-10px); }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
-        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI (2/2) --- */
+        .pricing-card ul { 
+            list-style: none; 
+            margin: 2rem 0; 
+            text-align: left; 
+            flex-grow: 1; /* Faz a lista ocupar todo o espaço vago */
+        }
+
         .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
         
-        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
-        .pricing-card .btn {
-            margin-top: auto; /* Força o botão para o fundo do card */
-        }
-
         #final-cta { background: var(--medium-blue); text-align: center; }
         #final-cta h2 { color: var(--white) !important; }
         #final-cta p { color: #E8E8E8 !important; }
@@ -359,4 +376,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
