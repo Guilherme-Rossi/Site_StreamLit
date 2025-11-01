@@ -8,7 +8,26 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Forçar o tema branco do Streamlit
+# 2. NOVO: Adicionar os links de navegação à barra lateral do Streamlit
+# Esta será o menu para dispositivos móveis
+with st.sidebar:
+    st.title("Menu - DoingWork")
+    st.markdown("---")
+    st.markdown("[Funcionalidades](#features)")
+    st.markdown("[Para Quem?](#)")
+    st.markdown("[Preços](#pricing)")
+    st.markdown("[Integrações](#)")
+    st.markdown("---")
+    st.markdown("**Recursos**")
+    st.markdown("- [Blog](#)")
+    st.markdown("- [Central de Ajuda](#)")
+    st.markdown("- [Contato](#)")
+    st.markdown("---")
+    st.page_link("#", label="Login") # Usando st.page_link para um visual mais limpo
+    st.link_button("Começar Grátis", "#final-cta")
+
+
+# 3. Forçar o tema branco do Streamlit
 st.markdown("""
     <style>
         .stApp {
@@ -17,7 +36,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 3. Armazenar todo o código HTML e CSS corrigido em uma única string
+# 4. Armazenar todo o código HTML e CSS (com o ícone de menu mobile removido)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -182,11 +201,9 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .mobile-menu-icon, .nav-links-mobile { display: none; }
+        /* O ícone de menu antigo foi removido מכאן */
         @media (max-width: 992px) {
             .nav-links, .nav-actions { display: none; }
-            .mobile-menu-icon { display: block; cursor: pointer; z-index: 1001; }
-            .mobile-menu-icon div { width: 25px; height: 3px; background-color: var(--dark-blue); margin: 5px 0; }
             .hero-content { flex-direction: column; text-align: center; }
             .hero-text { max-width: 100%; }
             .hero-mockup { display: none; }
@@ -225,11 +242,7 @@ html_string = """
                 <a href="#" class="login-link">Login</a>
                 <a href="#final-cta" class="btn btn-gradient">Começar Grátis</a>
             </div>
-            <div class="mobile-menu-icon">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+            <!-- O ÍCONE DE MENU HTML ANTIGO FOI REMOVIDO DAQUI -->
         </nav>
     </header>
     <main>
@@ -376,5 +389,5 @@ html_string = """
 </html>
 """
 
-# 4. RENDERIZAR O HTML NO STREAMLIT
+# 5. RENDERIZAR O HTML NO STREAMLIT
 st.markdown(html_string, unsafe_allow_html=True)
