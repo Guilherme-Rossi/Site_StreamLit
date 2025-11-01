@@ -115,10 +115,21 @@ html_string = """
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
 
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            align-items: center; /* CORREÇÃO APLICADA AQUI */
+        }
         .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
-        .pricing-card:hover, .pricing-card.popular { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+        .pricing-card.popular { 
+            border: 2px solid #3a86ff; 
+            transform: scale(1.05); /* Mantém o destaque de tamanho */
+        }
+        .pricing-card.popular:hover {
+             transform: scale(1.05) translateY(-10px); /* Combina os efeitos no hover */
+        }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
@@ -132,12 +143,7 @@ html_string = """
         #final-cta p { color: #E8E8E8 !important; }
         
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 2rem; 
-            margin-bottom: 4rem; 
-        }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
         .footer-column .logo { margin-bottom: 1rem; }
         .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
         .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
