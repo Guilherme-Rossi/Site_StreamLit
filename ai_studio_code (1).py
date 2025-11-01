@@ -1,55 +1,14 @@
 import streamlit as st
 
-# 1. Configurar a página para usar a largura total da tela
-st.set_page_config(layout="wide")
-import streamlit as st
-
-# Configuração básica da página
+# 1. Configurar a página para usar a largura total e tema claro
 st.set_page_config(
-    page_title="Doing WorK",
-    page_icon="doingworkiconefinal_icone.ico",
+    page_title="Doing Work",
+    page_icon="doingworkiconefinal_icone.ico", # Certifique-se que este arquivo existe
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
-# Força o tema branco via CSS
-st.markdown("""
-    <style>
-        /* Fundo principal */
-        .stApp {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        /* Barra lateral */
-        section[data-testid="stSidebar"] {
-            background-color: white !important;
-        }
-
-        /* Cabeçalhos e textos */
-        h1, h2, h3, h4, h5, h6, p, span, div {
-            color: black !important;
-        }
-
-        /* Botões */
-        button[kind="primary"] {
-            background-color: #007bff !important;
-            color: white !important;
-            border: none !important;
-        }
-        button[kind="primary"]:hover {
-            background-color: #0056b3 !important;
-            color: white !important;
-        }
-
-        /* Remover sombra ou borda escura em alguns elementos */
-        .st-emotion-cache-16txtl3 {
-            box-shadow: none !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# 2. Armazenar todo o código HTML e CSS em uma única string
+# 2. Armazenar todo o código HTML e CSS corrigido em uma única string
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -76,7 +35,7 @@ html_string = """
         body {
             margin: 0;
             font-family: 'Inter', sans-serif; 
-            background-color: var(--white); 
+            background-color: var(--white) !important; 
             color: var(--text-gray); 
             line-height: 1.7; 
             -webkit-font-smoothing: antialiased;
@@ -104,11 +63,11 @@ html_string = """
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px; margin-bottom: 8px}
-        .nav-links a { text-decoration: none; color: var(--medium-blue); font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: #3a86ff; }
+        .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: #3a86ff !important; }
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
-        .login-link { text-decoration: none; color: var(--medium-blue); font-weight: 600; transition: color 0.3s; }
-        .login-link:hover { color: #3a86ff; }
+        .login-link { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: color 0.3s; }
+        .login-link:hover { color: #3a86ff !important; }
         
         .dropdown { position: relative; display: inline-block; }
         .dropdown-toggle { cursor: pointer; display: flex; align-items: center; }
@@ -120,16 +79,16 @@ html_string = """
         .dropdown:hover .arrow { transform: rotate(180deg); }
 
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
-        .btn-gradient { background: var(--primary-gradient); color: var(--white); box-shadow: var(--shadow-sm); }
+        .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-        .btn-outline { background: transparent; color: var(--dark-blue); border: 2px solid #e0e1dd; }
-        .btn-outline:hover { background: var(--dark-blue); color: var(--white); }
+        .btn-outline { background: transparent; color: var(--dark-blue) !important; border: 2px solid #e0e1dd; }
+        .btn-outline:hover { background: var(--dark-blue); color: var(--white) !important; }
 
         #hero { padding: 100px 0 120px 0; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
-        .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue); line-height: 1.2; margin-bottom: 1.5rem; }
-        .hero-text p { font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--light-blue); }
+        .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
+        .hero-text p { font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--light-blue) !important; }
         .hero-mockup { width: 45%; height: 350px; background: #f0f4f9; border-radius: var(--border-radius); box-shadow: var(--shadow-md); padding: 1.5rem; border: 1px solid #e0e1dd; }
         .mockup-header { display: flex; gap: 8px; margin-bottom: 1rem; }
         .mockup-header span { width: 12px; height: 12px; border-radius: 50%; }
@@ -137,62 +96,47 @@ html_string = """
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
         
-        .section-title { 
-            text-align: center; 
-            font-size: 2.8rem; 
-            color: var(--dark-blue);
-            margin-bottom: 1rem; 
-        }
-        
-        .section-subtitle { 
-            /* --- CORREÇÃO FINAL APLICADA AQUI --- */
-            align-self: center;
-            text-align: center; /* Esta linha centraliza o texto dentro do parágrafo */
-            font-size: 1.15rem; 
-            margin-bottom: 5rem; 
-            max-width: 700px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            color: var(--light-blue); 
-        }
+        .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--light-blue) !important; }
         
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
-        .feature-card p { color: var(--text-gray); }
+        .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
+        .feature-card p { color: var(--text-gray) !important; }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover, .pricing-card.popular { transform: translateY(-10px); box-shadow: var(--shadow-md); }
         .pricing-card.popular { border: 2px solid #3a86ff; }
-        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue); }
-        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue); margin: 1rem 0; }
-        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray); }
+        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
+        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
+        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
         .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; }
-        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray); }
+        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
-        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
         
-        #final-cta { background: var(--medium-blue); color: var(--white); text-align: center; }
-        #final-cta h2 { color: var(--white); }
-        #final-cta p { color: #E8E8E8; }
+        #final-cta { background: var(--medium-blue); text-align: center; }
+        #final-cta h2 { color: var(--white) !important; }
+        #final-cta p { color: #E8E8E8 !important; }
         
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 4rem; }
         .footer-column .logo { margin-bottom: 1rem; }
-        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; }
+        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
         .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
         .social-icons a:hover { opacity: 1; }
-        .footer-column h4 { font-size: 1rem; color: var(--dark-blue); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--dark-blue); transition: color 0.3s; }
-        .footer-column ul li a:hover { color: #3a86ff; }
+        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
+        .footer-column ul li a:hover { color: #3a86ff !important; }
         .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .footer-bottom p { color: var(--text-gray) !important; }
         .sminex-logo { text-align: right; }
-        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .mobile-menu-icon, .nav-links-mobile { display: none; }
@@ -222,9 +166,9 @@ html_string = """
             <div class="logo">DoingWork</div>
             <ul class="nav-links">
                 <li><a href="#features">Funcionalidades</a></li>
-                <li><a href="#para-quem">Para Quem?</a></li>
+                <li><a href="#">Para Quem?</a></li>
                 <li><a href="#pricing">Preços</a></li>
-                <li><a href="#integracoes">Integrações</a></li>
+                <li><a href="#">Integrações</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Recursos <span class="arrow">▾</span></a>
                     <ul class="dropdown-menu">
@@ -235,8 +179,8 @@ html_string = """
                 </li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="login-link" style="text-decoration: none; margin-right:10px;">Login</a>
-                <a href="#final-cta" class="btn btn-gradient" style="text-decoration: none; color:var(--white);">Começar Grátis</a>
+                <a href="#" class="login-link">Login</a>
+                <a href="#final-cta" class="btn btn-gradient">Começar Grátis</a>
             </div>
             <div class="mobile-menu-icon">
                 <div class="line1"></div>
@@ -249,9 +193,9 @@ html_string = """
         <section id="hero" class="section fade-in">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <h1 style="color= var(--text-gray)">Gestão de projetos, sem a complexidade.</h1>
-                    <p style="color= var(--text-gray)">O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
-                    <a href="#pricing" class="btn btn-gradient" style="color: var(--white); text-decoration: none;">Comece seu teste de 1 mês</a>
+                    <h1>Gestão de projetos, sem a complexidade.</h1>
+                    <p>O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
+                    <a href="#pricing" class="btn btn-gradient">Comece seu teste de 1 mês</a>
                 </div>
                 <div class="hero-mockup">
                     <div class="mockup-header">
@@ -265,7 +209,7 @@ html_string = """
         </section>
         <section id="features" class="section section-light fade-in">
              <div class="container" style="display:flex; flex-direction:column;">
-                <h2 class="section-title" style="color: var(--dark-blue)">Tudo o que você precisa em um só lugar</h2>
+                <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -294,10 +238,10 @@ html_string = """
         <section id="pricing" class="section fade-in">
             <div class="container" style="display:flex; flex-direction:column;">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
-                <p class="section-subtitle" >Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
                     <div class="pricing-card">
-                        <h3 style="margin-left:10px">Básico</h3>
+                        <h3>Básico</h3>
                         <div class="price">R$50<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li>
@@ -305,11 +249,11 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li>
                         </ul>
-                        <a href="#" class="btn btn-outline"  style="text-decoration: none;">Começar Teste</a>
+                        <a href="#" class="btn btn-outline">Começar Teste</a>
                     </div>
                     <div class="pricing-card popular">
                         <span class="popular-badge">Mais Popular</span>
-                        <h3 style="margin-left:10px">Premium</h3>
+                        <h3>Premium</h3>
                         <div class="price">R$150<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li>
@@ -317,10 +261,10 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li>
                         </ul>
-                        <a href="#" class="btn btn-gradient"  style="text-decoration: none;">Começar Teste</a>
+                        <a href="#" class="btn btn-gradient">Começar Teste</a>
                     </div>
                     <div class="pricing-card">
-                        <h3 style="margin-left:10px">Enterprise</h3>
+                        <h3>Enterprise</h3>
                         <div class="price">R$500<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li>
@@ -328,7 +272,7 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li>
                         </ul>
-                        <a href="#" class="btn btn-outline"  style="text-decoration: none;">Fale Conosco</a>
+                        <a href="#" class="btn btn-outline">Fale Conosco</a>
                     </div>
                 </div>
             </div>
@@ -346,10 +290,10 @@ html_string = """
             <div class="footer-grid">
                 <div class="footer-column">
                     <div class="logo">DoingWork</div>
-                    <p style="color: #0d1b2a">A plataforma intuitiva para gestão de projetos modernos.</p>
+                    <p>A plataforma intuitiva para gestão de projetos modernos.</p>
                     <div class="social-icons">
                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                            <a href="#"><img src="twitter_sem_fundo.png" alt="Twitter / X" width="20" height="20"></a> 
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
                     </div>
                 </div>
                 <div class="footer-column">
