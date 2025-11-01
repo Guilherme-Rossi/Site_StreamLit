@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral (nenhuma mudança aqui)
+# 2. Adicionar os links de navegação à barra lateral
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -26,7 +26,7 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e INJETAR O CSS CORRIGIDO E DEFINITIVO
+# 3. Forçar o tema branco e INJETAR O CSS FINAL para a barra lateral
 st.markdown("""
     <style>
         .stApp {
@@ -35,33 +35,56 @@ st.markdown("""
 
         /* --- CORREÇÃO DEFINITIVA APLICADA AQUI --- */
         
-        /* Em telas grandes (desktop/notebook), ESCONDA a barra lateral inteira e o botão dela. */
+        /* 1. Em telas grandes, ESCONDA a barra lateral e seu botão. */
         @media (min-width: 992px) {
-            [data-testid="stSidebar"] {
-                display: none !important;
-            }
-            button[data-testid="stSidebarNavToggler"] {
-                display: none !important;
-            }
+            [data-testid="stSidebar"] { display: none !important; }
+            button[data-testid="stSidebarNavToggler"] { display: none !important; }
         }
 
-        /* Estiliza o conteúdo da barra lateral para quando ela for visível (mobile) */
+        /* 2. Estiliza a barra lateral para combinar com o site */
+        [data-testid="stSidebar"] {
+            background-color: #f8f9fa !important; /* Cor de fundo suave */
+        }
+
         [data-testid="stSidebar"] h1 {
             font-family: 'Inter', sans-serif;
-            color: #0d1b2a;
+            color: #0d1b2a; /* Cor --dark-blue */
         }
-        [data-testid="stSidebar"] a {
+
+        /* Links normais (markdown) */
+        [data-testid="stSidebar"] p a {
             font-family: 'Inter', sans-serif;
-            color: #1b263b !important;
+            color: #1b263b !important; /* Cor --medium-blue */
             font-weight: 600;
-            text-decoration: none;
+            text-decoration: none !important;
         }
-        [data-testid="stSidebar"] a:hover {
+
+        [data-testid="stSidebar"] p a:hover {
             color: #3a86ff !important;
         }
+
         [data-testid="stSidebar"] strong {
             font-family: 'Inter', sans-serif;
             color: #0d1b2a;
+        }
+        
+        /* Botão "Começar Grátis" (st.link_button) */
+        [data-testid="stSidebar"] [data-testid="stLinkButton"] a {
+            background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%) !important;
+            color: white !important;
+            padding: 12px 28px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            text-align: center;
+            display: block;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        [data-testid="stSidebar"] [data-testid="stLinkButton"] a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: white !important;
         }
     </style>
 """, unsafe_allow_html=True)
