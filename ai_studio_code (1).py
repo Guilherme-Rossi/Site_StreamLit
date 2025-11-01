@@ -8,8 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. NOVO: Adicionar os links de navegação à barra lateral do Streamlit
-# Esta será o menu para dispositivos móveis
+# 2. Adicionar os links de navegação à barra lateral do Streamlit
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -23,7 +22,9 @@ with st.sidebar:
     st.markdown("- [Central de Ajuda](#)")
     st.markdown("- [Contato](#)")
     st.markdown("---")
-    st.page_link("#", label="Login") # Usando st.page_link para um visual mais limpo
+    # --- CORREÇÃO APLICADA AQUI ---
+    # Trocado st.page_link por st.markdown para compatibilidade com apps de página única
+    st.markdown("[Login](#)") 
     st.link_button("Começar Grátis", "#final-cta")
 
 
@@ -36,7 +37,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS (com o ícone de menu mobile removido)
+# 4. Armazenar todo o código HTML e CSS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -201,7 +202,6 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* O ícone de menu antigo foi removido מכאן */
         @media (max-width: 992px) {
             .nav-links, .nav-actions { display: none; }
             .hero-content { flex-direction: column; text-align: center; }
@@ -242,7 +242,6 @@ html_string = """
                 <a href="#" class="login-link">Login</a>
                 <a href="#final-cta" class="btn btn-gradient">Começar Grátis</a>
             </div>
-            <!-- O ÍCONE DE MENU HTML ANTIGO FOI REMOVIDO DAQUI -->
         </nav>
     </header>
     <main>
