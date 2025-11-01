@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral
+# 2. Adicionar os links de navegação à barra lateral (nenhuma mudança aqui)
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -26,7 +26,7 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e injetar o CSS CORRIGIDO
+# 3. Forçar o tema branco e INJETAR O CSS CORRIGIDO E DEFINITIVO
 st.markdown("""
     <style>
         .stApp {
@@ -35,31 +35,31 @@ st.markdown("""
 
         /* --- CORREÇÃO DEFINITIVA APLICADA AQUI --- */
         
-        /* 1. Em telas grandes (desktop), ESCONDA o botão que abre o menu lateral. */
+        /* Em telas grandes (desktop/notebook), ESCONDA a barra lateral inteira e o botão dela. */
         @media (min-width: 992px) {
+            [data-testid="stSidebar"] {
+                display: none !important;
+            }
             button[data-testid="stSidebarNavToggler"] {
                 display: none !important;
             }
         }
 
-        /* 2. Estiliza o conteúdo da barra lateral para combinar com o site */
-        [data-testid="stSidebar"] h1 { /* Título "Menu - DoingWork" */
+        /* Estiliza o conteúdo da barra lateral para quando ela for visível (mobile) */
+        [data-testid="stSidebar"] h1 {
             font-family: 'Inter', sans-serif;
-            color: #0d1b2a; /* Cor --dark-blue */
+            color: #0d1b2a;
         }
-
-        [data-testid="stSidebar"] a { /* Todos os links na sidebar */
+        [data-testid="stSidebar"] a {
             font-family: 'Inter', sans-serif;
-            color: #1b263b !important; /* Cor --medium-blue */
+            color: #1b263b !important;
             font-weight: 600;
             text-decoration: none;
         }
-
         [data-testid="stSidebar"] a:hover {
             color: #3a86ff !important;
         }
-
-        [data-testid="stSidebar"] strong { /* Subtítulo "Recursos" */
+        [data-testid="stSidebar"] strong {
             font-family: 'Inter', sans-serif;
             color: #0d1b2a;
         }
@@ -75,9 +75,7 @@ html_string = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DoingWork - Gestão de projetos, sem a complexidade</title>
     <style>
-        /* --- Configurações Globais e Fontes --- */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
         :root {
             --dark-blue: #0d1b2a;
             --medium-blue: #1b263b;
@@ -89,35 +87,13 @@ html_string = """
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--white) !important; 
-            color: var(--text-gray); 
-            line-height: 1.7; 
-            -webkit-font-smoothing: antialiased;
-        }
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--white) !important; color: var(--text-gray); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-
-        header { 
-            padding: 1.5rem 0; 
-            position: sticky; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1000; 
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px); 
-            box-shadow: var(--shadow-sm);
-        }
+        header { padding: 1.5rem 0; position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px; margin-bottom: 8px}
@@ -126,7 +102,6 @@ html_string = """
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
         .login-link { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: color 0.3s; }
         .login-link:hover { color: #3a86ff !important; }
-        
         .dropdown { position: relative; display: inline-block; }
         .dropdown-toggle { cursor: pointer; display: flex; align-items: center; }
         .dropdown-menu { display: none; position: absolute; top: 130%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow-md); list-style: none; padding: 0.5rem; width: 200px; z-index: 1; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
@@ -135,13 +110,11 @@ html_string = """
         .dropdown-menu a:hover { background-color: #f8f9fa; }
         .arrow { display: inline-block; transition: transform 0.3s ease; margin-left: 4px; }
         .dropdown:hover .arrow { transform: rotate(180deg); }
-
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
         .btn-outline { background: transparent; color: var(--dark-blue) !important; border: 2px solid #e0e1dd; }
         .btn-outline:hover { background: var(--dark-blue); color: var(--white) !important; }
-
         #hero { padding: 100px 0 120px 0; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
@@ -153,67 +126,28 @@ html_string = """
         .mockup-content { width: 100%; height: 85%; background: var(--white); border-radius: 8px; }
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
-        
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
-        
-        .section-subtitle { 
-            display: block !important;
-            text-align: center !important; 
-            font-size: 1.15rem; 
-            margin-bottom: 5rem; 
-            max-width: 700px; 
-            margin-left: auto !important; 
-            margin-right: auto !important; 
-            color: var(--light-blue) !important; 
-        }
-        
+        .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
-
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        
-        .pricing-card { 
-            display: flex; 
-            flex-direction: column; 
-            background: var(--white); 
-            border-radius: var(--border-radius); 
-            padding: 2.5rem; 
-            text-align: center; 
-            border: 1px solid #e0e1dd; 
-            transition: all 0.3s ease; 
-            position: relative; 
-            box-shadow: var(--shadow-sm); 
-        }
-
+        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        
-        .pricing-card.popular { 
-            border: 2px solid #3a86ff;
-        }
-
+        .pricing-card.popular { border: 2px solid #3a86ff; }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
-        
-        .pricing-card ul { 
-            list-style: none; 
-            margin: 2rem 0; 
-            text-align: left; 
-            flex-grow: 1;
-        }
-
+        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
         .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        
         #final-cta { background: var(--medium-blue); text-align: center; }
         #final-cta h2 { color: var(--white) !important; }
         #final-cta p { color: #E8E8E8 !important; }
-        
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
         .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
         .footer-column .logo { margin-bottom: 1rem; }
@@ -230,23 +164,8 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        @media (max-width: 992px) {
-            .nav-links, .nav-actions { display: none; }
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-text { max-width: 100%; }
-            .hero-mockup { display: none; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2.8rem; }
-            .section-title { font-size: 2.2rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .footer-column p { margin-left: auto; margin-right: auto; }
-            .social-icons { text-align: center; }
-            .footer-bottom { flex-direction: column; gap: 1rem; }
-            .sminex-logo { text-align: center; }
-        }
+        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
 <body>
