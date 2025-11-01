@@ -134,7 +134,7 @@ html_string = """
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
         .footer-grid { 
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* CORREÇÃO FINAL APLICADA AQUI */
+            grid-template-columns: repeat(4, 1fr); /* CORREÇÃO APLICADA AQUI */
             gap: 2rem; 
             margin-bottom: 4rem; 
         }
@@ -348,4 +348,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
