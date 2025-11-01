@@ -126,6 +126,7 @@ html_string = """
         .feature-card p { color: var(--text-gray) !important; }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
+        
         .pricing-card { 
             display: flex; 
             flex-direction: column; 
@@ -379,4 +380,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
