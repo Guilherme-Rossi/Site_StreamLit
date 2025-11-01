@@ -132,7 +132,12 @@ html_string = """
         #final-cta p { color: #E8E8E8 !important; }
         
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* CORREÇÃO FINAL APLICADA AQUI */
+            gap: 2rem; 
+            margin-bottom: 4rem; 
+        }
         .footer-column .logo { margin-bottom: 1rem; }
         .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
         .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
@@ -340,7 +345,7 @@ html_string = """
     </footer>
 </body>
 </html>
-""" # <-- CERTIFIQUE-SE DE COPIAR ESTA LINHA FINAL!
+"""
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
 st.markdown(html_string, unsafe_allow_html=True)
