@@ -128,8 +128,17 @@ html_string = """
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; transform: scale(1.05); }
-        .pricing-card.popular:hover { transform: scale(1.05) translateY(-10px); }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+        .pricing-card.popular { 
+            border: 2px solid #3a86ff; 
+            transform: scale(1.05); 
+            transform-origin: top; /* Garante que o card escale a partir do topo */
+        }
+        .pricing-card.popular:hover { 
+            transform: scale(1.05) translateY(-10px); 
+        }
+
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
