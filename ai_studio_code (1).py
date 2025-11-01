@@ -26,7 +26,7 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e INJETAR O CSS FINAL para a barra lateral
+# 3. Forçar o tema branco e injetar o CSS final e corrigido
 st.markdown("""
     <style>
         .stApp {
@@ -35,40 +35,37 @@ st.markdown("""
 
         /* --- CORREÇÃO DEFINITIVA APLICADA AQUI --- */
         
-        /* 1. Em telas grandes, ESCONDA a barra lateral e seu botão. */
+        /* Em telas grandes (desktop/notebook), ESCONDA a barra lateral e o seu botão. */
         @media (min-width: 992px) {
-            [data-testid="stSidebar"] { display: none !important; }
-            button[data-testid="stSidebarNavToggler"] { display: none !important; }
+            [data-testid="stSidebar"] {
+                display: none !important;
+            }
+            button[data-testid="stSidebarNavToggler"] {
+                display: none !important;
+            }
         }
 
-        /* 2. Estiliza a barra lateral para combinar com o site */
+        /* Estiliza a barra lateral para quando for visível (mobile) */
         [data-testid="stSidebar"] {
-            background-color: #f8f9fa !important; /* Cor de fundo suave */
+            background-color: #f8f9fa !important;
         }
-
         [data-testid="stSidebar"] h1 {
             font-family: 'Inter', sans-serif;
-            color: #0d1b2a; /* Cor --dark-blue */
+            color: #0d1b2a;
         }
-
-        /* Links normais (markdown) */
-        [data-testid="stSidebar"] p a {
+        [data-testid="stSidebar"] a:not([data-testid="stLinkButton"] a) {
             font-family: 'Inter', sans-serif;
-            color: #1b263b !important; /* Cor --medium-blue */
+            color: #1b263b !important;
             font-weight: 600;
             text-decoration: none !important;
         }
-
-        [data-testid="stSidebar"] p a:hover {
+        [data-testid="stSidebar"] a:hover:not([data-testid="stLinkButton"] a) {
             color: #3a86ff !important;
         }
-
         [data-testid="stSidebar"] strong {
             font-family: 'Inter', sans-serif;
             color: #0d1b2a;
         }
-        
-        /* Botão "Começar Grátis" (st.link_button) */
         [data-testid="stSidebar"] [data-testid="stLinkButton"] a {
             background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%) !important;
             color: white !important;
@@ -78,9 +75,7 @@ st.markdown("""
             text-align: center;
             display: block;
             transition: all 0.3s ease;
-            text-decoration: none !important;
         }
-
         [data-testid="stSidebar"] [data-testid="stLinkButton"] a:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
