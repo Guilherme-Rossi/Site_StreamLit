@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral do Streamlit
+# 2. Adicionar os links de navegação à barra lateral (nenhuma mudança aqui)
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -22,22 +22,50 @@ with st.sidebar:
     st.markdown("- [Central de Ajuda](#)")
     st.markdown("- [Contato](#)")
     st.markdown("---")
-    # --- CORREÇÃO APLICADA AQUI ---
-    # Trocado st.page_link por st.markdown para compatibilidade com apps de página única
     st.markdown("[Login](#)") 
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco do Streamlit
+# 3. Forçar o tema branco e INJETAR O NOVO CSS para a barra lateral
 st.markdown("""
     <style>
         .stApp {
             background-color: white !important;
         }
+
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+        /* 1. Esconde o botão da barra lateral em telas grandes */
+        @media (min-width: 992px) {
+            [data-testid="stSidebarNav"] {
+                display: none !important;
+            }
+        }
+
+        /* 2. Estiliza o conteúdo da barra lateral para combinar com o site */
+        [data-testid="stSidebar"] .st-emotion-cache-183lzff { /* Título "Menu - DoingWork" */
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-blue);
+        }
+
+        [data-testid="stSidebar"] a { /* Todos os links na sidebar */
+            font-family: 'Inter', sans-serif;
+            color: var(--medium-blue) !important;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        [data-testid="stSidebar"] a:hover {
+            color: #3a86ff !important;
+        }
+
+        [data-testid="stSidebar"] strong { /* Subtítulo "Recursos" */
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-blue);
+        }
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS
+# 4. Armazenar todo o código HTML e CSS (inalterado)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
