@@ -109,12 +109,13 @@ html_string = """
         
         /* --- CORREÇÃO FINAL APLICADA AQUI --- */
         .section-subtitle { 
-            text-align: center !important; /* Força o alinhamento do texto */
+            display: block !important;
+            text-align: center !important; 
             font-size: 1.15rem; 
             margin-bottom: 5rem; 
             max-width: 700px; 
-            margin-left: auto; 
-            margin-right: auto; 
+            margin-left: auto !important; 
+            margin-right: auto !important; 
             color: var(--light-blue) !important; 
         }
         
@@ -354,4 +355,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
