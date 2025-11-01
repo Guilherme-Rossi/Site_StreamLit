@@ -141,14 +141,16 @@ html_string = """
         }
 
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
         .pricing-card.popular { 
-            border: 2px solid #3a86ff; 
-            transform: scale(1.05); 
-            transform-origin: top;
+            border: 2px solid #3a86ff;
+            /* A propriedade 'transform: scale()' foi REMOVIDA para garantir o alinhamento. */
         }
         .pricing-card.popular:hover { 
-            transform: scale(1.05) translateY(-10px); 
+             transform: translateY(-10px); /* Mantém o efeito de levantar ao passar o mouse */
         }
+
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
@@ -318,66 +320,3 @@ html_string = """
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li>
                         </ul>
-                        <a href="#" class="btn btn-outline">Fale Conosco</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="final-cta" class="section fade-in">
-            <div class="container" style="display:flex; flex-direction:column; align-items:center;">
-                <h2 class="section-title">Pronto para transformar sua gestão?</h2>
-                <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
-                <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
-            </div>
-        </section>
-    </main>
-    <footer class="fade-in">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="logo">DoingWork</div>
-                    <p>A plataforma intuitiva para gestão de projetos modernos.</p>
-                    <div class="social-icons">
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                        <a href="#"><img src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/twitter_sem_fundo.png" alt="Twitter / X" width="20" height="20"></a> 
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Produto</h4>
-                    <ul>
-                        <li><a href="#features">Funcionalidades</a></li>
-                        <li><a href="#pricing">Preços</a></li>
-                        <li><a href="#">Integrações</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Empresa</h4>
-                    <ul>
-                        <li><a href="#">Sobre Nós</a></li>
-                        <li><a href="#">Carreiras</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Termos de Serviço</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DoingWork. Todos os direitos reservados.</p>
-                <div class="sminex-logo">
-                    <p>Um produto da</p>
-                    <span class="sminex-text">SMINEX ENTERPRISE</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
-"""
-
-# 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
