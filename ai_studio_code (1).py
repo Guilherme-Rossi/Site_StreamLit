@@ -106,7 +106,17 @@ html_string = """
         .section-light { background-color: #f8f9fa; }
         
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
-        .section-subtitle { text-align: center; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--light-blue) !important; }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+        .section-subtitle { 
+            text-align: center !important; /* Força o alinhamento do texto */
+            font-size: 1.15rem; 
+            margin-bottom: 5rem; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            color: var(--light-blue) !important; 
+        }
         
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
@@ -115,21 +125,11 @@ html_string = """
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
 
-        .pricing-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-            align-items: stretch; /* Alinha os cards para terem a mesma altura */
-        }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { 
-            border: 2px solid #3a86ff;
-            transform: scale(1.05);
-        }
-        .pricing-card.popular:hover {
-             transform: scale(1.05) translateY(-10px);
-        }
+        .pricing-card.popular { border: 2px solid #3a86ff; transform: scale(1.05); }
+        .pricing-card.popular:hover { transform: scale(1.05) translateY(-10px); }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
