@@ -26,26 +26,20 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e injetar o CSS final e corrigido
+# 3. Forçar o tema branco e injetar o CSS para a barra lateral
 st.markdown("""
     <style>
         .stApp {
             background-color: white !important;
         }
 
-        /* --- CORREÇÃO DEFINITIVA APLICADA AQUI --- */
-        
-        /* Em telas grandes (desktop/notebook), ESCONDA a barra lateral e o seu botão. */
+        /* Esconde a barra lateral em telas grandes */
         @media (min-width: 992px) {
-            [data-testid="stSidebar"] {
-                display: none !important;
-            }
-            button[data-testid="stSidebarNavToggler"] {
-                display: none !important;
-            }
+            [data-testid="stSidebar"] { display: none !important; }
+            button[data-testid="stSidebarNavToggler"] { display: none !important; }
         }
 
-        /* Estiliza a barra lateral para quando for visível (mobile) */
+        /* Estiliza a barra lateral para mobile */
         [data-testid="stSidebar"] {
             background-color: #f8f9fa !important;
         }
@@ -84,7 +78,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS (inalterado)
+# 4. Armazenar todo o código HTML e CSS (com a correção da header)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -111,7 +105,20 @@ html_string = """
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        header { padding: 1.5rem 0; position: sticky; top: 0; left: 0; width: 100%; z-index: 1000; transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); }
+
+        /* --- CORREÇÃO APLICADA AQUI --- */
+        header { 
+            padding: 1.5rem 0; 
+            position: sticky; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.95); /* Fundo semi-transparente */
+            backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+            box-shadow: var(--shadow-sm); /* Sombra sutil constante */
+        }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px; margin-bottom: 8px}
