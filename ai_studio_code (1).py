@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral (nenhuma mudança aqui)
+# 2. Adicionar os links de navegação à barra lateral
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -26,30 +26,31 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e INJETAR O NOVO CSS para a barra lateral
+# 3. Forçar o tema branco e injetar o CSS CORRIGIDO
 st.markdown("""
     <style>
         .stApp {
             background-color: white !important;
         }
 
-        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
-        /* 1. Esconde o botão da barra lateral em telas grandes */
+        /* --- CORREÇÃO DEFINITIVA APLICADA AQUI --- */
+        
+        /* 1. Em telas grandes (desktop), ESCONDA o botão que abre o menu lateral. */
         @media (min-width: 992px) {
-            [data-testid="stSidebarNav"] {
+            button[data-testid="stSidebarNavToggler"] {
                 display: none !important;
             }
         }
 
         /* 2. Estiliza o conteúdo da barra lateral para combinar com o site */
-        [data-testid="stSidebar"] .st-emotion-cache-183lzff { /* Título "Menu - DoingWork" */
+        [data-testid="stSidebar"] h1 { /* Título "Menu - DoingWork" */
             font-family: 'Inter', sans-serif;
-            color: var(--dark-blue);
+            color: #0d1b2a; /* Cor --dark-blue */
         }
 
         [data-testid="stSidebar"] a { /* Todos os links na sidebar */
             font-family: 'Inter', sans-serif;
-            color: var(--medium-blue) !important;
+            color: #1b263b !important; /* Cor --medium-blue */
             font-weight: 600;
             text-decoration: none;
         }
@@ -60,7 +61,7 @@ st.markdown("""
 
         [data-testid="stSidebar"] strong { /* Subtítulo "Recursos" */
             font-family: 'Inter', sans-serif;
-            color: var(--dark-blue);
+            color: #0d1b2a;
         }
     </style>
 """, unsafe_allow_html=True)
