@@ -126,8 +126,6 @@ html_string = """
         .feature-card p { color: var(--text-gray) !important; }
 
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        
-        /* --- CORREÇÃO FINAL APLICADA AQUI (1/2) --- */
         .pricing-card { 
             display: flex; 
             flex-direction: column; 
@@ -142,18 +140,23 @@ html_string = """
         }
 
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; }
-        .pricing-card.popular:hover { transform: translateY(-10px); }
+        .pricing-card.popular { 
+            border: 2px solid #3a86ff; 
+            transform: scale(1.05); 
+            transform-origin: top;
+        }
+        .pricing-card.popular:hover { 
+            transform: scale(1.05) translateY(-10px); 
+        }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
         .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
         .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
         
-        /* --- CORREÇÃO FINAL APLICADA AQUI (2/2) --- */
         .pricing-card ul { 
             list-style: none; 
             margin: 2rem 0; 
             text-align: left; 
-            flex-grow: 1; /* Faz a lista ocupar todo o espaço vago */
+            flex-grow: 1;
         }
 
         .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
@@ -376,4 +379,4 @@ html_string = """
 """
 
 # 4. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
