@@ -119,7 +119,7 @@ html_string = """
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 2rem; 
-            align-items: start; /* CORREÇÃO APLICADA AQUI */
+            align-items: start; /* CORREÇÃO PARA ALINHAR OS CARDS PELO TOPO */
         }
         .pricing-card { background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
