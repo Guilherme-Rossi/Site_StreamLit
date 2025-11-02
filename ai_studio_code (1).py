@@ -280,4 +280,46 @@ html_string = """
                     <div class="logo">DoingWork</div>
                     <p>A plataforma intuitiva para gestão de projetos modernos.</p>
                     <div class="social-icons">
-                        <a href="#"><svg xmlns="http://www.w3.org
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="#"><img src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/twitter_sem_fundo.png" alt="Twitter / X" width="20" height="20"></a> 
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#features">Funcionalidades</a></li>
+                        <li><a href="#pricing">Preços</a></li>
+                        <li><a href="#">Integrações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DoingWork. Todos os direitos reservados.</p>
+                <div class="sminex-logo">
+                    <p>Um produto da</p>
+                    <span class="sminex-text">SMINEX ENTERPRISE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+"""
+
+# 5. RENDERIZAR O HTML NO STREAMLIT
+st.markdown(html_string, unsafe_allow_html=True)```
