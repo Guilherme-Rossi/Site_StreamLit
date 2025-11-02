@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS
+# 4. Armazenar todo o código HTML e CSS (com a correção final)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -147,8 +147,25 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { display: none; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
+        
+        @media (max-width: 992px) { 
+            .nav-links, .nav-actions { display: none; } 
+            .hero-content { flex-direction: column; text-align: center; } 
+            .hero-text { max-width: 100%; } 
+            /* --- CORREÇÃO APLICADA AQUI --- */
+            /* A linha '.hero-mockup { display: none; }' foi REMOVIDA daqui */
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
+        }
+
+        @media (max-width: 768px) { 
+            #hero h1 { font-size: 2.8rem; } 
+            .section-title { font-size: 2.2rem; } 
+            .footer-grid { grid-template-columns: 1fr; text-align: center; } 
+            .footer-column p { margin-left: auto; margin-right: auto; } 
+            .social-icons { text-align: center; } 
+            .footer-bottom { flex-direction: column; gap: 1rem; } 
+            .sminex-logo { text-align: center; } 
+        }
     </style>
 </head>
 <body>
@@ -320,4 +337,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
