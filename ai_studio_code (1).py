@@ -152,7 +152,8 @@ html_string = """
             .nav-links, .nav-actions { display: none; } 
             .hero-content { flex-direction: column; text-align: center; } 
             .hero-text { max-width: 100%; } 
-            .hero-mockup { width: 90%; margin-top: 2rem; }
+            /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+            .hero-mockup { width: 100%; margin-top: 2rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; } 
         }
 
