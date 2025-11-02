@@ -147,6 +147,7 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
         @media (max-width: 992px) { 
             .nav-links, .nav-actions { display: none; } 
             .hero-content { flex-direction: column; text-align: center; } 
@@ -154,6 +155,7 @@ html_string = """
             .hero-mockup { width: 90%; margin-top: 2rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; } 
         }
+
         @media (max-width: 768px) { 
             #hero h1 { font-size: 2.8rem; } 
             .section-title { font-size: 2.2rem; } 
