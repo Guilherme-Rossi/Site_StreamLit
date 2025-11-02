@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS (com a correção final da header)
+# 4. Armazenar todo o código HTML e CSS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -73,11 +73,9 @@ html_string = """
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-
-        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
         header { 
             padding: 1.5rem 0;
-            border-bottom: 1px solid #e0e1dd; /* Adiciona uma linha sutil para separar do conteúdo */
+            border-bottom: 1px solid #e0e1dd;
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
@@ -322,4 +320,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
