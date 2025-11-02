@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS (com a correção da header)
+# 4. Armazenar todo o código HTML e CSS (com a correção final da header)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -74,17 +74,10 @@ html_string = """
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
 
-        /* --- CORREÇÃO APLICADA AQUI --- */
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
         header { 
-            padding: 1.5rem 0; 
-            position: sticky; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1000; 
-            transition: box-shadow 0.3s ease;
-            background-color: var(--white); /* Fundo branco sólido */
-            box-shadow: var(--shadow-sm); /* Sombra sutil para criar separação */
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e1dd; /* Adiciona uma linha sutil para separar do conteúdo */
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
@@ -263,4 +256,28 @@ html_string = """
                         <div class="price">R$500<span>/mês</span></div>
                         <ul>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li>
-                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Fale Conosco</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="final-cta" class="section fade-in">
+            <div class="container" style="display:flex; flex-direction:column; align-items:center;">
+                <h2 class="section-title">Pronto para transformar sua gestão?</h2>
+                <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
+                <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
+            </div>
+        </section>
+    </main>
+    <footer class="fade-in">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo">DoingWork</div>
+                    <p>A plataforma intuitiva para gestão de projetos modernos.</p>
+                    <div class="social-icons">
+                        <a href="#"><svg xmlns="http://www.w3.org
