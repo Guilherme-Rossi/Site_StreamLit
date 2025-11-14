@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 3
+# 4. Armazenar todo o código HTML e CSS com a FASE 3 CORRIGIDA
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -129,23 +129,22 @@ html_string = """
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         
-        /* --- ESTRUTURA E ESTILOS DO SHOWCASE INTERATIVO --- */
-        .features-interactive-wrapper { display: flex; flex-direction: column; align-items: center; }
-        .feature-showcase { order: 1; width: 80%; max-width: 800px; height: 450px; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); margin-bottom: 4rem; position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
-        .feature-showcase img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s ease-in-out; }
-        .features-grid { order: 2; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
+        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
+        .feature-showcase img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
-        /* Lógica de exibição das imagens no hover */
-        .feature-showcase img.default-img { opacity: 1; }
-        #card-1:hover ~ .feature-showcase .default-img,
-        #card-2:hover ~ .feature-showcase .default-img,
-        #card-3:hover ~ .feature-showcase .default-img,
-        #card-4:hover ~ .feature-showcase .default-img { opacity: 0; }
+        /* --- LÓGICA DE EXIBIÇÃO CORRIGIDA --- */
+        .feature-showcase .default-img { opacity: 1; }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase .default-img,
+        .features-interactive-wrapper:has(#card-2:hover) .feature-showcase .default-img,
+        .features-interactive-wrapper:has(#card-3:hover) .feature-showcase .default-img,
+        .features-interactive-wrapper:has(#card-4:hover) .feature-showcase .default-img { opacity: 0; }
         
-        #card-1:hover ~ .feature-showcase #img-1 { opacity: 1; }
-        #card-2:hover ~ .feature-showcase #img-2 { opacity: 1; }
-        #card-3:hover ~ .feature-showcase #img-3 { opacity: 1; }
-        #card-4:hover ~ .feature-showcase #img-4 { opacity: 1; }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase #img-1 { opacity: 1; }
+        .features-interactive-wrapper:has(#card-2:hover) .feature-showcase #img-2 { opacity: 1; }
+        .features-interactive-wrapper:has(#card-3:hover) .feature-showcase #img-3 { opacity: 1; }
+        .features-interactive-wrapper:has(#card-4:hover) .feature-showcase #img-4 { opacity: 1; }
         
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -243,6 +242,13 @@ html_string = """
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-interactive-wrapper">
+                    <div class="feature-showcase">
+                        <img src="https://placehold.co/800x450/f0f4f9/778da9?text=Visao+Geral+do+Projeto" alt="Visão Geral" class="default-img">
+                        <img id="img-1" src="https://placehold.co/800x450/3a86ff/ffffff?text=Gestao+de+Tarefas" alt="Gestão de Tarefas">
+                        <img id="img-2" src="https://placehold.co/800x450/8338ec/ffffff?text=Comunicacao+Centralizada" alt="Comunicação Centralizada">
+                        <img id="img-3" src="https://placehold.co/800x450/ffbe0b/ffffff?text=Relatorios+e+Insights" alt="Relatórios e Insights">
+                        <img id="img-4" src="https://placehold.co/800x450/fb5607/ffffff?text=Mobilidade+Total" alt="Mobilidade Total">
+                    </div>
                     <div class="features-grid">
                         <div id="card-1" class="feature-card">
                             <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
@@ -264,13 +270,6 @@ html_string = """
                             <h3>Mobilidade Total</h3>
                             <p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p>
                         </div>
-                    </div>
-                    <div class="feature-showcase">
-                        <img src="https://placehold.co/800x450/f0f4f9/778da9?text=Visao+Geral+do+Projeto" alt="Visão Geral" class="default-img">
-                        <img id="img-1" src="https://placehold.co/800x450/3a86ff/ffffff?text=Gestao+de+Tarefas" alt="Gestão de Tarefas">
-                        <img id="img-2" src="https://placehold.co/800x450/8338ec/ffffff?text=Comunicacao+Centralizada" alt="Comunicação Centralizada">
-                        <img id="img-3" src="https://placehold.co/800x450/ffbe0b/ffffff?text=Relatorios+e+Insights" alt="Relatórios e Insights">
-                        <img id="img-4" src="https://placehold.co/800x450/fb5607/ffffff?text=Mobilidade+Total" alt="Mobilidade Total">
                     </div>
                 </div>
             </div>
