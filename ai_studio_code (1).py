@@ -75,7 +75,17 @@ html_string = """
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* --- CORREÇÃO DO HEADER COM CSS GRID --- */
+        nav.container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+        .logo { justify-self: start; }
+        .nav-links { justify-self: center; }
+        .nav-actions { justify-self: end; }
+        
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
@@ -214,8 +224,7 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
+        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; padding: 15px; } }
     </style>
 </head>
