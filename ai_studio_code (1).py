@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as IMAGENS FINAIS
+# 4. Armazenar todo o código HTML e CSS com a FASE 3 CORRIGIDA
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -130,8 +130,11 @@ html_string = """
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
-        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
-        .feature-showcase img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; }
+        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
+        .feature-showcase img { width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; 
+            /* --- CORREÇÃO APLICADA AQUI --- */
+            object-fit: contain;
+        }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
         .feature-showcase .default-img { opacity: 1; }
