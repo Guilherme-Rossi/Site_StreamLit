@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 2 e ANIMAÇÕES MAIS LENTAS
+# 4. Armazenar todo o código HTML e CSS com a FASE 3
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -72,7 +72,6 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        /* --- ANIMAÇÕES AJUSTADAS (MAIS LENTAS) --- */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         
@@ -109,18 +108,15 @@ html_string = """
         .mockup-header { display: flex; gap: 8px; margin-bottom: 1rem; }
         .mockup-header span { width: 12px; height: 12px; border-radius: 50%; }
         .mockup-content { width: 100%; height: 85%; background: var(--white); border-radius: 8px; position: relative; overflow: hidden; padding: 1rem; }
-        
         .mockup-task { background: #f8f9fa; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem; box-shadow: var(--shadow-sm); opacity: 0; animation: fadeInUp 1.0s ease-out forwards; }
         .mockup-task::before { content: ''; display: block; width: 30%; height: 8px; background: #e9ecef; border-radius: 4px; margin-bottom: 8px; }
         .mockup-task::after { content: ''; display: block; width: 60%; height: 8px; background: #e9ecef; border-radius: 4px; }
         .mockup-task.done::before { width: 20%; background: #c7f5d7; }
         .mockup-task.done::after { width: 40%; background: #c7f5d7; }
-        
         .mockup-avatars { position: absolute; bottom: 1rem; right: 1rem; display: flex; }
         .mockup-avatar { width: 30px; height: 30px; border-radius: 50%; background: #ced4da; border: 2px solid var(--white); opacity: 0; animation: popIn 0.8s ease-out forwards; }
         .mockup-avatar:nth-child(2) { margin-left: -10px; background: #adb5bd; }
         .mockup-avatar:nth-child(3) { margin-left: -10px; background: var(--text-gray); }
-
         #hero .mockup-task.task1 { animation-delay: 1.0s; }
         #hero .mockup-task.task2 { animation-delay: 1.3s; }
         #hero .mockup-task.task3 { animation-delay: 1.6s; }
@@ -132,12 +128,31 @@ html_string = """
         .section-light { background-color: #f8f9fa; }
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
+        
+        /* --- ESTRUTURA E ESTILOS DO SHOWCASE INTERATIVO --- */
+        .features-interactive-wrapper { display: flex; flex-direction: column; align-items: center; }
+        .feature-showcase { order: 1; width: 80%; max-width: 800px; height: 450px; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); margin-bottom: 4rem; position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
+        .feature-showcase img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .features-grid { order: 2; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        
+        /* Lógica de exibição das imagens no hover */
+        .feature-showcase img.default-img { opacity: 1; }
+        #card-1:hover ~ .feature-showcase .default-img,
+        #card-2:hover ~ .feature-showcase .default-img,
+        #card-3:hover ~ .feature-showcase .default-img,
+        #card-4:hover ~ .feature-showcase .default-img { opacity: 0; }
+        
+        #card-1:hover ~ .feature-showcase #img-1 { opacity: 1; }
+        #card-2:hover ~ .feature-showcase #img-2 { opacity: 1; }
+        #card-3:hover ~ .feature-showcase #img-3 { opacity: 1; }
+        #card-4:hover ~ .feature-showcase #img-4 { opacity: 1; }
+        
+        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
+        
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
@@ -168,7 +183,7 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 250px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
@@ -227,26 +242,35 @@ html_string = """
              <div class="container">
                 <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                        <h3>Gestão de Tarefas</h3>
-                        <p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
+                <div class="features-interactive-wrapper">
+                    <div class="features-grid">
+                        <div id="card-1" class="feature-card">
+                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                            <h3>Gestão de Tarefas</h3>
+                            <p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
+                        </div>
+                        <div id="card-2" class="feature-card">
+                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                            <h3>Comunicação Centralizada</h3>
+                            <p>Anexe arquivos, adicione comentários e receba notificações. Mantenha toda a equipe na mesma página, sempre.</p>
+                        </div>
+                        <div id="card-3" class="feature-card">
+                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></div>
+                            <h3>Relatórios e Insights</h3>
+                            <p>Acesse dados em tempo real e gere relatórios para analisar o desempenho e tomar decisões mais inteligentes.</p>
+                        </div>
+                        <div id="card-4" class="feature-card">
+                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+                            <h3>Mobilidade Total</h3>
+                            <p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
-                        <h3>Comunicação Centralizada</h3>
-                        <p>Anexe arquivos, adicione comentários e receba notificações. Mantenha toda a equipe na mesma página, sempre.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></div>
-                        <h3>Relatórios e Insights</h3>
-                        <p>Acesse dados em tempo real e gere relatórios para analisar o desempenho e tomar decisões mais inteligentes.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
-                        <h3>Mobilidade Total</h3>
-                        <p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p>
+                    <div class="feature-showcase">
+                        <img src="https://placehold.co/800x450/f0f4f9/778da9?text=Visao+Geral+do+Projeto" alt="Visão Geral" class="default-img">
+                        <img id="img-1" src="https://placehold.co/800x450/3a86ff/ffffff?text=Gestao+de+Tarefas" alt="Gestão de Tarefas">
+                        <img id="img-2" src="https://placehold.co/800x450/8338ec/ffffff?text=Comunicacao+Centralizada" alt="Comunicação Centralizada">
+                        <img id="img-3" src="https://placehold.co/800x450/ffbe0b/ffffff?text=Relatorios+e+Insights" alt="Relatórios e Insights">
+                        <img id="img-4" src="https://placehold.co/800x450/fb5607/ffffff?text=Mobilidade+Total" alt="Mobilidade Total">
                     </div>
                 </div>
             </div>
