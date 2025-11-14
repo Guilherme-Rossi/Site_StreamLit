@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 2
+# 4. Armazenar todo o código HTML e CSS com a FASE 2 e ANIMAÇÕES MAIS LENTAS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -72,6 +72,7 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
+        /* --- ANIMAÇÕES AJUSTADAS (MAIS LENTAS) --- */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         
@@ -98,36 +99,34 @@ html_string = """
         .btn-outline { background: transparent; color: var(--dark-blue) !important; border: 2px solid #e0e1dd; }
         .btn-outline:hover { background: var(--dark-blue); color: var(--white) !important; }
         
-        #hero { padding: 100px 0 120px 0; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+        #hero { padding: 100px 0 120px 0; opacity: 0; animation: fadeInUp 1.2s ease-out forwards; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
         .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
         .hero-text p { font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--light-blue) !important; }
         
-        /* --- ESTILOS DO MOCKUP DINÂMICO --- */
         .hero-mockup { width: 45%; height: 350px; background: #f0f4f9; border-radius: var(--border-radius); box-shadow: var(--shadow-md); padding: 1.5rem; border: 1px solid #e0e1dd; }
         .mockup-header { display: flex; gap: 8px; margin-bottom: 1rem; }
         .mockup-header span { width: 12px; height: 12px; border-radius: 50%; }
         .mockup-content { width: 100%; height: 85%; background: var(--white); border-radius: 8px; position: relative; overflow: hidden; padding: 1rem; }
         
-        .mockup-task { background: #f8f9fa; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem; box-shadow: var(--shadow-sm); opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
+        .mockup-task { background: #f8f9fa; border-radius: 6px; padding: 0.75rem; margin-bottom: 0.75rem; box-shadow: var(--shadow-sm); opacity: 0; animation: fadeInUp 1.0s ease-out forwards; }
         .mockup-task::before { content: ''; display: block; width: 30%; height: 8px; background: #e9ecef; border-radius: 4px; margin-bottom: 8px; }
         .mockup-task::after { content: ''; display: block; width: 60%; height: 8px; background: #e9ecef; border-radius: 4px; }
         .mockup-task.done::before { width: 20%; background: #c7f5d7; }
         .mockup-task.done::after { width: 40%; background: #c7f5d7; }
         
         .mockup-avatars { position: absolute; bottom: 1rem; right: 1rem; display: flex; }
-        .mockup-avatar { width: 30px; height: 30px; border-radius: 50%; background: #ced4da; border: 2px solid var(--white); opacity: 0; animation: popIn 0.5s ease-out forwards; }
+        .mockup-avatar { width: 30px; height: 30px; border-radius: 50%; background: #ced4da; border: 2px solid var(--white); opacity: 0; animation: popIn 0.8s ease-out forwards; }
         .mockup-avatar:nth-child(2) { margin-left: -10px; background: #adb5bd; }
         .mockup-avatar:nth-child(3) { margin-left: -10px; background: var(--text-gray); }
 
-        /* --- DELAYS DAS ANIMAÇÕES DO MOCKUP --- */
-        #hero .mockup-task.task1 { animation-delay: 0.8s; }
-        #hero .mockup-task.task2 { animation-delay: 1.0s; }
-        #hero .mockup-task.task3 { animation-delay: 1.2s; }
-        #hero .mockup-avatar:nth-child(1) { animation-delay: 1.4s; }
-        #hero .mockup-avatar:nth-child(2) { animation-delay: 1.5s; }
-        #hero .mockup-avatar:nth-child(3) { animation-delay: 1.6s; }
+        #hero .mockup-task.task1 { animation-delay: 1.0s; }
+        #hero .mockup-task.task2 { animation-delay: 1.3s; }
+        #hero .mockup-task.task3 { animation-delay: 1.6s; }
+        #hero .mockup-avatar:nth-child(1) { animation-delay: 1.8s; }
+        #hero .mockup-avatar:nth-child(2) { animation-delay: 1.9s; }
+        #hero .mockup-avatar:nth-child(3) { animation-delay: 2.0s; }
 
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
