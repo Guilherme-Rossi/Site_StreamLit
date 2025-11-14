@@ -117,7 +117,7 @@ html_string = """
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; } /* MODIFICADO */
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: block; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
@@ -132,22 +132,17 @@ html_string = """
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
         
-        /* --- NOVO CSS PARA O KANBAN --- */
-        .kanban-board { display: flex; align-items: flex-start; gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
-        .kanban-column { flex: 1; display: flex; flex-direction: column; gap: 15px; }
-        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
-        .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        /* --- FIM DO NOVO CSS --- */
-
-        .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
-        .task-card-simple .task-title { margin-bottom: 0; }
-        .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .task-tags span { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
+        /* --- NOVO KANBAN CSS --- */
+        .kanban-container-new { display: flex; gap: 20px; width: 100%; height: 100%; background-color: #f8f9fa; padding: 20px; border-radius: 8px; }
+        .kanban-column-new { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+        .kanban-column-new h3 { font-size: 1.1rem; font-weight: 700; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; color: var(--dark-blue); }
+        .kanban-task-new { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); font-size: 0.9rem; color: var(--medium-blue); }
+        .kanban-task-new p { font-weight: 600; margin-bottom: 10px; color: var(--medium-blue) !important; }
+        .kanban-task-new .tag-ui, .kanban-task-new .tag-backend { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
         .tag-ui { background-color: #e7d8ff; color: #8338ec; }
         .tag-backend { background-color: #dbeaff; color: #3a86ff; }
-        .task-avatars { display: flex; }
-        .avatar { width: 28px; height: 28px; border-radius: 50%; background: #ced4da; border: 2px solid #fff; margin-left: -8px; }
-        .avatar:first-child { margin-left: 0; }
+        /* --- FIM DO NOVO KANBAN --- */
+        
         .chat-container { width: 100%; padding: 25px; background: #f8f9fa; border-radius: 8px; }
         .task-header { padding-bottom: 20px; border-bottom: 1px solid #e9ecef; }
         .task-header h1 { font-size: 1.8rem; color: #0d1b2a; margin: 0 0 10px 0; }
@@ -214,7 +209,7 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } .kanban-board { flex-direction: column; } }
+        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } .kanban-container-new { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -259,10 +254,25 @@ html_string = """
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
                         
-                        <div id="showcase-1" class="showcase-content kanban-board">
-                            <div class="kanban-column"><h2 class="column-title">A Fazer</h2><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card"><p class="task-title">Criar endpoint da API de usuários</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div></div>
-                            <div class="kanban-column"><h2 class="column-title">Em Andamento</h2><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card task-card-simple"><p class="task-title">Reunião de alinhamento semanal</p></div></div>
-                            <div class="kanban-column"><h2 class="column-title">Concluído</h2><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div><div class="task-card"><p class="task-title">Deploy da API de autenticação</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div></div>
+                        <div id="showcase-1" class="showcase-content">
+                            <div class="kanban-container-new">
+                                <div class="kanban-column-new">
+                                    <h3>A Fazer</h3>
+                                    <div class="kanban-task-new"><p>Desenhar a nova tela de login</p><span class="tag-ui">UI Design</span></div>
+                                    <div class="kanban-task-new"><p>Criar endpoint da API de usuários</p><span class="tag-backend">Backend</span></div>
+                                </div>
+                                <div class="kanban-column-new">
+                                    <h3>Em Andamento</h3>
+                                    <div class="kanban-task-new"><p>Implementar a interface do dashboard</p><span class="tag-ui">UI Design</span></div>
+                                    <div class="kanban-task-new"><p>Corrigir bug na autenticação</p></div>
+                                    <div class="kanban-task-new"><p>Reunião de alinhamento semanal</p></div>
+                                </div>
+                                <div class="kanban-column-new">
+                                    <h3>Concluído</h3>
+                                    <div class="kanban-task-new"><p>Definir arquitetura do banco de dados</p><span class="tag-backend">Backend</span></div>
+                                    <div class="kanban-task-new"><p>Deploy da API de autenticação</p><span class="tag-backend">Backend</span></div>
+                                </div>
+                            </div>
                         </div>
 
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
