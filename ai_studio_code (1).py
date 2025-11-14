@@ -47,7 +47,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
-# As correções foram aplicadas nas regras de CSS para .kanban-column e .task-card
+# O Kanban foi reestruturado para ter um layout simétrico
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -148,23 +148,9 @@ html_string = """
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
         .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; align-items: start; }
-        
-        /* --- CORREÇÃO APLICADA AQUI --- */
-        .kanban-column {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; /* Reduzido o margin-bottom pois o gap já faz o espaçamento */ padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
-        
-        /* --- CORREÇÃO APLICADA AQUI --- */
-        .task-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            /* margin-bottom: 15px; foi removido para usar o 'gap' da coluna pai */
-        }
+        .kanban-column { display: flex; flex-direction: column; gap: 15px; }
+        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
+        .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
         .task-card-simple .task-title { margin-bottom: 0; }
         .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
@@ -284,7 +270,62 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                        <div id="showcase-1" class="showcase-content kanban-board"><div class="kanban-column"><h2 class="column-title">A Fazer</h2><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card"><p class="task-title">Criar endpoint da API de usuários</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Reunião de alinhamento semanal</p></div></div><div class="kanban-column"><h2 class="column-title">Em Andamento</h2><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Corrigir bug na autenticação</p></div></div><div class="kanban-column"><h2 class="column-title">Concluído</h2><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div></div></div>
+                        
+                        <!-- KANBAN CORRIGIDO ABAIXO -->
+                        <div id="showcase-1" class="showcase-content kanban-board">
+                            <div class="kanban-column">
+                                <h2 class="column-title">A Fazer</h2>
+                                <div class="task-card">
+                                    <p class="task-title">Desenhar a nova tela de login</p>
+                                    <div class="task-footer">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                                <div class="task-card">
+                                    <p class="task-title">Criar endpoint da API de usuários</p>
+                                    <div class="task-footer">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-column">
+                                <h2 class="column-title">Em Andamento</h2>
+                                <div class="task-card">
+                                    <p class="task-title">Implementar a interface do dashboard</p>
+                                    <div class="task-footer">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                                <div class="task-card task-card-simple">
+                                    <p class="task-title">Corrigir bug na autenticação</p>
+                                </div>
+                                <div class="task-card task-card-simple">
+                                    <p class="task-title">Reunião de alinhamento semanal</p>
+                                </div>
+                            </div>
+                            <div class="kanban-column">
+                                <h2 class="column-title">Concluído</h2>
+                                <div class="task-card">
+                                    <p class="task-title">Definir arquitetura do banco de dados</p>
+                                    <div class="task-footer">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                        <div class="task-avatars"></div>
+                                    </div>
+                                </div>
+                                <div class="task-card">
+                                    <p class="task-title">Deploy da API de autenticação</p>
+                                    <div class="task-footer">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIM DO KANBAN CORRIGIDO -->
+
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
