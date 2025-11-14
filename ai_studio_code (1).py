@@ -131,10 +131,12 @@ html_string = """
         
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
         .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; transition: background-image 0.4s ease-in-out;
-            /* --- LÓGICA DE EXIBIÇÃO CORRIGIDA (BACKGROUND-IMAGE) --- */
             background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/default.png');
-            background-size: cover;
+            /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #fff;
         }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
@@ -240,7 +242,7 @@ html_string = """
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
-                        <!-- As imagens agora são controladas pelo CSS -->
+                        <!-- As imagens agora são controladas 100% pelo CSS -->
                     </div>
                     <div class="features-grid">
                         <div id="card-1" class="feature-card">
