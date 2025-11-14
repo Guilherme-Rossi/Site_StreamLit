@@ -71,19 +71,14 @@ html_string = """
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        /* --- ANIMAÇÃO DE CARREGAMENTO (FADE IN + SLIDE UP) --- */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Aplica a animação a todos os elementos com a classe .animated */
         .animated {
-            opacity: 0; /* Começa invisível */
+            opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
         }
-
         header { 
             padding: 1.5rem 0;
             border-bottom: 1px solid #e0e1dd;
@@ -187,14 +182,14 @@ html_string = """
         </nav>
     </header>
     <main>
-        <section id="hero">
+        <section id="hero" class="animated" style="animation-delay: 0.2s;">
             <div class="container hero-content">
                 <div class="hero-text">
-                    <h1 class="animated" style="animation-delay: 0.3s;">Gestão de projetos, sem a complexidade.</h1>
-                    <p class="animated" style="animation-delay: 0.5s;">O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
-                    <a href="#pricing" class="btn btn-gradient animated" style="animation-delay: 0.7s;">Comece seu teste de 1 mês</a>
+                    <h1 class="animated" style="animation-delay: 0.4s;">Gestão de projetos, sem a complexidade.</h1>
+                    <p class="animated" style="animation-delay: 0.6s;">O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
+                    <a href="#pricing" class="btn btn-gradient animated" style="animation-delay: 0.8s;">Comece seu teste de 1 mês</a>
                 </div>
-                <div class="hero-mockup animated" style="animation-delay: 0.6s;">
+                <div class="hero-mockup animated" style="animation-delay: 0.7s;">
                     <div class="mockup-header">
                         <span style="background:#ff5f56;"></span>
                         <span style="background:#ffbd2e;"></span>
@@ -204,27 +199,27 @@ html_string = """
                 </div>
             </div>
         </section>
-        <section id="features" class="section section-light">
+        <section id="features" class="section section-light animated" style="animation-delay: 0.3s;">
              <div class="container">
-                <h2 class="section-title animated" style="animation-delay: 0.2s;">Tudo o que você precisa em um só lugar</h2>
-                <p class="section-subtitle animated" style="animation-delay: 0.4s;">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
+                <h2 class="section-title animated" style="animation-delay: 0.4s;">Tudo o que você precisa em um só lugar</h2>
+                <p class="section-subtitle animated" style="animation-delay: 0.6s;">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-grid">
-                    <div class="feature-card animated" style="animation-delay: 0.6s;">
+                    <div class="feature-card animated" style="animation-delay: 0.8s;">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
                         <h3>Gestão de Tarefas</h3>
                         <p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p>
                     </div>
-                    <div class="feature-card animated" style="animation-delay: 0.8s;">
+                    <div class="feature-card animated" style="animation-delay: 1.0s;">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
                         <h3>Comunicação Centralizada</h3>
                         <p>Anexe arquivos, adicione comentários e receba notificações. Mantenha toda a equipe na mesma página, sempre.</p>
                     </div>
-                    <div class="feature-card animated" style="animation-delay: 1.0s;">
+                    <div class="feature-card animated" style="animation-delay: 1.2s;">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></div>
                         <h3>Relatórios e Insights</h3>
                         <p>Acesse dados em tempo real e gere relatórios para analisar o desempenho e tomar decisões mais inteligentes.</p>
                     </div>
-                    <div class="feature-card animated" style="animation-delay: 1.2s;">
+                    <div class="feature-card animated" style="animation-delay: 1.4s;">
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
                         <h3>Mobilidade Total</h3>
                         <p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p>
@@ -232,12 +227,12 @@ html_string = """
                 </div>
             </div>
         </section>
-        <section id="pricing" class="section">
+        <section id="pricing" class="section animated" style="animation-delay: 0.3s;">
             <div class="container">
-                <h2 class="section-title animated" style="animation-delay: 0.2s;">Planos flexíveis para cada equipe</h2>
-                <p class="section-subtitle animated" style="animation-delay: 0.4s;">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <h2 class="section-title animated" style="animation-delay: 0.4s;">Planos flexíveis para cada equipe</h2>
+                <p class="section-subtitle animated" style="animation-delay: 0.6s;">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card animated" style="animation-delay: 0.6s;">
+                    <div class="pricing-card animated" style="animation-delay: 0.8s;">
                         <h3>Básico</h3>
                         <div class="price">R$50<span>/mês</span></div>
                         <ul>
@@ -248,7 +243,7 @@ html_string = """
                         </ul>
                         <a href="#" class="btn btn-outline">Começar Teste</a>
                     </div>
-                    <div class="pricing-card popular animated" style="animation-delay: 0.8s;">
+                    <div class="pricing-card popular animated" style="animation-delay: 1.0s;">
                         <span class="popular-badge">Mais Popular</span>
                         <h3>Premium</h3>
                         <div class="price">R$150<span>/mês</span></div>
@@ -260,7 +255,7 @@ html_string = """
                         </ul>
                         <a href="#" class="btn btn-gradient">Começar Teste</a>
                     </div>
-                    <div class="pricing-card animated" style="animation-delay: 1.0s;">
+                    <div class="pricing-card animated" style="animation-delay: 1.2s;">
                         <h3>Enterprise</h3>
                         <div class="price">R$500<span>/mês</span></div>
                         <ul>
@@ -274,8 +269,8 @@ html_string = """
                 </div>
             </div>
         </section>
-        <section id="final-cta" class="section">
-            <div class="container animated" style="display:flex; flex-direction:column; align-items:center; animation-delay: 0.2s;">
+        <section id="final-cta" class="section animated" style="animation-delay: 0.3s;">
+            <div class="container" style="display:flex; flex-direction:column; align-items:center;">
                 <h2 class="section-title animated" style="animation-delay: 0.4s;">Pronto para transformar sua gestão?</h2>
                 <p class="section-subtitle animated" style="animation-delay: 0.6s;">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
                 <a href="#" class="btn btn-gradient animated" style="animation-delay: 0.8s;">Aumentar minha produtividade</a>
@@ -331,4 +326,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
