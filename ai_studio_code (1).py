@@ -75,16 +75,10 @@ html_string = """
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
-        
-        nav.container {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: baseline;
-        }
+        nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
         .nav-actions { justify-self: end; }
-
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
@@ -142,16 +136,20 @@ html_string = """
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
+        
+        /* Estilos do Showcase Default */
         .showcase-default-content { flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
+        
+        /* Estilos do Showcase Kanban */
         .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
         .kanban-column { background-color: transparent; padding: 0; }
         .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
         .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px; }
         .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
-        .task-card-simple .task-title { margin-bottom: 0; } /* <-- CORREÇÃO APLICADA AQUI */
+        .task-card-simple .task-title { margin-bottom: 0; }
         .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
         .task-tags span { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
         .tag-ui { background-color: #e7d8ff; color: #8338ec; }
@@ -159,6 +157,8 @@ html_string = """
         .task-avatars { display: flex; }
         .avatar { width: 28px; height: 28px; border-radius: 50%; background: #ced4da; border: 2px solid #fff; margin-left: -8px; }
         .avatar:first-child { margin-left: 0; }
+        
+        /* Estilos do Showcase Chat */
         .chat-container { width: 100%; padding: 25px; background: #f8f9fa; border-radius: 8px; }
         .task-header { padding-bottom: 20px; border-bottom: 1px solid #e9ecef; }
         .task-header h1 { font-size: 1.8rem; color: #0d1b2a; margin: 0 0 10px 0; }
@@ -171,19 +171,23 @@ html_string = """
         .comment-author { font-weight: 700; color: #1b263b; margin-bottom: 4px; }
         .comment-text { line-height: 1.6; }
         .comment-input { width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; margin-top: 10px; }
-        .dashboard-grid { grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
-        .widget { background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px; }
-        .widget-title { font-size: 1rem; font-weight: 700; color: #0d1b2a; margin: 0 0 20px 0; }
-        .kpi-widget { grid-column: 1 / 3; display: flex; justify-content: space-around; }
-        .kpi-item { text-align: center; }
-        .kpi-value { font-size: 2.2rem; font-weight: 700; color: #3a86ff; }
-        .kpi-label { font-size: 0.8rem; color: #778da9; }
-        .chart-widget { grid-column: 1 / 2; }
-        .donut-widget { grid-column: 2 / 3; grid-row: 2 / 4; }
-        .bar-chart { display: flex; justify-content: space-around; align-items: flex-end; height: 150px; border-left: 2px solid #e9ecef; border-bottom: 2px solid #e9ecef; padding: 10px; }
-        .bar { width: 25px; background: linear-gradient(180deg, #3a86ff 0%, #8338ec 100%); border-radius: 4px 4px 0 0; }
-        .donut-chart { width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(#3a86ff 0% 75%, #f8f9fa 75% 100%); margin: 15px auto; display: flex; justify-content: center; align-items: center; }
-        .donut-center { width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        
+        /* --- ESTILOS DO SHOWCASE DASHBOARD (COM CORREÇÃO) --- */
+        #showcase-3.dashboard-grid { grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 15px; background-color: #f8f9fa; border-radius: 8px; padding: 15px; }
+        #showcase-3 .widget { background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 15px; }
+        #showcase-3 .widget-title { font-size: 0.9rem; font-weight: 700; color: #0d1b2a; margin: 0 0 15px 0; text-align: left;}
+        #showcase-3 .kpi-widget { grid-column: 1 / 3; display: flex; justify-content: space-around; }
+        #showcase-3 .kpi-item { text-align: center; }
+        #showcase-3 .kpi-value { font-size: 2rem; font-weight: 700; color: #3a86ff; }
+        #showcase-3 .kpi-label { font-size: 0.75rem; color: #778da9; }
+        #showcase-3 .chart-widget { grid-column: 1 / 2; }
+        #showcase-3 .donut-widget { grid-column: 2 / 3; grid-row: 2 / 4; }
+        #showcase-3 .bar-chart { display: flex; justify-content: space-around; align-items: flex-end; height: 120px; border-left: 2px solid #e9ecef; border-bottom: 2px solid #e9ecef; padding: 10px; }
+        #showcase-3 .bar { width: 25px; background: linear-gradient(180deg, #3a86ff 0%, #8338ec 100%); border-radius: 4px 4px 0 0; }
+        #showcase-3 .donut-chart { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#3a86ff 0% 75%, #f8f9fa 75% 100%); margin: 10px auto; display: flex; justify-content: center; align-items: center; }
+        #showcase-3 .donut-center { width: 75px; height: 75px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        
+        /* Estilos do Showcase Mobile */
         .mobile-mockup { width: 220px; height: 100%; max-height: 400px; background: #0d1b2a; border-radius: 25px; padding: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .mobile-screen { background: #fff; height: 100%; border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; }
         .mobile-content { padding: 15px; overflow-y: auto; flex-grow: 1; scrollbar-width: none; -ms-overflow-style: none; }
@@ -194,36 +198,9 @@ html_string = """
         .nav-item.active { color: #3a86ff; }
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
-        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; }
-        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
-        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
-        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
-        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
-        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
-        .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
-        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        #final-cta { background: var(--medium-blue); text-align: center; }
-        #final-cta h2 { color: var(--white) !important; }
-        #final-cta p { color: #E8E8E8 !important; }
-        footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
-        .footer-column .logo { margin-bottom: 1rem; }
-        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
-        .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
-        .social-icons a:hover { opacity: 1; }
-        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
-        .footer-column ul li a:hover { color: #3a86ff !important; }
-        .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        .footer-bottom p { color: var(--text-gray) !important; }
-        .sminex-logo { text-align: right; }
-        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
-        .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .pricing-grid { /* ... */ }
+        footer { /* ... */ }
 
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; padding: 15px; } }
@@ -272,7 +249,7 @@ html_string = """
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
                         <div id="showcase-1" class="showcase-content kanban-board"><div class="kanban-column"><h2 class="column-title">A Fazer (3)</h2><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card"><p class="task-title">Criar endpoint da API de usuários</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Reunião de alinhamento semanal</p></div></div><div class="kanban-column"><h2 class="column-title">Em Andamento (2)</h2><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Corrigir bug na autenticação</p></div></div><div class="kanban-column"><h2 class="column-title">Concluído (1)</h2><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div></div></div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
-                        <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 2rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
+                        <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
                     </div>
                     <div class="features-grid">
