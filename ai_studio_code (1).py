@@ -75,10 +75,16 @@ html_string = """
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
-        nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
+        
+        nav.container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: baseline;
+        }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
         .nav-actions { justify-self: end; }
+
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
@@ -312,4 +318,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
