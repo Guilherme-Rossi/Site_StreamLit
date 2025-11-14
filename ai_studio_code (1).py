@@ -114,40 +114,13 @@ html_string = """
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
         .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; }
-        
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; } /* MODIFICADO */
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-        
-        .kanban-board {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-            width: 100%;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .kanban-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .column-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e0e1dd;
-        }
-        
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -158,7 +131,14 @@ html_string = """
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
+        
+        /* --- NOVO CSS PARA O KANBAN --- */
+        .kanban-board { display: flex; align-items: flex-start; gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
+        .kanban-column { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
         .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        /* --- FIM DO NOVO CSS --- */
+
         .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
         .task-card-simple .task-title { margin-bottom: 0; }
         .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
