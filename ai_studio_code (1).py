@@ -119,13 +119,11 @@ html_string = """
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
         
-        /* --- LÓGICA DE EXIBIÇÃO CORRIGIDA --- */
         .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-
-        /* --- NOVO KANBAN CSS --- */
+        
         .kanban-board {
             display: flex;
             justify-content: space-between;
@@ -149,8 +147,7 @@ html_string = """
             padding-bottom: 10px;
             border-bottom: 2px solid #e0e1dd;
         }
-        /* --- FIM DO NOVO KANBAN --- */
-
+        
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -282,7 +279,6 @@ html_string = """
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
                         
-                        <!-- NOVO KANBAN HORIZONTAL -->
                         <div id="showcase-1" class="showcase-content kanban-board">
                             <div class="kanban-column"><h2 class="column-title">A Fazer</h2><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card"><p class="task-title">Criar endpoint da API de usuários</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div></div>
                             <div class="kanban-column"><h2 class="column-title">Em Andamento</h2><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card task-card-simple"><p class="task-title">Reunião de alinhamento semanal</p></div></div>
@@ -337,4 +333,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
