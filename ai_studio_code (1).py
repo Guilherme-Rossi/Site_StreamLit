@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as ANIMAÇÕES CORRIGIDAS
+# 4. Armazenar todo o código HTML e CSS com a ROLAGEM SUAVE
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -69,7 +69,12 @@ html_string = """
         }
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--white) !important; color: var(--text-gray); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        
+        /* --- CORREÇÃO APLICADA AQUI --- */
+        html { 
+            scroll-behavior: smooth; 
+        }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
