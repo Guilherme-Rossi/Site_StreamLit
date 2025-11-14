@@ -71,20 +71,12 @@ html_string = """
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
-
-        nav.container {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: baseline;
-        }
+        nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
         .nav-actions { justify-self: end; }
-
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
@@ -103,13 +95,11 @@ html_string = """
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
         #hero { padding: 100px 0 120px 0; opacity: 0; animation: fadeInUp 1.2s ease-out forwards; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
         .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
         .hero-text p { font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--light-blue) !important; }
-
         .hero-mockup { width: 45%; height: 350px; background: #f0f4f9; border-radius: var(--border-radius); box-shadow: var(--shadow-md); padding: 1.5rem; border: 1px solid #e0e1dd; }
         .mockup-header { display: flex; gap: 8px; margin-bottom: 1rem; }
         .mockup-header span { width: 12px; height: 12px; border-radius: 50%; }
@@ -118,21 +108,16 @@ html_string = """
         #hero .mockup-task.task1 { animation-delay: 1.0s; }
         #hero .mockup-task.task2 { animation-delay: 1.3s; }
         #hero .mockup-task.task3 { animation-delay: 1.6s; }
-
         .section { padding: 100px 0; }
         .section-light { background-color: #f8f9fa; }
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
-
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
         .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; }
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-default,
-        .features-interactive-wrapper:has(#card-2:hover) #showcase-default,
-        .features-interactive-wrapper:has(#card-3:hover) #showcase-default,
-        .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: grid; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; } /* Alterado para Flex */
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
@@ -146,8 +131,24 @@ html_string = """
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
-        .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; align-items: start; }
-        .kanban-column { display: flex; flex-direction: column; gap: 15px; }
+        
+        /* --- CORREÇÃO FINAL APLICADA AQUI --- */
+        .kanban-board {
+            display: flex; /* MUDADO DE GRID PARA FLEX */
+            gap: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            align-items: stretch; /* Garante que as colunas estiquem para a mesma altura se necessário */
+        }
+        .kanban-column {
+            flex: 1; /* Faz cada coluna ocupar o mesmo espaço */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        /* --- FIM DA CORREÇÃO --- */
+
         .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
         .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
@@ -225,7 +226,7 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; padding: 15px; } }
+        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
 </head>
 <body>
