@@ -73,12 +73,11 @@ html_string = """
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
-        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; padding-top: 10px; margin-bottom: 8px}
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
         .nav-links a:hover { color: #3a86ff !important; transform: translateY(-2px); }
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
@@ -109,8 +108,8 @@ html_string = """
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
-        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; transition: all 0.3s ease; }
-        .showcase-content { display: none; width: 100%; height: 100%; }
+        .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; }
+        .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
 
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default,
@@ -133,9 +132,9 @@ html_string = """
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
         
-        .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .kanban-column { background-color: #f8f9fa; border-radius: 12px; padding: 15px; }
-        .column-title { font-size: 1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
+        .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
+        .kanban-column { background-color: transparent; padding: 0; }
+        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
         .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px; }
         .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
         .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
@@ -146,20 +145,20 @@ html_string = """
         .avatar { width: 28px; height: 28px; border-radius: 50%; background: #ced4da; border: 2px solid #fff; margin-left: -8px; }
         .avatar:first-child { margin-left: 0; }
         
-        .chat-container { width: 100%; padding: 15px; }
+        .chat-container { width: 100%; padding: 25px; background: #f8f9fa; border-radius: 8px; }
         .task-header { padding-bottom: 20px; border-bottom: 1px solid #e9ecef; }
-        .task-header h1 { font-size: 1.6rem; color: #0d1b2a; margin: 0 0 10px 0; }
-        .attachment { display: inline-flex; align-items: center; background: #f0f4f9; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; }
+        .task-header h1 { font-size: 1.8rem; color: #0d1b2a; margin: 0 0 10px 0; }
+        .attachment { display: inline-flex; align-items: center; background: #fff; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; border: 1px solid #e9ecef; }
         .attachment svg { margin-right: 8px; }
-        .comments-section { margin-top: 20px; }
+        .comments-section { margin-top: 25px; }
         .comment { display: flex; margin-bottom: 20px; }
         .avatar.comment-avatar { width: 40px; height: 40px; border-radius: 50%; background: #ced4da; margin-right: 15px; flex-shrink: 0; }
         .comment-body { display: flex; flex-direction: column; }
         .comment-author { font-weight: 700; color: #1b263b; margin-bottom: 4px; }
         .comment-text { line-height: 1.6; }
-        .comment-input { width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; margin-top: 10px; }
+        .comment-input { width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; margin-top: 20px; }
         
-        .dashboard-grid { grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 20px; }
+        .dashboard-grid { grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
         .widget { background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px; }
         .widget-title { font-size: 1rem; font-weight: 700; color: #0d1b2a; margin: 0 0 20px 0; }
         .kpi-widget { grid-column: 1 / 3; display: flex; justify-content: space-around; }
@@ -170,7 +169,7 @@ html_string = """
         .donut-widget { grid-column: 2 / 3; grid-row: 2 / 4; }
         .bar-chart { display: flex; justify-content: space-around; align-items: flex-end; height: 150px; border-left: 2px solid #e9ecef; border-bottom: 2px solid #e9ecef; padding: 10px; }
         .bar { width: 25px; background: linear-gradient(180deg, #3a86ff 0%, #8338ec 100%); border-radius: 4px 4px 0 0; }
-        .donut-chart { width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(#3a86ff 0% 75%, #e9ecef 75% 100%); margin: 15px auto; display: flex; justify-content: center; align-items: center; }
+        .donut-chart { width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(#3a86ff 0% 75%, #f8f9fa 75% 100%); margin: 15px auto; display: flex; justify-content: center; align-items: center; }
         .donut-center { width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-direction: column; }
         
         .mobile-mockup { width: 220px; height: 100%; max-height: 400px; background: #0d1b2a; border-radius: 25px; padding: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -184,6 +183,9 @@ html_string = """
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
         
+        .pricing-card { /* Styles omitted for brevity */ }
+        footer { /* Styles omitted for brevity */ }
+
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; } }
     </style>
