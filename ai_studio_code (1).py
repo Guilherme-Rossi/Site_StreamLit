@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 3 CORRIGIDA
+# 4. Armazenar todo o código HTML e CSS com as IMAGENS FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -134,7 +134,6 @@ html_string = """
         .feature-showcase img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
-        /* --- LÓGICA DE EXIBIÇÃO CORRIGIDA --- */
         .feature-showcase .default-img { opacity: 1; }
         .features-interactive-wrapper:has(#card-1:hover) .feature-showcase .default-img,
         .features-interactive-wrapper:has(#card-2:hover) .feature-showcase .default-img,
@@ -243,11 +242,11 @@ html_string = """
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
-                        <img src="https://placehold.co/800x450/f0f4f9/778da9?text=Visao+Geral+do+Projeto" alt="Visão Geral" class="default-img">
-                        <img id="img-1" src="https://placehold.co/800x450/3a86ff/ffffff?text=Gestao+de+Tarefas" alt="Gestão de Tarefas">
-                        <img id="img-2" src="https://placehold.co/800x450/8338ec/ffffff?text=Comunicacao+Centralizada" alt="Comunicação Centralizada">
-                        <img id="img-3" src="https://placehold.co/800x450/ffbe0b/ffffff?text=Relatorios+e+Insights" alt="Relatórios e Insights">
-                        <img id="img-4" src="https://placehold.co/800x450/fb5607/ffffff?text=Mobilidade+Total" alt="Mobilidade Total">
+                        <img src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/default.png" alt="Visão Geral" class="default-img">
+                        <img id="img-1" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/gestao-tarefas.png" alt="Gestão de Tarefas">
+                        <img id="img-2" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/comunicacao.png" alt="Comunicação Centralizada">
+                        <img id="img-3" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/relatorios.png" alt="Relatórios e Insights">
+                        <img id="img-4" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/mobilidade.png" alt="Mobilidade Total">
                     </div>
                     <div class="features-grid">
                         <div id="card-1" class="feature-card">
