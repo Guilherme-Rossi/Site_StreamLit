@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 3 CORRIGIDA
+# 4. Armazenar todo o código HTML e CSS com a FASE 3 FINALIZADA
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -130,23 +130,18 @@ html_string = """
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
-        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; }
-        .feature-showcase img { width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.4s ease-in-out; 
-            /* --- CORREÇÃO APLICADA AQUI --- */
-            object-fit: contain;
+        .feature-showcase { width: 100%; max-width: 800px; height: 450px; margin: 0 auto; border-radius: var(--border-radius); box-shadow: var(--shadow-md); position: relative; overflow: hidden; border: 1px solid #e0e1dd; transition: background-image 0.4s ease-in-out;
+            /* --- LÓGICA DE EXIBIÇÃO CORRIGIDA (BACKGROUND-IMAGE) --- */
+            background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/default.png');
+            background-size: cover;
+            background-position: center;
         }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         
-        .feature-showcase .default-img { opacity: 1; }
-        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase .default-img,
-        .features-interactive-wrapper:has(#card-2:hover) .feature-showcase .default-img,
-        .features-interactive-wrapper:has(#card-3:hover) .feature-showcase .default-img,
-        .features-interactive-wrapper:has(#card-4:hover) .feature-showcase .default-img { opacity: 0; }
-        
-        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase #img-1 { opacity: 1; }
-        .features-interactive-wrapper:has(#card-2:hover) .feature-showcase #img-2 { opacity: 1; }
-        .features-interactive-wrapper:has(#card-3:hover) .feature-showcase #img-3 { opacity: 1; }
-        .features-interactive-wrapper:has(#card-4:hover) .feature-showcase #img-4 { opacity: 1; }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/gestao-tarefas.png'); }
+        .features-interactive-wrapper:has(#card-2:hover) .feature-showcase { background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/comunicacao.png'); }
+        .features-interactive-wrapper:has(#card-3:hover) .feature-showcase { background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/relatorios.png'); }
+        .features-interactive-wrapper:has(#card-4:hover) .feature-showcase { background-image: url('https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/mobilidade.png'); }
         
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -245,11 +240,7 @@ html_string = """
                 <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
-                        <img src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/default.png" alt="Visão Geral" class="default-img">
-                        <img id="img-1" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/gestao-tarefas.png" alt="Gestão de Tarefas">
-                        <img id="img-2" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/comunicacao.png" alt="Comunicação Centralizada">
-                        <img id="img-3" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/relatorios.png" alt="Relatórios e Insights">
-                        <img id="img-4" src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/imagens/mobilidade.png" alt="Mobilidade Total">
+                        <!-- As imagens agora são controladas pelo CSS -->
                     </div>
                     <div class="features-grid">
                         <div id="card-1" class="feature-card">
