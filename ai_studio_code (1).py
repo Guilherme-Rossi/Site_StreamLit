@@ -71,8 +71,6 @@ html_string = """
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        /* --- ANIMAÇÃO DE SCROLL (FADE IN + SLIDE UP) --- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -83,17 +81,13 @@ html_string = """
                 transform: translateY(0);
             }
         }
-        
         .section {
-            /* Prepara os elementos para a animação */
             opacity: 0;
             transform: translateY(20px);
         }
-
         .section.visible {
             animation: fadeInUp 0.8s ease-out forwards;
         }
-
         header { 
             padding: 1.5rem 0;
             border-bottom: 1px solid #e0e1dd;
@@ -188,7 +182,7 @@ html_string = """
     </style>
 </head>
 <body>
-    <header> <!-- A classe fade-in não é mais necessária aqui, pois o conteúdo interno terá sua própria animação -->
+    <header>
         <nav class="container">
             <div class="logo">DoingWork</div>
             <ul class="nav-links">
@@ -373,4 +367,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
