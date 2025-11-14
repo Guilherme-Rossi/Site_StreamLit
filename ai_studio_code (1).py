@@ -79,7 +79,7 @@ html_string = """
         nav.container {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            align-items: center;
+            align-items: baseline; /* <-- A CORREÇÃO DEFINITIVA ESTÁ AQUI */
         }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
