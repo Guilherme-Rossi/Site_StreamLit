@@ -75,10 +75,16 @@ html_string = """
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
-        nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
+        
+        nav.container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: baseline;
+        }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
         .nav-actions { justify-self: end; }
+
         .logo { font-size: 1.6rem; font-weight: 700; color: var(--dark-blue); }
         .nav-links { list-style: none; display: flex; align-items: center; gap: 2.5rem; }
         .nav-links a { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
@@ -126,7 +132,7 @@ html_string = """
         .features-interactive-wrapper:has(#card-2:hover) #showcase-default,
         .features-interactive-wrapper:has(#card-3:hover) #showcase-default,
         .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: grid; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
@@ -140,23 +146,31 @@ html_string = """
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
-        
-        .kanban-board-new { display: flex; gap: 20px; width: 100%; height: 100%; align-items: flex-start; background-color: #f8f9fa; border-radius: 8px; padding: 20px; }
-        .kanban-column-new { flex: 1; display: flex; flex-direction: column; background-color: #f0f4f9; border-radius: 8px; padding: 15px; }
-        .column-title-new { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
-        .task-card-new { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px; }
-        .task-title-new { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; color: #1b263b; }
-        .task-footer-new { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .task-tags-new span { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
-        .tag-ui-new { background-color: #e7d8ff; color: #8338ec; }
-        .tag-backend-new { background-color: #dbeaff; color: #3a86ff; }
-        .task-avatars-new { display: flex; }
-        .avatar-new { width: 28px; height: 28px; border-radius: 50%; background: #ced4da; border: 2px solid #fff; margin-left: -8px; }
-        .avatar-new:first-child { margin-left: 0; }
-        .add-task-btn { background: transparent; border: none; color: var(--text-gray); font-weight: 600; padding: 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; text-align: left; width: 100%; margin-top: auto; }
-        .add-task-btn:hover { background-color: #d8e2ef; }
-
+        .kanban-board { grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; align-items: start; }
+        .kanban-column { background-color: transparent; padding: 0; }
+        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
+        .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px; }
+        .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
+        .task-card-simple .task-title { margin-bottom: 0; }
+        .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .task-tags span { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
+        .tag-ui { background-color: #e7d8ff; color: #8338ec; }
+        .tag-backend { background-color: #dbeaff; color: #3a86ff; }
+        .task-avatars { display: flex; }
+        .avatar { width: 28px; height: 28px; border-radius: 50%; background: #ced4da; border: 2px solid #fff; margin-left: -8px; }
+        .avatar:first-child { margin-left: 0; }
         .chat-container { width: 100%; padding: 25px; background: #f8f9fa; border-radius: 8px; }
+        .task-header { padding-bottom: 20px; border-bottom: 1px solid #e9ecef; }
+        .task-header h1 { font-size: 1.8rem; color: #0d1b2a; margin: 0 0 10px 0; }
+        .attachment { display: inline-flex; align-items: center; background: #fff; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; border: 1px solid #e9ecef; }
+        .attachment svg { margin-right: 8px; }
+        .comments-section { margin-top: 25px; }
+        .comment { display: flex; margin-bottom: 20px; }
+        .avatar.comment-avatar { width: 40px; height: 40px; border-radius: 50%; background: #ced4da; margin-right: 15px; flex-shrink: 0; }
+        .comment-body { display: flex; flex-direction: column; }
+        .comment-author { font-weight: 700; color: #1b263b; margin-bottom: 4px; }
+        .comment-text { line-height: 1.6; }
+        .comment-input { width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; margin-top: 10px; }
         #showcase-3.dashboard-grid { grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 15px; background-color: #f8f9fa; border-radius: 8px; padding: 15px; }
         #showcase-3 .widget { background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 15px; }
         #showcase-3 .widget-title { font-size: 0.9rem; font-weight: 700; color: #0d1b2a; margin: 0 0 15px 0; text-align: left;}
@@ -180,11 +194,38 @@ html_string = """
         .nav-item.active { color: #3a86ff; }
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
-        .pricing-grid { /* ... */ }
-        footer { /* ... */ }
-
-        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { display: block !important; } .kanban-board-new { display: block; } }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
+        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+        .pricing-card.popular { border: 2px solid #3a86ff; }
+        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
+        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
+        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
+        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
+        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
+        .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
+        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+        #final-cta { background: var(--medium-blue); text-align: center; }
+        #final-cta h2 { color: var(--white) !important; }
+        #final-cta p { color: #E8E8E8 !important; }
+        footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
+        .footer-column .logo { margin-bottom: 1rem; }
+        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
+        .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
+        .social-icons a:hover { opacity: 1; }
+        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 1rem; }
+        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
+        .footer-column ul li a:hover { color: #3a86ff !important; }
+        .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .footer-bottom p { color: var(--text-gray) !important; }
+        .sminex-logo { text-align: right; }
+        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
+        .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
+        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; padding: 15px; } }
     </style>
 </head>
 <body>
@@ -228,16 +269,10 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                        
-                        <div id="showcase-1" class="showcase-content kanban-board-new">
-                            <div class="kanban-column-new"><h2 class="column-title-new">A Fazer</h2><div class="task-card-new"><p class="task-title-new">Desenhar a nova tela de login</p><div class="task-footer-new"><div class="task-tags-new"><span class="tag-ui-new">UI Design</span></div><div class="task-avatars-new"><div class="avatar-new"></div></div></div></div><div class="task-card-new"><p class="task-title-new">Criar endpoint da API de usuários</p><div class="task-footer-new"><div class="task-tags-new"><span class="tag-backend-new">Backend</span></div><div class="task-avatars-new"><div class="avatar-new"></div><div class="avatar-new"></div></div></div></div><button class="add-task-btn">+ Adicionar Tarefa</button></div>
-                            <div class="kanban-column-new"><h2 class="column-title-new">Em Andamento</h2><div class="task-card-new"><p class="task-title-new">Implementar a interface do dashboard</p><div class="task-footer-new"><div class="task-tags-new"><span class="tag-ui-new">UI Design</span></div><div class="task-avatars-new"><div class="avatar-new"></div></div></div></div><div class="task-card-new"><p class="task-title-new">Corrigir bug na autenticação</p></div><button class="add-task-btn">+ Adicionar Tarefa</button></div>
-                            <div class="kanban-column-new"><h2 class="column-title-new">Concluído</h2><div class="task-card-new"><p class="task-title-new">Definir arquitetura do banco de dados</p><div class="task-footer-new"><div class="task-tags-new"><span class="tag-backend-new">Backend</span></div></div></div><div class="task-card-new"><p class="task-title-new">Reunião de alinhamento semanal</p></div><button class="add-task-btn">+ Adicionar Tarefa</button></div>
-                        </div>
-
-                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
+                        <div id="showcase-1" class="showcase-content kanban-board"><div class="kanban-column"><h2 class="column-title">A Fazer</h2><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card"><p class="task-title">Criar endpoint da API de usuários</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Reunião de alinhamento semanal</p></div></div><div class="kanban-column"><h2 class="column-title">Em Andamento</h2><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="task-card task-card-simple"><p class="task-title">Corrigir bug na autenticação</p></div></div><div class="kanban-column"><h2 class="column-title">Concluído</h2><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div></div></div>
+                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
-                        <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-footer"><div class="task-tags"><span class="tag-ui">UI Design</span></div></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-footer"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
+                        <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
                     </div>
                     <div class="features-grid">
                         <div id="card-1" class="feature-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><h3>Gestão de Tarefas</h3><p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p></div>
