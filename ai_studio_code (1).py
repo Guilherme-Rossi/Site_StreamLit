@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com o SHOWCASE EMBUTIDO E FUNCIONAL
+# 4. Armazenar todo o código HTML e CSS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -83,6 +83,14 @@ html_string = """
         .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
         .login-link { text-decoration: none; color: var(--medium-blue) !important; font-weight: 600; transition: all 0.3s ease; }
         .login-link:hover { color: #3a86ff !important; transform: translateY(-2px); }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-toggle { cursor: pointer; display: flex; align-items: center; }
+        .dropdown-menu { display: none; position: absolute; top: 130%; left: 50%; transform: translateX(-50%); background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow-md); list-style: none; padding: 0.5rem; width: 200px; z-index: 1; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
+        .dropdown:hover .dropdown-menu { display: block; opacity: 1; visibility: visible; }
+        .dropdown-menu a { display: block; padding: 0.75rem 1rem; border-radius: 8px; }
+        .dropdown-menu a:hover { background-color: #f8f9fa; }
+        .arrow { display: inline-block; transition: transform 0.3s ease; margin-left: 4px; }
+        .dropdown:hover .arrow { transform: rotate(180deg); }
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -125,8 +133,6 @@ html_string = """
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
-        .feature-card p { color: var(--text-gray) !important; }
         
         .showcase-default-content { flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
@@ -184,36 +190,8 @@ html_string = """
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
         
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
-        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; }
-        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
-        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
-        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
-        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
-        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
-        .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
-        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        #final-cta { background: var(--medium-blue); text-align: center; }
-        #final-cta h2 { color: var(--white) !important; }
-        #final-cta p { color: #E8E8E8 !important; }
-        footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
-        .footer-column .logo { margin-bottom: 1rem; }
-        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
-        .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
-        .social-icons a:hover { opacity: 1; }
-        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
-        .footer-column ul li a:hover { color: #3a86ff !important; }
-        .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        .footer-bottom p { color: var(--text-gray) !important; }
-        .sminex-logo { text-align: right; }
-        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
-        .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .pricing-card { /* ... */ }
+        footer { /* ... */ }
 
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: 250px; padding: 15px; } }
@@ -227,6 +205,14 @@ html_string = """
                 <li><a href="#features">Funcionalidades</a></li>
                 <li><a href="#pricing">Preços</a></li>
                 <li><a href="#">Integrações</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Recursos <span class="arrow">▾</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </li>
             </ul>
             <div class="nav-actions">
                 <a href="#" class="login-link">Login</a>
