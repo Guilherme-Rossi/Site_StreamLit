@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as NOVAS ANIMAÇÕES
+# 4. Armazenar todo o código HTML e CSS com as ANIMAÇÕES CORRIGIDAS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,23 +71,12 @@ html_string = """
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .section {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .section.visible {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
+
         header { 
             padding: 1.5rem 0;
             border-bottom: 1px solid #e0e1dd;
@@ -113,38 +102,27 @@ html_string = """
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
         .btn-outline { background: transparent; color: var(--dark-blue) !important; border: 2px solid #e0e1dd; }
         .btn-outline:hover { background: var(--dark-blue); color: var(--white) !important; }
-        #hero { padding: 100px 0 120px 0; }
+        #hero { padding: 100px 0 120px 0; animation: fadeInUp 0.8s ease-out forwards; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
-        .hero-text h1, .hero-text p, .hero-text .btn { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        .hero-text h1 { animation-delay: 0.2s; }
-        .hero-text p { animation-delay: 0.4s; }
-        .hero-text .btn { animation-delay: 0.6s; }
-        .hero-mockup { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.5s; width: 45%; height: 350px; background: #f0f4f9; border-radius: var(--border-radius); box-shadow: var(--shadow-md); padding: 1.5rem; border: 1px solid #e0e1dd; }
         .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
         .hero-text p { font-size: 1.25rem; margin-bottom: 2.5rem; color: var(--light-blue) !important; }
+        .hero-mockup { width: 45%; height: 350px; background: #f0f4f9; border-radius: var(--border-radius); box-shadow: var(--shadow-md); padding: 1.5rem; border: 1px solid #e0e1dd; }
         .mockup-header { display: flex; gap: 8px; margin-bottom: 1rem; }
         .mockup-header span { width: 12px; height: 12px; border-radius: 50%; }
         .mockup-content { width: 100%; height: 85%; background: var(--white); border-radius: 8px; }
+        .section { padding: 100px 0; animation: fadeInUp 1s ease-out forwards; }
         .section-light { background-color: #f8f9fa; }
-        .section-title, .section-subtitle { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; animation-delay: 0.2s; }
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
-        .features-grid .feature-card:nth-child(1) { animation-delay: 0.3s; }
-        .features-grid .feature-card:nth-child(2) { animation-delay: 0.5s; }
-        .features-grid .feature-card:nth-child(3) { animation-delay: 0.7s; }
-        .features-grid .feature-card:nth-child(4) { animation-delay: 0.9s; }
         .feature-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .feature-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .feature-card p { color: var(--text-gray) !important; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        .pricing-grid .pricing-card:nth-child(1) { animation-delay: 0.3s; }
-        .pricing-grid .pricing-card:nth-child(2) { animation-delay: 0.5s; }
-        .pricing-grid .pricing-card:nth-child(3) { animation-delay: 0.7s; }
+        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
         .pricing-card.popular { border: 2px solid #3a86ff; }
         .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
@@ -155,10 +133,6 @@ html_string = """
         .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
         #final-cta { background: var(--medium-blue); text-align: center; }
-        #final-cta h2, #final-cta p, #final-cta .btn { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        #final-cta h2 { animation-delay: 0.2s; }
-        #final-cta p { animation-delay: 0.4s; }
-        #final-cta .btn { animation-delay: 0.6s; }
         #final-cta h2 { color: var(--white) !important; }
         #final-cta p { color: #E8E8E8 !important; }
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
@@ -206,7 +180,7 @@ html_string = """
         </nav>
     </header>
     <main>
-        <section id="hero">
+        <section id="hero" class="section">
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1>Gestão de projetos, sem a complexidade.</h1>
@@ -345,23 +319,6 @@ html_string = """
             </div>
         </div>
     </footer>
-
-    <script>
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
 </body>
 </html>
 """
