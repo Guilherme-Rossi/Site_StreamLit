@@ -113,7 +113,7 @@ html_string = """
         .section-title { text-align: center; font-size: 2.8rem; color: var(--dark-blue) !important; margin-bottom: 1rem; }
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
-        .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; }
+        .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; transition: background-color 0.3s ease; }
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
@@ -121,17 +121,18 @@ html_string = """
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
         
-        /* --- CSS CORRIGIDO E FINAL DO KANBAN --- */
+        /* --- CSS FINAL E ALINHADO DO KANBAN --- */
         #showcase-1.showcase-content {
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
+            padding: 0;
             display: none;
             flex-direction: column; 
             width: 100%;
         }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-1 {
             display: flex;
+        }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
+            background-color: #f8f9fa;
         }
         .kanban-group + .kanban-group {
             margin-top: 1.5rem;
