@@ -114,11 +114,9 @@ html_string = """
         .section-subtitle { display: block !important; text-align: center !important; font-size: 1.15rem; margin-bottom: 5rem; max-width: 700px; margin-left: auto !important; margin-right: auto !important; color: var(--light-blue) !important; }
         .features-interactive-wrapper { display: grid; grid-template-rows: auto 1fr; gap: 4rem; }
         .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; }
-        
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
@@ -128,18 +126,15 @@ html_string = """
             padding: 1.5rem;
             background-color: #f8f9fa;
             border-radius: 8px;
-            display: none; /* Mantém oculto por padrão */
+            display: none;
             flex-direction: column; 
             width: 100%;
         }
-        
-        /* Regra que exibe o Kanban ao passar o mouse no card correto */
         .features-interactive-wrapper:has(#card-1:hover) #showcase-1 {
             display: flex;
         }
-
         .kanban-group + .kanban-group {
-            margin-top: 1.5rem; /* Espaço entre os grupos de status */
+            margin-top: 1.5rem;
         }
         .kanban-group h3 {
             font-size: 1rem;
@@ -161,7 +156,7 @@ html_string = """
             gap: 1rem;
         }
         .kanban-task + .kanban-task {
-            margin-top: 0.75rem; /* Espaço entre tarefas do mesmo grupo */
+            margin-top: 0.75rem;
         }
         .kanban-task-title {
             font-weight: 600;
@@ -172,7 +167,7 @@ html_string = """
             align-items: center;
             gap: 1rem;
         }
-        /* --- FIM DO CSS CORRIGIDO --- */
+        /* --- FIM DO CSS --- */
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
@@ -184,11 +179,6 @@ html_string = """
         .showcase-default-content .logo { font-size: 2.5rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
         .showcase-default-content svg { width: 50px; height: 50px; color: #3a86ff; margin-bottom: 20px; }
         .showcase-default-content .prompt-text { font-size: 1.2rem; font-weight: 600; color: #415a77; }
-        .column-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 10px; border-bottom: 2px solid #e0e1dd; }
-        .task-card { background-color: #ffffff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .task-title { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; }
-        .task-card-simple .task-title { margin-bottom: 0; }
-        .task-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
         .task-tags span { font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; }
         .tag-ui { background-color: #e7d8ff; color: #8338ec; }
         .tag-backend { background-color: #dbeaff; color: #3a86ff; }
@@ -305,7 +295,7 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                       <!-- KANBAN FINAL E CORRIGIDO -->
+                        <!-- KANBAN FINAL E CORRIGIDO -->
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
@@ -345,7 +335,6 @@ html_string = """
                             </div>
                         </div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
-                        
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
                     </div>
