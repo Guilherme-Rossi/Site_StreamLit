@@ -123,12 +123,11 @@ html_string = """
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
         
-        /* --- CSS CORRIGIDO E FINAL DO KANBAN --- */
         #showcase-1.showcase-content {
             padding: 1.5rem;
             background-color: #f8f9fa;
             border-radius: 8px;
-            display: none; /* Mantém oculto por padrão */
+            display: none;
             flex-direction: column; 
             width: 100%;
         }
@@ -171,7 +170,6 @@ html_string = """
             align-items: center;
             gap: 1rem;
         }
-        /* --- FIM DO CSS CORRIGIDO --- */
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
