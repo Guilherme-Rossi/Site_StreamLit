@@ -125,19 +125,23 @@ html_string = """
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
         
-        /* --- NOVO CSS DO KANBAN --- */
-        #showcase-1 {
+        /* --- CSS CORRIGIDO E FINAL DO KANBAN --- */
+        #showcase-1.showcase-content {
+            padding: 1.5rem;
             background-color: #f8f9fa;
             border-radius: 8px;
-            padding: 1.5rem;
-            display: flex; /* Garante que o container flex ocupe o espaço */
-            align-items: flex-start;
-        }
-        .kanban-list-view {
+            display: none; /* Mantém oculto por padrão */
+            flex-direction: column; 
             width: 100%;
+        }
+        
+        /* Regra que exibe o Kanban ao passar o mouse no card correto */
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem; /* Espaço entre os grupos de status */
+        }
+
+        .kanban-group + .kanban-group {
+            margin-top: 1.5rem; /* Espaço entre os grupos de status */
         }
         .kanban-group h3 {
             font-size: 1rem;
@@ -158,6 +162,9 @@ html_string = """
             box-shadow: var(--shadow-sm);
             gap: 1rem;
         }
+        .kanban-task + .kanban-task {
+            margin-top: 0.75rem; /* Espaço entre tarefas do mesmo grupo */
+        }
         .kanban-task-title {
             font-weight: 600;
             color: var(--medium-blue);
@@ -167,7 +174,7 @@ html_string = """
             align-items: center;
             gap: 1rem;
         }
-        /* --- FIM DO NOVO CSS --- */
+        /* --- FIM DO CSS CORRIGIDO --- */
         
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
@@ -301,43 +308,41 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                       <!-- NOVO KANBAN EM FORMATO DE LISTA -->
+                       <!-- KANBAN FINAL E CORRIGIDO -->
                         <div id="showcase-1" class="showcase-content">
-                            <div class="kanban-list-view">
-                                <div class="kanban-group">
-                                    <h3>A Fazer</h3>
-                                    <div class="kanban-task">
-                                        <span class="kanban-task-title">Desenhar a nova tela de login</span>
-                                        <div class="kanban-task-details">
-                                            <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                            <div class="task-avatars"><div class="avatar"></div></div>
-                                        </div>
-                                    </div>
-                                    <div class="kanban-task">
-                                        <span class="kanban-task-title">Criar endpoint da API de usuários</span>
-                                        <div class="kanban-task-details">
-                                            <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                            <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
-                                        </div>
+                            <div class="kanban-group">
+                                <h3>A Fazer</h3>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Desenhar a nova tela de login</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
                                     </div>
                                 </div>
-                                <div class="kanban-group">
-                                    <h3>Em Andamento</h3>
-                                    <div class="kanban-task">
-                                        <span class="kanban-task-title">Implementar a interface do dashboard</span>
-                                        <div class="kanban-task-details">
-                                            <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                            <div class="task-avatars"><div class="avatar"></div></div>
-                                        </div>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Criar endpoint da API de usuários</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
                                     </div>
                                 </div>
-                                <div class="kanban-group">
-                                    <h3>Concluído</h3>
-                                    <div class="kanban-task">
-                                        <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
-                                        <div class="kanban-task-details">
-                                            <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                        </div>
+                            </div>
+                            <div class="kanban-group">
+                                <h3>Em Andamento</h3>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Implementar a interface do dashboard</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kanban-group">
+                                <h3>Concluído</h3>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
                                     </div>
                                 </div>
                             </div>
