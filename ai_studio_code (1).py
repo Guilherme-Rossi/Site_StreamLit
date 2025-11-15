@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a FASE 4
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -180,38 +180,8 @@ html_string = """
         .nav-item.active { color: #3a86ff; }
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
-        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
-        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .pricing-card.popular { border: 2px solid #3a86ff; }
-        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
-        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
-        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
-        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
-        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
-        .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
-        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        #final-cta { background: var(--medium-blue); text-align: center; }
-        #final-cta h2 { color: var(--white) !important; }
-        #final-cta p { color: #E8E8E8 !important; }
-        footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
-        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
-        .footer-column .logo { margin-bottom: 1rem; }
-        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
-        .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
-        .social-icons a:hover { opacity: 1; }
-        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 1rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
-        .footer-column ul li a:hover { color: #3a86ff !important; }
-        .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
-        .footer-bottom p { color: var(--text-gray) !important; }
-        .sminex-logo { text-align: right; }
-        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
-        .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* --- ESTILOS PARA A NOVA SEÇÃO "PARA QUEM?" --- */
+        /* --- ESTILOS PARA A SEÇÃO "PARA QUEM?" (FASE 4) --- */
         .personas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -249,7 +219,38 @@ html_string = """
             color: var(--text-gray) !important;
             font-size: 0.95rem;
         }
+        /* --- FIM DOS ESTILOS DA FASE 4 --- */
 
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
+        .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
+        .pricing-card.popular { border: 2px solid #3a86ff; }
+        .pricing-card h3 { font-size: 1.5rem; color: var(--dark-blue) !important; }
+        .pricing-card .price { font-size: 3.5rem; font-weight: 700; color: var(--dark-blue) !important; margin: 1rem 0; }
+        .pricing-card .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray) !important; }
+        .pricing-card ul { list-style: none; margin: 2rem 0; text-align: left; flex-grow: 1; }
+        .pricing-card ul li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-gray) !important; }
+        .pricing-card ul li svg { margin-right: 10px; color: #3a86ff; }
+        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+        #final-cta { background: var(--medium-blue); text-align: center; }
+        #final-cta h2 { color: var(--white) !important; }
+        #final-cta p { color: #E8E8E8 !important; }
+        footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
+        .footer-column .logo { margin-bottom: 1rem; }
+        .footer-column p { max-width: 250px; margin-bottom: 1.5rem; color: var(--dark-blue) !important; }
+        .social-icons a { display: inline-block; margin-right: 1rem; opacity: 0.7; transition: opacity 0.3s; }
+        .social-icons a:hover { opacity: 1; }
+        .footer-column h4 { font-size: 1rem; color: var(--dark-blue) !important; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 1rem; }
+        .footer-column ul li a { text-decoration: none; color: var(--dark-blue) !important; transition: color 0.3s; }
+        .footer-column ul li a:hover { color: #3a86ff !important; }
+        .footer-bottom { border-top: 1px solid #e0e1dd; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .footer-bottom p { color: var(--text-gray) !important; }
+        .sminex-logo { text-align: right; }
+        .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
+        .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
@@ -310,33 +311,17 @@ html_string = """
                 </div>
             </div>
         </section>
-
+        
         <!-- NOVA SEÇÃO: PARA QUEM? -->
         <section id="para-quem" class="section">
             <div class="container">
                 <h2 class="section-title">Feito para equipes como a sua</h2>
                 <p class="section-subtitle">De startups ágeis a grandes corporações, o DoingWork se adapta ao seu fluxo de trabalho para maximizar a clareza e a produtividade.</p>
                 <div class="personas-grid">
-                    <div class="persona-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-                        <h3>Startups</h3>
-                        <p>Organize o caos do crescimento. Valide ideias, gerencie o roadmap e mantenha o foco no que realmente importa para decolar.</p>
-                    </div>
-                    <div class="persona-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
-                        <h3>Equipes de Marketing</h3>
-                        <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos com um fluxo de aprovações claro e centralizado.</p>
-                    </div>
-                    <div class="persona-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
-                        <h3>Desenvolvimento e TI</h3>
-                        <p>Execute sprints, priorize o backlog, rastreie bugs e integre com suas ferramentas de código para um ciclo de desenvolvimento ágil.</p>
-                    </div>
-                    <div class="persona-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-                        <h3>Agências</h3>
-                        <p>Gerencie múltiplos clientes e projetos em um só lugar. Tenha visão clara da rentabilidade e garanta entregas no prazo, sempre.</p>
-                    </div>
+                    <div class="persona-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div><h3>Startups</h3><p>Organize o caos do crescimento. Valide ideias, gerencie o roadmap e mantenha o foco no que realmente importa para decolar.</p></div>
+                    <div class="persona-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div><h3>Equipes de Marketing</h3><p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos com um fluxo de aprovações claro e centralizado.</p></div>
+                    <div class="persona-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3>Desenvolvimento e TI</h3><p>Execute sprints, priorize o backlog, rastreie bugs e integre com suas ferramentas de código para um ciclo de desenvolvimento ágil.</p></div>
+                    <div class="persona-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3>Agências</h3><p>Gerencie múltiplos clientes e projetos em um só lugar. Tenha visão clara da rentabilidade e garanta entregas no prazo, sempre.</p></div>
                 </div>
             </div>
         </section>
