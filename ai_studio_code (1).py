@@ -135,7 +135,7 @@ html_string = """
             background-color: #f8f9fa;
         }
         .kanban-group + .kanban-group {
-            margin-top: 1.5rem;
+            margin-top: 1.25rem; /* AJUSTADO DE 1.5rem */
         }
         .kanban-group h3 {
             font-size: 1rem;
@@ -157,7 +157,7 @@ html_string = """
             gap: 1rem;
         }
         .kanban-task + .kanban-task {
-            margin-top: 0.75rem;
+            margin-top: 0.5rem; /* AJUSTADO DE 0.75rem */
         }
         .kanban-task-title {
             font-weight: 600;
