@@ -13,7 +13,7 @@ with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
     st.markdown("[Funcionalidades](#features)")
-    st.markdown("[Para Quem?](#)")
+    st.markdown("[Para Quem?](#para-quem)")
     st.markdown("[Preços](#pricing)")
     st.markdown("[Integrações](#)")
     st.markdown("---")
@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com a FASE 4
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -120,56 +120,15 @@ html_string = """
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-        
-        /* --- CSS FINAL E ALINHADO DO KANBAN --- */
-        #showcase-1.showcase-content {
-            padding: 0;
-            display: none;
-            flex-direction: column; 
-            width: 100%;
-        }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 {
-            display: flex;
-        }
-        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
-            background-color: #f8f9fa;
-        }
-        .kanban-group + .kanban-group {
-            margin-top: 1.25rem; /* AJUSTADO DE 1.5rem */
-        }
-        .kanban-group h3 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0e1dd;
-        }
-        .kanban-task {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--white);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            gap: 1rem;
-        }
-        .kanban-task + .kanban-task {
-            margin-top: 0.5rem; /* AJUSTADO DE 0.75rem */
-        }
-        .kanban-task-title {
-            font-weight: 600;
-            color: var(--medium-blue);
-        }
-        .kanban-task-details {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        /* --- FIM DO CSS --- */
-
+        #showcase-1.showcase-content { padding: 0; display: none; flex-direction: column; width: 100%; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #f8f9fa; }
+        .kanban-group + .kanban-group { margin-top: 1.25rem; }
+        .kanban-group h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e1dd; }
+        .kanban-task { display: flex; align-items: center; justify-content: space-between; background-color: var(--white); padding: 1rem; border-radius: 8px; box-shadow: var(--shadow-sm); gap: 1rem; }
+        .kanban-task + .kanban-task { margin-top: 0.5rem; }
+        .kanban-task-title { font-weight: 600; color: var(--medium-blue); }
+        .kanban-task-details { display: flex; align-items: center; gap: 1rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -251,6 +210,46 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* --- ESTILOS PARA A NOVA SEÇÃO "PARA QUEM?" --- */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .persona-card {
+            background: var(--white);
+            border: 1px solid #e0e1dd;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .persona-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .persona-card .icon {
+            margin: 0 auto 1.5rem auto;
+            background: var(--primary-gradient);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .persona-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue) !important;
+            margin-bottom: 0.75rem;
+        }
+        .persona-card p {
+            color: var(--text-gray) !important;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
@@ -261,6 +260,7 @@ html_string = """
             <div class="logo">DoingWork</div>
             <ul class="nav-links">
                 <li><a href="#features">Funcionalidades</a></li>
+                <li><a href="#para-quem">Para Quem?</a></li>
                 <li><a href="#pricing">Preços</a></li>
                 <li><a href="#">Integrações</a></li>
                 <li class="dropdown">
@@ -296,45 +296,7 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                        <!-- KANBAN FINAL E CORRIGIDO -->
-                        <div id="showcase-1" class="showcase-content">
-                            <div class="kanban-group">
-                                <h3>A Fazer</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Desenhar a nova tela de login</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Criar endpoint da API de usuários</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="kanban-group">
-                                <h3>Em Andamento</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Implementar a interface do dashboard</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="kanban-group">
-                                <h3>Concluído</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="showcase-1" class="showcase-content"><div class="kanban-group"><h3>A Fazer</h3><div class="kanban-task"><span class="kanban-task-title">Desenhar a nova tela de login</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="kanban-task"><span class="kanban-task-title">Criar endpoint da API de usuários</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div></div><div class="kanban-group"><h3>Em Andamento</h3><div class="kanban-task"><span class="kanban-task-title">Implementar a interface do dashboard</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div></div><div class="kanban-group"><h3>Concluído</h3><div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div></div></div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
@@ -348,7 +310,38 @@ html_string = """
                 </div>
             </div>
         </section>
-        <section id="pricing" class="section">
+
+        <!-- NOVA SEÇÃO: PARA QUEM? -->
+        <section id="para-quem" class="section">
+            <div class="container">
+                <h2 class="section-title">Feito para equipes como a sua</h2>
+                <p class="section-subtitle">De startups ágeis a grandes corporações, o DoingWork se adapta ao seu fluxo de trabalho para maximizar a clareza e a produtividade.</p>
+                <div class="personas-grid">
+                    <div class="persona-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+                        <h3>Startups</h3>
+                        <p>Organize o caos do crescimento. Valide ideias, gerencie o roadmap e mantenha o foco no que realmente importa para decolar.</p>
+                    </div>
+                    <div class="persona-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+                        <h3>Equipes de Marketing</h3>
+                        <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos com um fluxo de aprovações claro e centralizado.</p>
+                    </div>
+                    <div class="persona-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                        <h3>Desenvolvimento e TI</h3>
+                        <p>Execute sprints, priorize o backlog, rastreie bugs e integre com suas ferramentas de código para um ciclo de desenvolvimento ágil.</p>
+                    </div>
+                    <div class="persona-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                        <h3>Agências</h3>
+                        <p>Gerencie múltiplos clientes e projetos em um só lugar. Tenha visão clara da rentabilidade e garanta entregas no prazo, sempre.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section section-light">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
                 <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
