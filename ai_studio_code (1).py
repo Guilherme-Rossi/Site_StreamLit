@@ -341,29 +341,30 @@ html_string = """
     </script>
     
     <script>
-        (function() {
-            // This line gets the Streamlit component communication API
-            const streamlitDoc = window.parent.document;
-            const streamlitComm = streamlitDoc.querySelector('iframe[title="streamlitApp"]').contentWindow.Streamlit;
+        // This script sends the total height of the page to the parent Streamlit app,
+        // which then adjusts the iframe's height. This prevents double scrollbars and content cutoff.
+        const updateHeight = () => {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({
+                isStreamlitMessage: true,
+                type: 'setFrameHeight',
+                height: height,
+            }, '*');
+        };
+        
+        // Update height on load and whenever the window is resized.
+        window.addEventListener('load', updateHeight);
+        window.addEventListener('resize', updateHeight);
 
-            const setFrameHeight = () => {
-                // Add a small buffer for safety
-                const height = document.body.scrollHeight + 25;
-                streamlitComm.setFrameHeight(height);
-            }
-
-            // Use ResizeObserver to run when content size changes
-            const resizeObserver = new ResizeObserver(setFrameHeight);
-            resizeObserver.observe(document.body);
-            
-            // Also run on load
-            window.addEventListener('load', setFrameHeight);
-        })();
+        // Also update height when the content changes, using a ResizeObserver for modern browsers.
+        if (window.ResizeObserver) {
+            new ResizeObserver(updateHeight).observe(document.body);
+        }
     </script>
 
 </body>
 </html>
 """
 
-# 3. RENDERIZAR O HTML, AGORA SEM SCROLL INTERNO
-components.html(html_string, height=4750)
+# 3. RENDERIZAR O HTML USANDO O SEU VALOR CORRETO E SEM SCROLLING
+components.html(html_string, height=4750, scrolling=False)
