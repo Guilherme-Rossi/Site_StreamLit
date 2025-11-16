@@ -216,6 +216,52 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* --- CÓDIGO NOVO: FASE 5 - ANIMAÇÕES DE ENTRADA --- */
+        .section .section-title, .section .section-subtitle {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        .feature-card, .team-card, .pricing-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        /* Atrasos para os cards de Funcionalidades */
+        #card-1 { animation-delay: 0.4s; }
+        #card-2 { animation-delay: 0.6s; }
+        #card-3 { animation-delay: 0.8s; }
+        #card-4 { animation-delay: 1.0s; }
+        /* Atrasos para os cards "Para Quem?" */
+        .team-grid .team-card:nth-child(1) { animation-delay: 0.4s; }
+        .team-grid .team-card:nth-child(2) { animation-delay: 0.6s; }
+        .team-grid .team-card:nth-child(3) { animation-delay: 0.8s; }
+        /* Atrasos para os cards de Preços */
+        .pricing-grid .pricing-card:nth-child(1) { animation-delay: 0.4s; }
+        .pricing-grid .pricing-card:nth-child(2) { animation-delay: 0.6s; }
+        .pricing-grid .pricing-card:nth-child(3) { animation-delay: 0.8s; }
+        /* Animação para o CTA Final */
+        #final-cta .container > * {
+             opacity: 0;
+             animation: fadeInUp 1s ease-out forwards;
+        }
+        #final-cta h2 { animation-delay: 0.2s; }
+        #final-cta p { animation-delay: 0.4s; }
+        #final-cta .btn { animation-delay: 0.6s; }
+        /* Animação para o Rodapé */
+        .footer-grid .footer-column {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .footer-grid .footer-column:nth-child(1) { animation-delay: 0.2s; }
+        .footer-grid .footer-column:nth-child(2) { animation-delay: 0.4s; }
+        .footer-grid .footer-column:nth-child(3) { animation-delay: 0.6s; }
+        .footer-grid .footer-column:nth-child(4) { animation-delay: 0.8s; }
+        .footer-bottom {
+             opacity: 0;
+             animation: fadeInUp 1s ease-out 1.0s forwards;
+        }
+        /* --- FIM DO CÓDIGO NOVO --- */
+        
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
