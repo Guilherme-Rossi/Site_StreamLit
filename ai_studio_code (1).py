@@ -2,7 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # 1. Configurar a página para usar a largura total
-# Esta configuração ainda é útil para garantir que o componente HTML ocupe todo o espaço.
 st.set_page_config(
     page_title="Doing Work",
     page_icon="doingworkiconefinal_icone.ico", # Certifique-se que este arquivo existe
@@ -10,9 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Remover a injeção de CSS e a barra lateral, pois nosso HTML agora é autônomo.
-
-# 3. Armazenar todo o código HTML, CSS e JavaScript em uma única string
+# 2. Armazenar todo o código HTML, CSS e JavaScript em uma única string
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -196,7 +193,6 @@ html_string = """
         .feature-card:nth-of-type(2), .team-card:nth-of-type(2), .pricing-card:nth-of-type(2) { transition-delay: 0.2s; }
         .feature-card:nth-of-type(3), .team-card:nth-of-type(3), .pricing-card:nth-of-type(3) { transition-delay: 0.4s; }
         .feature-card:nth-of-type(4) { transition-delay: 0.6s; }
-
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
@@ -328,7 +324,6 @@ html_string = """
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const animatedElements = document.querySelectorAll('.animated-element');
-
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
@@ -337,25 +332,38 @@ html_string = """
                             observer.unobserve(entry.target);
                         }
                     });
-                }, {
-                    threshold: 0.1
-                });
-
-                animatedElements.forEach(element => {
-                    observer.observe(element);
-                });
+                }, { threshold: 0.1 });
+                animatedElements.forEach(element => { observer.observe(element); });
             } else {
-                animatedElements.forEach(element => {
-                    element.classList.add('is-visible');
-                });
+                animatedElements.forEach(element => { element.classList.add('is-visible'); });
             }
         });
+    </script>
+    
+    <script>
+        (function() {
+            // This line gets the Streamlit component communication API
+            const streamlitDoc = window.parent.document;
+            const streamlitComm = streamlitDoc.querySelector('iframe[title="streamlitApp"]').contentWindow.Streamlit;
+
+            const setFrameHeight = () => {
+                // Add a small buffer for safety
+                const height = document.body.scrollHeight + 25;
+                streamlitComm.setFrameHeight(height);
+            }
+
+            // Use ResizeObserver to run when content size changes
+            const resizeObserver = new ResizeObserver(setFrameHeight);
+            resizeObserver.observe(document.body);
+            
+            // Also run on load
+            window.addEventListener('load', setFrameHeight);
+        })();
     </script>
 
 </body>
 </html>
 """
 
-# 4. RENDERIZAR O HTML USANDO O COMPONENTE CORRETO
-# Usamos uma altura grande para permitir que a página interna role livremente.
-components.html(html_string, height=4500, scrolling=True)
+# 3. RENDERIZAR O HTML, AGORA SEM SCROLL INTERNO
+components.html(html_string, height=3800)
