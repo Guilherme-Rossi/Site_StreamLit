@@ -371,6 +371,5 @@ html_string = """
 """
 
 # 3. RENDERIZAR O HTML
-# Fornecemos uma altura inicial generosa para evitar a "tela branca" no carregamento.
-# O script interno irá corrigir essa altura para o valor perfeito, fazendo a mágica acontecer.
-components.html(html_string, height=6000, scrolling=True)
+# A única mudança necessária foi aqui: de scrolling=True para scrolling=False
+components.html(html_string, height=6000, scrolling=False)
