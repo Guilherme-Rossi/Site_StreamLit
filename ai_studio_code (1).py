@@ -1,5 +1,5 @@
 import streamlit as st
-import streamlit.components.v1 as components # IMPORTANTE: Adicionar esta linha
+import streamlit.components.v1 as components
 
 # 1. Configurar a página para usar a largura total e o tema claro
 st.set_page_config(
@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral
+# 2. Adicionar os links de navegação à barra lateral (código nativo do Streamlit)
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -47,9 +47,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS
-# O SCRIPT FOI REMOVIDO DAQUI
-html_string = """
+# 4. Consolidar TODO o código do site (HTML, CSS e JS) em uma única variável
+full_html = """
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -357,32 +356,25 @@ html_string = """
             <div class="footer-bottom animate-on-scroll" style="--delay: 0.5s;"><p>&copy; 2025 DoingWork. Todos os direitos reservados.</p><div class="sminex-logo"><p>Um produto da</p><span class="sminex-text">SMINEX ENTERPRISE</span></div></div>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
 """
 
-# 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
-
-# 6. CÓDIGO JAVASCRIPT PARA ANIMAÇÃO
-# Este código será injetado separadamente usando components.html
-js_code = """
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    elementsToAnimate.forEach((el) => observer.observe(el));
-</script>
-"""
-
-# 7. INJETAR O JAVASCRIPT USANDO A FERRAMENTA CORRETA
-components.html(js_code, height=0)
+# 5. RENDERIZAR O SITE COMPLETO USANDO components.html
+components.html(full_html, height=4000, scrolling=True)
