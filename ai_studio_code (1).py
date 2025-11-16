@@ -341,10 +341,11 @@ html_string = """
     </script>
     
     <script>
-        // This script sends the total height of the page to the parent Streamlit app,
-        // which then adjusts the iframe's height. This prevents double scrollbars and content cutoff.
+        // Este script envia a altura total da página para o aplicativo Streamlit pai,
+        // que então ajusta a altura do iframe. Isso evita barras de rolagem duplas e cortes de conteúdo.
         const updateHeight = () => {
-            const height = document.documentElement.scrollHeight;
+            // Adiciona uma pequena margem de segurança (ex: 15px) para garantir que nada seja cortado.
+            const height = document.documentElement.scrollHeight + 15;
             window.parent.postMessage({
                 isStreamlitMessage: true,
                 type: 'setFrameHeight',
@@ -352,19 +353,23 @@ html_string = """
             }, '*');
         };
         
-        // Update height on load and whenever the window is resized.
+        // Atualiza a altura ao carregar e sempre que a janela é redimensionada.
         window.addEventListener('load', updateHeight);
         window.addEventListener('resize', updateHeight);
 
-        // Also update height when the content changes, using a ResizeObserver for modern browsers.
+        // Também atualiza a altura quando o conteúdo muda, usando um ResizeObserver para navegadores modernos.
         if (window.ResizeObserver) {
             new ResizeObserver(updateHeight).observe(document.body);
         }
+
+        // Garante uma atualização final após as animações iniciais.
+        setTimeout(updateHeight, 500);
     </script>
 
 </body>
 </html>
 """
 
-# 3. RENDERIZAR O HTML USANDO O SEU VALOR CORRETO E SEM SCROLLING
-components.html(html_string, height=4750, scrolling=False)
+# 3. RENDERIZAR O HTML, AGORA SEM ALTURA FIXA E SEM SCROLLING
+# O script interno cuidará do ajuste da altura dinamicamente.
+components.html(html_string, scrolling=False)
