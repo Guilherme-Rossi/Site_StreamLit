@@ -366,4 +366,4 @@ html_string = """
 """
 
 # 3. RENDERIZAR O HTML, AGORA SEM SCROLL INTERNO
-components.html(html_string, height=4700)
+components.html(html_string, height=4750)
