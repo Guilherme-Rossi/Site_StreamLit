@@ -198,6 +198,7 @@ html_string = """
     </style>
 </head>
 <body>
+    <!-- O CONTEÚDO COMPLETO DO SITE VAI AQUI -->
     <header>
         <nav class="container">
             <div class="logo">DoingWork</div>
@@ -365,11 +366,11 @@ html_string = """
         // Garante uma atualização final após as animações iniciais.
         setTimeout(updateHeight, 500);
     </script>
-
 </body>
 </html>
 """
 
-# 3. RENDERIZAR O HTML, AGORA SEM ALTURA FIXA E SEM SCROLLING
-# O script interno cuidará do ajuste da altura dinamicamente.
-components.html(html_string, scrolling=False)
+# 3. RENDERIZAR O HTML
+# Fornecemos uma altura inicial generosa para evitar a "tela branca" no carregamento.
+# O script interno irá corrigir essa altura para o valor perfeito, fazendo a mágica acontecer.
+components.html(html_string, height=6000, scrolling=True)
