@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral
+# 2. Adicionar os links de navegação à barra lateral (código do menu responsivo)
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -26,7 +26,7 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Forçar o tema branco e injetar o CSS para a barra lateral
+# 3. Injetar CSS para forçar o tema branco e estilizar a barra lateral
 st.markdown("""
     <style>
         .stApp {
@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as adições da FASE 4
+# 4. A variável 'html_string' começa aqui. TODO o código do site deve estar DENTRO destas aspas triplas.
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -117,11 +117,11 @@ html_string = """
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-        #showcase-1.showcase-content { padding: 0; display: none; flex-direction: column; width: 100%; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
+        #showcase-1.showcase-content { padding: 0; flex-direction: column; width: 100%; }
         .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #f8f9fa; }
         .kanban-group + .kanban-group { margin-top: 1.25rem; }
         .kanban-group h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e1dd; }
@@ -269,39 +269,16 @@ html_string = """
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Desenhar a nova tela de login</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Criar endpoint da API de usuários</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
-                                    </div>
-                                </div>
+                                <div class="kanban-task"><span class="kanban-task-title">Desenhar a nova tela de login</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div>
+                                <div class="kanban-task"><span class="kanban-task-title">Criar endpoint da API de usuários</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div>
                             </div>
                             <div class="kanban-group">
                                 <h3>Em Andamento</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Implementar a interface do dashboard</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
+                                <div class="kanban-task"><span class="kanban-task-title">Implementar a interface do dashboard</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div>
                             </div>
                             <div class="kanban-group">
                                 <h3>Concluído</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                    </div>
-                                </div>
+                                <div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div>
                             </div>
                         </div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
@@ -390,4 +367,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+st.markdown(html_string, unsafe_allow_html=True)```
