@@ -1,7 +1,9 @@
-import streamlit as st
-import streamlit.components.v1 as components
+fase 4: 
 
-# 1. Configurar a página para usar a largura total
+
+import streamlit as st
+
+# 1. Configurar a página para usar a largura total e o tema claro
 st.set_page_config(
     page_title="Doing Work",
     page_icon="doingworkiconefinal_icone.ico", # Certifique-se que este arquivo existe
@@ -9,7 +11,45 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Armazenar todo o código HTML, CSS e JavaScript em uma única string
+# 2. Adicionar os links de navegação à barra lateral
+with st.sidebar:
+    st.title("Menu - DoingWork")
+    st.markdown("---")
+    st.markdown("[Funcionalidades](#features)")
+    st.markdown("[Para Quem?](#for-who)")
+    st.markdown("[Preços](#pricing)")
+    st.markdown("[Integrações](#)")
+    st.markdown("---")
+    st.markdown("**Recursos**")
+    st.markdown("- [Blog](#)")
+    st.markdown("- [Central de Ajuda](#)")
+    st.markdown("- [Contato](#)")
+    st.markdown("---")
+    st.markdown("[Login](#)")
+    st.link_button("Começar Grátis", "#final-cta")
+
+
+# 3. Forçar o tema branco e injetar o CSS para a barra lateral
+st.markdown("""
+    <style>
+        .stApp {
+            background-color: white !important;
+        }
+        @media (min-width: 992px) {
+            [data-testid="stSidebar"] { display: none !important; }
+            button[data-testid="stSidebarNavToggler"] { display: none !important; }
+        }
+        [data-testid="stSidebar"] { background-color: #f8f9fa !important; }
+        [data-testid="stSidebar"] h1 { font-family: 'Inter', sans-serif; color: #0d1b2a; }
+        [data-testid="stSidebar"] a:not([data-testid="stLinkButton"] a) { font-family: 'Inter', sans-serif; color: #1b263b !important; font-weight: 600; text-decoration: none !important; }
+        [data-testid="stSidebar"] a:hover:not([data-testid="stLinkButton"] a) { color: #3a86ff !important; }
+        [data-testid="stSidebar"] strong { font-family: 'Inter', sans-serif; color: #0d1b2a; }
+        [data-testid="stSidebar"] [data-testid="stLinkButton"] a { background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%) !important; color: white !important; padding: 12px 28px !important; border-radius: 8px !important; font-weight: 600 !important; text-align: center; display: block; transition: all 0.3s ease; }
+        [data-testid="stSidebar"] [data-testid="stLinkButton"] a:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); color: white !important; }
+    </style>
+""", unsafe_allow_html=True)
+
+# 4. Armazenar todo o código HTML e CSS com a seção de Prova Social REMOVIDA
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,7 +75,7 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 100; }
+        header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
         nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
@@ -58,9 +98,7 @@ html_string = """
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-        .btn-outline { background-color: transparent; color: #3a86ff !important; border: 2px solid #3a86ff; }
-        .btn-outline:hover { background-color: #3a86ff; color: var(--white) !important; }
-        #hero { padding: 100px 0 120px 0; }
+        #hero { padding: 100px 0 120px 0; opacity: 0; animation: fadeInUp 1.2s ease-out forwards; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
         .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
@@ -181,24 +219,11 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .animated-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .animated-element.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .feature-card:nth-of-type(2), .team-card:nth-of-type(2), .pricing-card:nth-of-type(2) { transition-delay: 0.2s; }
-        .feature-card:nth-of-type(3), .team-card:nth-of-type(3), .pricing-card:nth-of-type(3) { transition-delay: 0.4s; }
-        .feature-card:nth-of-type(4) { transition-delay: 0.6s; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
     </style>
 </head>
 <body>
-    <!-- O CONTEÚDO COMPLETO DO SITE VAI AQUI -->
     <header>
         <nav class="container">
             <div class="logo">DoingWork</div>
@@ -225,21 +250,21 @@ html_string = """
     <main>
         <section id="hero">
             <div class="container hero-content">
-                <div class="hero-text animated-element">
+                <div class="hero-text">
                     <h1>Gestão de projetos, sem a complexidade.</h1>
                     <p>O DoingWork é a plataforma intuitiva que centraliza suas tarefas, melhora a comunicação e impulsiona a produtividade da sua equipe.</p>
                     <a href="#pricing" class="btn btn-gradient">Comece seu teste de 1 mês</a>
                 </div>
-                <div class="hero-mockup animated-element" style="transition-delay: 0.2s;"><div class="mockup-header"><span style="background:#ff5f56;"></span><span style="background:#ffbd2e;"></span><span style="background:#27c93f;"></span></div><div class="mockup-content"><div class="mockup-task task1"></div><div class="mockup-task task2 done"></div><div class="mockup-task task3"></div></div></div>
+                <div class="hero-mockup"><div class="mockup-header"><span style="background:#ff5f56;"></span><span style="background:#ffbd2e;"></span><span style="background:#27c93f;"></span></div><div class="mockup-content"><div class="mockup-task task1"></div><div class="mockup-task task2 done"></div><div class="mockup-task task3"></div></div></div>
             </div>
         </section>
         <section id="features" class="section section-light">
              <div class="container">
-                <h2 class="section-title animated-element">Tudo o que você precisa em um só lugar</h2>
-                <p class="section-subtitle animated-element">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
-                <div class="features-interactive-wrapper animated-element">
+                <h2 class="section-title">Tudo o que você precisa em um só lugar</h2>
+                <p class="section-subtitle">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
+                <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
-                        <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
+                        <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
@@ -255,36 +280,36 @@ html_string = """
                                 <div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div>
                             </div>
                         </div>
-                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
+                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
                     </div>
                     <div class="features-grid">
-                        <div id="card-1" class="feature-card animated-element"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><h3>Gestão de Tarefas</h3><p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p></div>
-                        <div id="card-2" class="feature-card animated-element"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div><h3>Comunicação Centralizada</h3><p>Anexe arquivos, adicione comentários e receba notificações. Mantenha toda a equipe na mesma página, sempre.</p></div>
-                        <div id="card-3" class="feature-card animated-element"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></div><h3>Relatórios e Insights</h3><p>Acesse dados em tempo real e gere relatórios para analisar o desempenho e tomar decisões mais inteligentes.</p></div>
-                        <div id="card-4" class="feature-card animated-element"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div><h3>Mobilidade Total</h3><p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p></div>
+                        <div id="card-1" class="feature-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><h3>Gestão de Tarefas</h3><p>Crie, atribua e acompanhe o progresso com status visuais e prazos claros para nunca mais perder uma entrega.</p></div>
+                        <div id="card-2" class="feature-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div><h3>Comunicação Centralizada</h3><p>Anexe arquivos, adicione comentários e receba notificações. Mantenha toda a equipe na mesma página, sempre.</p></div>
+                        <div id="card-3" class="feature-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></div><h3>Relatórios e Insights</h3><p>Acesse dados em tempo real e gere relatórios para analisar o desempenho e tomar decisões mais inteligentes.</p></div>
+                        <div id="card-4" class="feature-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div><h3>Mobilidade Total</h3><p>Gerencie seus projetos de onde estiver com nosso site e aplicativo móvel. Sua equipe conectada a qualquer momento.</p></div>
                     </div>
                 </div>
             </div>
         </section>
         <section id="for-who" class="section section-light">
             <div class="container">
-                <h2 class="section-title animated-element">Perfeito para equipes como a sua</h2>
-                <p class="section-subtitle animated-element">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
+                <h2 class="section-title">Perfeito para equipes como a sua</h2>
+                <p class="section-subtitle">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
                 <div class="team-grid">
-                    <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
                         <h3>Marketing</h3>
                         <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos, tudo em um só lugar para manter os prazos em dia.</p>
                     </div>
-                    <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
                         <h3>Engenharia</h3>
                         <p>Organize sprints, rastreie bugs e gerencie o roadmap do produto com quadros Kanban flexíveis e integrações com o GitHub.</p>
                     </div>
-                    <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
                         <h3>Startups</h3>
                         <p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p>
                     </div>
@@ -293,17 +318,17 @@ html_string = """
         </section>
         <section id="pricing" class="section">
             <div class="container">
-                <h2 class="section-title animated-element">Planos flexíveis para cada equipe</h2>
-                <p class="section-subtitle animated-element">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
+                <h2 class="section-title">Planos flexíveis para cada equipe</h2>
+                <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card animated-element"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
-                    <div class="pricing-card popular animated-element"> <span class="popular-badge">Mais Popular</span><h3>Premium</h3><div class="price">R$150<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Básico</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li></ul><a href="#" class="btn btn-gradient">Começar Teste</a></div>
-                    <div class="pricing-card animated-element"><h3>Enterprise</h3><div class="price">R$500<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li></ul><a href="#" class="btn btn-outline">Fale Conosco</a></div>
+                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
+                    <div class="pricing-card popular"><span class="popular-badge">Mais Popular</span><h3>Premium</h3><div class="price">R$150<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Básico</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li></ul><a href="#" class="btn btn-gradient">Começar Teste</a></div>
+                    <div class="pricing-card"><h3>Enterprise</h3><div class="price">R$500<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li></ul><a href="#" class="btn btn-outline">Fale Conosco</a></div>
                 </div>
             </div>
         </section>
         <section id="final-cta" class="section">
-            <div class="container animated-element" style="display:flex; flex-direction:column; align-items:center;">
+            <div class="container" style="display:flex; flex-direction:column; align-items:center;">
                 <h2 class="section-title">Pronto para transformar sua gestão?</h2>
                 <p class="section-subtitle">Junte-se a milhares de equipes que já organizam seu trabalho com o DoingWork. Comece seu teste gratuito hoje mesmo.</p>
                 <a href="#" class="btn btn-gradient">Aumentar minha produtividade</a>
@@ -312,7 +337,7 @@ html_string = """
     </main>
     <footer>
         <div class="container">
-            <div class="footer-grid animated-element">
+            <div class="footer-grid">
                 <div class="footer-column"><div class="logo">DoingWork</div><p>A plataforma intuitiva para gestão de projetos modernos.</p><div class="social-icons"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a href="#"><img src="https://raw.githubusercontent.com/Guilherme-Rossi/Site_StreamLit/main/twitter_sem_fundo.png" alt="Twitter / X" width="20" height="20"></a></div></div>
                 <div class="footer-column"><h4>Produto</h4><ul><li><a href="#features">Funcionalidades</a></li><li><a href="#pricing">Preços</a></li><li><a href="#">Integrações</a></li></ul></div>
                 <div class="footer-column"><h4>Empresa</h4><ul><li><a href="#">Sobre Nós</a></li><li><a href="#">Carreiras</a></li><li><a href="#">Contato</a></li></ul></div>
@@ -321,55 +346,9 @@ html_string = """
             <div class="footer-bottom"><p>&copy; 2025 DoingWork. Todos os direitos reservados.</p><div class="sminex-logo"><p>Um produto da</p><span class="sminex-text">SMINEX ENTERPRISE</span></div></div>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const animatedElements = document.querySelectorAll('.animated-element');
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                animatedElements.forEach(element => { observer.observe(element); });
-            } else {
-                animatedElements.forEach(element => { element.classList.add('is-visible'); });
-            }
-        });
-    </script>
-    
-    <script>
-        // Este script envia a altura total da página para o aplicativo Streamlit pai,
-        // que então ajusta a altura do iframe. Isso evita barras de rolagem duplas e cortes de conteúdo.
-        const updateHeight = () => {
-            // Adiciona uma pequena margem de segurança (ex: 15px) para garantir que nada seja cortado.
-            const height = document.documentElement.scrollHeight + 15;
-            window.parent.postMessage({
-                isStreamlitMessage: true,
-                type: 'setFrameHeight',
-                height: height,
-            }, '*');
-        };
-        
-        // Atualiza a altura ao carregar e sempre que a janela é redimensionada.
-        window.addEventListener('load', updateHeight);
-        window.addEventListener('resize', updateHeight);
-
-        // Também atualiza a altura quando o conteúdo muda, usando um ResizeObserver para navegadores modernos.
-        if (window.ResizeObserver) {
-            new ResizeObserver(updateHeight).observe(document.body);
-        }
-
-        // Garante uma atualização final após as animações iniciais.
-        setTimeout(updateHeight, 500);
-    </script>
 </body>
 </html>
 """
 
-# 3. RENDERIZAR O HTML
-# A única mudança necessária foi aqui: de scrolling=True para scrolling=False
-components.html(html_string, height=6000, scrolling=False)
+# 5. RENDERIZAR O HTML NO STREAMLIT
+st.markdown(html_string, unsafe_allow_html=True)
