@@ -1,6 +1,3 @@
-fase 4: 
-
-
 import streamlit as st
 
 # 1. Configurar a página para usar a largura total e o tema claro
