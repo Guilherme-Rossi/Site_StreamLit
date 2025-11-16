@@ -1,6 +1,8 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
-# 1. Configurar a página para usar a largura total e o tema claro
+# 1. Configurar a página para usar a largura total
+# Esta configuração ainda é útil para garantir que o componente HTML ocupe todo o espaço.
 st.set_page_config(
     page_title="Doing Work",
     page_icon="doingworkiconefinal_icone.ico", # Certifique-se que este arquivo existe
@@ -8,45 +10,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral
-with st.sidebar:
-    st.title("Menu - DoingWork")
-    st.markdown("---")
-    st.markdown("[Funcionalidades](#features)")
-    st.markdown("[Para Quem?](#for-who)")
-    st.markdown("[Preços](#pricing)")
-    st.markdown("[Integrações](#)")
-    st.markdown("---")
-    st.markdown("**Recursos**")
-    st.markdown("- [Blog](#)")
-    st.markdown("- [Central de Ajuda](#)")
-    st.markdown("- [Contato](#)")
-    st.markdown("---")
-    st.markdown("[Login](#)")
-    st.link_button("Começar Grátis", "#final-cta")
+# 2. Remover a injeção de CSS e a barra lateral, pois nosso HTML agora é autônomo.
 
-
-# 3. Forçar o tema branco e injetar o CSS para a barra lateral
-st.markdown("""
-    <style>
-        .stApp {
-            background-color: white !important;
-        }
-        @media (min-width: 992px) {
-            [data-testid="stSidebar"] { display: none !important; }
-            button[data-testid="stSidebarNavToggler"] { display: none !important; }
-        }
-        [data-testid="stSidebar"] { background-color: #f8f9fa !important; }
-        [data-testid="stSidebar"] h1 { font-family: 'Inter', sans-serif; color: #0d1b2a; }
-        [data-testid="stSidebar"] a:not([data-testid="stLinkButton"] a) { font-family: 'Inter', sans-serif; color: #1b263b !important; font-weight: 600; text-decoration: none !important; }
-        [data-testid="stSidebar"] a:hover:not([data-testid="stLinkButton"] a) { color: #3a86ff !important; }
-        [data-testid="stSidebar"] strong { font-family: 'Inter', sans-serif; color: #0d1b2a; }
-        [data-testid="stSidebar"] [data-testid="stLinkButton"] a { background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%) !important; color: white !important; padding: 12px 28px !important; border-radius: 8px !important; font-weight: 600 !important; text-align: center; display: block; transition: all 0.3s ease; }
-        [data-testid="stSidebar"] [data-testid="stLinkButton"] a:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); color: white !important; }
-    </style>
-""", unsafe_allow_html=True)
-
-# 4. Armazenar todo o código HTML e CSS com as adições da FASE 5
+# 3. Armazenar todo o código HTML, CSS e JavaScript em uma única string
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -72,7 +38,7 @@ html_string = """
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
+        header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 100; }
         nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
         .nav-links { justify-self: center; }
@@ -95,7 +61,9 @@ html_string = """
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-        #hero { padding: 100px 0 120px 0; } /* Removida animação padrão para controle via JS */
+        .btn-outline { background-color: transparent; color: #3a86ff !important; border: 2px solid #3a86ff; }
+        .btn-outline:hover { background-color: #3a86ff; color: var(--white) !important; }
+        #hero { padding: 100px 0 120px 0; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
         .hero-text h1 { font-size: 3.8rem; color: var(--dark-blue) !important; line-height: 1.2; margin-bottom: 1.5rem; }
@@ -216,8 +184,6 @@ html_string = """
         .sminex-logo { text-align: right; }
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* --- ESTILOS DA FASE 5: ANIMAÇÕES --- */
         .animated-element {
             opacity: 0;
             transform: translateY(30px);
@@ -227,11 +193,9 @@ html_string = """
             opacity: 1;
             transform: translateY(0);
         }
-        /* Atraso para elementos em sequência para um efeito mais dinâmico */
         .feature-card:nth-of-type(2), .team-card:nth-of-type(2), .pricing-card:nth-of-type(2) { transition-delay: 0.2s; }
         .feature-card:nth-of-type(3), .team-card:nth-of-type(3), .pricing-card:nth-of-type(3) { transition-delay: 0.4s; }
         .feature-card:nth-of-type(4) { transition-delay: 0.6s; }
-        /* --- FIM DOS ESTILOS DA FASE 5 --- */
 
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
@@ -278,7 +242,7 @@ html_string = """
                 <p class="section-subtitle animated-element">Ferramentas poderosas e fáceis de usar para levar sua equipe ao próximo nível de organização e eficiência.</p>
                 <div class="features-interactive-wrapper animated-element">
                     <div class="feature-showcase">
-                        <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
+                        <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
@@ -294,7 +258,7 @@ html_string = """
                                 <div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div>
                             </div>
                         </div>
-                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
+                        <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
                     </div>
@@ -313,17 +277,17 @@ html_string = """
                 <p class="section-subtitle animated-element">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
                 <div class="team-grid">
                     <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
                         <h3>Marketing</h3>
                         <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos, tudo em um só lugar para manter os prazos em dia.</p>
                     </div>
                     <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
                         <h3>Engenharia</h3>
                         <p>Organize sprints, rastreie bugs e gerencie o roadmap do produto com quadros Kanban flexíveis e integrações com o GitHub.</p>
                     </div>
                     <div class="team-card animated-element">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
                         <h3>Startups</h3>
                         <p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p>
                     </div>
@@ -361,7 +325,6 @@ html_string = """
         </div>
     </footer>
 
-    <!-- INÍCIO DO SCRIPT DA FASE 5 -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const animatedElements = document.querySelectorAll('.animated-element');
@@ -382,18 +345,17 @@ html_string = """
                     observer.observe(element);
                 });
             } else {
-                // Fallback para navegadores antigos: mostra tudo de uma vez
                 animatedElements.forEach(element => {
                     element.classList.add('is-visible');
                 });
             }
         });
     </script>
-    <!-- FIM DO SCRIPT DA FASE 5 -->
 
 </body>
 </html>
 """
 
-# 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)
+# 4. RENDERIZAR O HTML USANDO O COMPONENTE CORRETO
+# Usamos uma altura grande para permitir que a página interna role livremente.
+components.html(html_string, height=4500, scrolling=True)
