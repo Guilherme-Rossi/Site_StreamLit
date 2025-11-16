@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com as adições da FASE 4
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -120,54 +120,15 @@ html_string = """
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-        
-        #showcase-1.showcase-content {
-            padding: 0;
-            display: none;
-            flex-direction: column; 
-            width: 100%;
-        }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 {
-            display: flex;
-        }
-        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
-            background-color: #f8f9fa;
-        }
-        .kanban-group + .kanban-group {
-            margin-top: 1.25rem;
-        }
-        .kanban-group h3 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e0e1dd;
-        }
-        .kanban-task {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--white);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            gap: 1rem;
-        }
-        .kanban-task + .kanban-task {
-            margin-top: 0.5rem;
-        }
-        .kanban-task-title {
-            font-weight: 600;
-            color: var(--medium-blue);
-        }
-        .kanban-task-details {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
+        #showcase-1.showcase-content { padding: 0; display: none; flex-direction: column; width: 100%; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
+        .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #f8f9fa; }
+        .kanban-group + .kanban-group { margin-top: 1.25rem; }
+        .kanban-group h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e1dd; }
+        .kanban-task { display: flex; align-items: center; justify-content: space-between; background-color: var(--white); padding: 1rem; border-radius: 8px; box-shadow: var(--shadow-sm); gap: 1rem; }
+        .kanban-task + .kanban-task { margin-top: 0.5rem; }
+        .kanban-task-title { font-weight: 600; color: var(--medium-blue); }
+        .kanban-task-details { display: flex; align-items: center; gap: 1rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -219,8 +180,6 @@ html_string = """
         .nav-item.active { color: #3a86ff; }
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
-        
-        /* --- ESTILOS DA FASE 4 --- */
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .team-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
         .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
@@ -231,8 +190,6 @@ html_string = """
         .logos-container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
         .company-logo { font-size: 1.5rem; font-weight: 700; color: var(--text-gray); opacity: 0.7; transition: opacity 0.3s ease; user-select: none; }
         .company-logo:hover { opacity: 1; }
-        /* --- FIM DOS ESTILOS DA FASE 4 --- */
-
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
