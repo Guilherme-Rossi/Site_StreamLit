@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as adições da FASE 4
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -121,7 +121,6 @@ html_string = """
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
         
-        /* --- CSS FINAL E ALINHADO DO KANBAN --- */
         #showcase-1.showcase-content {
             padding: 0;
             display: none;
@@ -135,7 +134,7 @@ html_string = """
             background-color: #f8f9fa;
         }
         .kanban-group + .kanban-group {
-            margin-top: 1.25rem; /* AJUSTADO DE 1.5rem */
+            margin-top: 1.25rem;
         }
         .kanban-group h3 {
             font-size: 1rem;
@@ -157,7 +156,7 @@ html_string = """
             gap: 1rem;
         }
         .kanban-task + .kanban-task {
-            margin-top: 0.5rem; /* AJUSTADO DE 0.75rem */
+            margin-top: 0.5rem;
         }
         .kanban-task-title {
             font-weight: 600;
@@ -168,7 +167,6 @@ html_string = """
             align-items: center;
             gap: 1rem;
         }
-        /* --- FIM DO CSS --- */
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; cursor: pointer; }
@@ -311,7 +309,6 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                        <!-- KANBAN FINAL E CORRIGIDO -->
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
@@ -364,7 +361,6 @@ html_string = """
             </div>
         </section>
         
-        <!-- INÍCIO DA SEÇÃO 'PARA QUEM?' (FASE 4) -->
         <section id="for-who" class="section">
             <div class="container">
                 <h2 class="section-title">Perfeito para equipes como a sua</h2>
@@ -388,9 +384,7 @@ html_string = """
                 </div>
             </div>
         </section>
-        <!-- FIM DA SEÇÃO 'PARA QUEM?' -->
 
-        <!-- INÍCIO DA SEÇÃO DE PROVA SOCIAL (FASE 4) -->
         <section id="social-proof" class="section section-light">
             <div class="container">
                 <h3 class="social-proof-title">Empresas que confiam no DoingWork para entregar resultados</h3>
@@ -403,14 +397,13 @@ html_string = """
                 </div>
             </div>
         </section>
-        <!-- FIM DA SEÇÃO DE PROVA SOCIAL -->
 
         <section id="pricing" class="section">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
                 <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
+                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
                     <div class="pricing-card popular"><span class="popular-badge">Mais Popular</span><h3>Premium</h3><div class="price">R$150<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Básico</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li></ul><a href="#" class="btn btn-gradient">Começar Teste</a></div>
                     <div class="pricing-card"><h3>Enterprise</h3><div class="price">R$500<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li></ul><a href="#" class="btn btn-outline">Fale Conosco</a></div>
                 </div>
