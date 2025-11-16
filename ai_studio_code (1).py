@@ -13,7 +13,7 @@ with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
     st.markdown("[Funcionalidades](#features)")
-    st.markdown("[Para Quem?](#)")
+    st.markdown("[Para Quem?](#for-who)")
     st.markdown("[Preços](#pricing)")
     st.markdown("[Integrações](#)")
     st.markdown("---")
@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com as adições da FASE 4
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -221,6 +221,20 @@ html_string = """
         .nav-item.active { color: #3a86ff; }
         .nav-icon { width: 20px; height: 20px; background-color: currentColor; border-radius: 4px; margin-bottom: 3px; }
         .nav-label { font-size: 0.6rem; font-weight: 600; }
+        
+        /* --- ESTILOS DA FASE 4 --- */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .team-card { background: var(--white); padding: 2.5rem 2rem; border-radius: var(--border-radius); text-align: left; box-shadow: var(--shadow-sm); border: 1px solid #e0e1dd; transition: all 0.3s ease; }
+        .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+        .team-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .team-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
+        .team-card p { color: var(--text-gray) !important; }
+        .social-proof-title { text-align: center; font-size: 1.1rem; font-weight: 600; color: var(--text-gray); margin-bottom: 3rem; }
+        .logos-container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
+        .company-logo { font-size: 1.5rem; font-weight: 700; color: var(--text-gray); opacity: 0.7; transition: opacity 0.3s ease; user-select: none; }
+        .company-logo:hover { opacity: 1; }
+        /* --- FIM DOS ESTILOS DA FASE 4 --- */
+
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
@@ -234,7 +248,7 @@ html_string = """
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-gradient); color: var(--white) !important; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
         #final-cta { background: var(--medium-blue); text-align: center; }
         #final-cta h2 { color: var(--white) !important; }
-        #final-cta p { color: #E8E8E8 !important; }
+        #final-cta p { color: #E8E8EE !important; }
         footer { background-color: #f8f9fa; padding: 80px 0 40px 0; }
         .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 4rem; }
         .footer-column .logo { margin-bottom: 1rem; }
@@ -261,6 +275,7 @@ html_string = """
             <div class="logo">DoingWork</div>
             <ul class="nav-links">
                 <li><a href="#features">Funcionalidades</a></li>
+                <li><a href="#for-who">Para Quem?</a></li>
                 <li><a href="#pricing">Preços</a></li>
                 <li><a href="#">Integrações</a></li>
                 <li class="dropdown">
@@ -348,12 +363,54 @@ html_string = """
                 </div>
             </div>
         </section>
+        
+        <!-- INÍCIO DA SEÇÃO 'PARA QUEM?' (FASE 4) -->
+        <section id="for-who" class="section">
+            <div class="container">
+                <h2 class="section-title">Perfeito para equipes como a sua</h2>
+                <p class="section-subtitle">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
+                        <h3>Marketing</h3>
+                        <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos, tudo em um só lugar para manter os prazos em dia.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                        <h3>Engenharia</h3>
+                        <p>Organize sprints, rastreie bugs e gerencie o roadmap do produto com quadros Kanban flexíveis e integrações com o GitHub.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
+                        <h3>Startups</h3>
+                        <p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIM DA SEÇÃO 'PARA QUEM?' -->
+
+        <!-- INÍCIO DA SEÇÃO DE PROVA SOCIAL (FASE 4) -->
+        <section id="social-proof" class="section section-light">
+            <div class="container">
+                <h3 class="social-proof-title">Empresas que confiam no DoingWork para entregar resultados</h3>
+                <div class="logos-container">
+                    <div class="company-logo">Nexus Corp</div>
+                    <div class="company-logo">QuantumLeap</div>
+                    <div class="company-logo">Vertex Inc.</div>
+                    <div class="company-logo">InnovateHub</div>
+                    <div class="company-logo">Apex Solutions</div>
+                </div>
+            </div>
+        </section>
+        <!-- FIM DA SEÇÃO DE PROVA SOCIAL -->
+
         <section id="pricing" class="section">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
                 <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
+                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
                     <div class="pricing-card popular"><span class="popular-badge">Mais Popular</span><h3>Premium</h3><div class="price">R$150<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Básico</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li></ul><a href="#" class="btn btn-gradient">Começar Teste</a></div>
                     <div class="pricing-card"><h3>Enterprise</h3><div class="price">R$500<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li></ul><a href="#" class="btn btn-outline">Fale Conosco</a></div>
                 </div>
