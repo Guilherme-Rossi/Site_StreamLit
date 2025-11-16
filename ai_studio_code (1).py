@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com a seção de Prova Social REMOVIDA
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -117,11 +117,11 @@ html_string = """
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
-        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
         .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex; justify-content: center; align-items: center; }
-        #showcase-1.showcase-content { padding: 0; flex-direction: column; width: 100%; }
+        #showcase-1.showcase-content { padding: 0; display: none; flex-direction: column; width: 100%; }
+        .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #f8f9fa; }
         .kanban-group + .kanban-group { margin-top: 1.25rem; }
         .kanban-group h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e1dd; }
@@ -186,10 +186,6 @@ html_string = """
         .team-card .icon { margin-bottom: 1.5rem; background: var(--primary-gradient); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .team-card h3 { font-size: 1.3rem; color: var(--dark-blue) !important; margin-bottom: 0.5rem; }
         .team-card p { color: var(--text-gray) !important; }
-        .social-proof-title { text-align: center; font-size: 1.1rem; font-weight: 600; color: var(--text-gray); margin-bottom: 3rem; }
-        .logos-container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem; }
-        .company-logo { font-size: 1.5rem; font-weight: 700; color: var(--text-gray); opacity: 0.7; transition: opacity 0.3s ease; user-select: none; }
-        .company-logo:hover { opacity: 1; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch; }
         .pricing-card { display: flex; flex-direction: column; background: var(--white); border-radius: var(--border-radius); padding: 2.5rem; text-align: center; border: 1px solid #e0e1dd; transition: all 0.3s ease; position: relative; box-shadow: var(--shadow-sm); }
         .pricing-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
@@ -294,7 +290,7 @@ html_string = """
                 </div>
             </div>
         </section>
-        <section id="for-who" class="section">
+        <section id="for-who" class="section section-light">
             <div class="container">
                 <h2 class="section-title">Perfeito para equipes como a sua</h2>
                 <p class="section-subtitle">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
@@ -314,18 +310,6 @@ html_string = """
                         <h3>Startups</h3>
                         <p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section id="social-proof" class="section section-light">
-            <div class="container">
-                <h3 class="social-proof-title">Empresas que confiam no DoingWork para entregar resultados</h3>
-                <div class="logos-container">
-                    <div class="company-logo">Nexus Corp</div>
-                    <div class="company-logo">QuantumLeap</div>
-                    <div class="company-logo">Vertex Inc.</div>
-                    <div class="company-logo">InnovateHub</div>
-                    <div class="company-logo">Apex Solutions</div>
                 </div>
             </div>
         </section>
