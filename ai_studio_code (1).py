@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components # IMPORTANTE: Adicionar esta linha
 
 # 1. Configurar a página para usar a largura total e o tema claro
 st.set_page_config(
@@ -46,7 +47,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as ANIMAÇÕES CORRIGIDAS
+# 4. Armazenar todo o código HTML e CSS
+# O SCRIPT FOI REMOVIDO DAQUI
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -217,7 +219,6 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* --- CÓDIGO NOVO: ANIMAÇÃO NA ROLAGEM (SCROLL) --- */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -228,7 +229,6 @@ html_string = """
             opacity: 1;
             transform: translateY(0);
         }
-        /* --- FIM DO CÓDIGO NOVO --- */
 
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
@@ -357,26 +357,32 @@ html_string = """
             <div class="footer-bottom animate-on-scroll" style="--delay: 0.5s;"><p>&copy; 2025 DoingWork. Todos os direitos reservados.</p><div class="sminex-logo"><p>Um produto da</p><span class="sminex-text">SMINEX ENTERPRISE</span></div></div>
         </div>
     </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-        elementsToAnimate.forEach((el) => observer.observe(el));
-    </script>
-
 </body>
 </html>
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
 st.markdown(html_string, unsafe_allow_html=True)
+
+# 6. CÓDIGO JAVASCRIPT PARA ANIMAÇÃO
+# Este código será injetado separadamente usando components.html
+js_code = """
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    elementsToAnimate.forEach((el) => observer.observe(el));
+</script>
+"""
+
+# 7. INJETAR O JAVASCRIPT USANDO A FERRAMENTA CORRETA
+components.html(js_code, height=0)
