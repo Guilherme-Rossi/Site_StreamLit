@@ -8,7 +8,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 2. Adicionar os links de navegação à barra lateral (código do menu responsivo)
+# 2. Adicionar os links de navegação à barra lateral
 with st.sidebar:
     st.title("Menu - DoingWork")
     st.markdown("---")
@@ -26,7 +26,7 @@ with st.sidebar:
     st.link_button("Começar Grátis", "#final-cta")
 
 
-# 3. Injetar CSS para forçar o tema branco e estilizar a barra lateral
+# 3. Forçar o tema branco e injetar o CSS para a barra lateral
 st.markdown("""
     <style>
         .stApp {
@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. A variável 'html_string' começa aqui. TODO o código do site deve estar DENTRO destas aspas triplas.
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -294,7 +294,6 @@ html_string = """
                 </div>
             </div>
         </section>
-        
         <section id="for-who" class="section">
             <div class="container">
                 <h2 class="section-title">Perfeito para equipes como a sua</h2>
@@ -318,7 +317,6 @@ html_string = """
                 </div>
             </div>
         </section>
-
         <section id="social-proof" class="section section-light">
             <div class="container">
                 <h3 class="social-proof-title">Empresas que confiam no DoingWork para entregar resultados</h3>
@@ -331,7 +329,6 @@ html_string = """
                 </div>
             </div>
         </section>
-
         <section id="pricing" class="section">
             <div class="container">
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
@@ -367,4 +364,4 @@ html_string = """
 """
 
 # 5. RENDERIZAR O HTML NO STREAMLIT
-st.markdown(html_string, unsafe_allow_html=True)```
+st.markdown(html_string, unsafe_allow_html=True)
