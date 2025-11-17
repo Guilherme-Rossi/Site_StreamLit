@@ -31,7 +31,11 @@ st.markdown("""
     <style>
         /* CSS para o app Streamlit em si */
         .stApp { background-color: white !important; }
-        iframe { margin: 0; padding: 0; border: none; } /* Remove qualquer borda do iframe */
+        /* Remove padding/margin indesejado que o Streamlit às vezes adiciona ao redor do componente */
+        div[data-stale="false"] > iframe {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
 
         @media (min-width: 992px) {
             [data-testid="stSidebar"] { display: none !important; }
@@ -57,7 +61,7 @@ full_html_code = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DoingWork</title>
     
-    <!-- SCRIPT NOVO E ESSENCIAL: Comunicação com o Streamlit -->
+    <!-- Script para comunicação com o Streamlit -->
     <script src="https://cdn.jsdelivr.net/gh/streamlit/streamlit@develop/frontend/public/streamlit-component-lib.js"></script>
 
     <style>
@@ -239,8 +243,8 @@ full_html_code = """
     </style>
 </head>
 <body>
+    <!-- O corpo do seu site (header, main, footer) vai aqui -->
     <header>
-        <!-- Conteúdo do seu Header -->
         <nav class="container">
             <div class="logo">DoingWork</div>
             <ul class="nav-links">
@@ -264,7 +268,6 @@ full_html_code = """
         </nav>
     </header>
     <main>
-        <!-- Todo o conteúdo do seu Main -->
         <section id="hero">
             <div class="container hero-content">
                 <div class="hero-text">
@@ -380,15 +383,30 @@ full_html_code = """
         elementsToAnimate.forEach((el) => observer.observe(el));
     </script>
     
-    <!-- SCRIPT 2: Ajuste dinâmico da altura para o Streamlit -->
+    <!-- SCRIPT 2 (ROBUSTO): Ajuste dinâmico da altura -->
     <script>
-      window.addEventListener("load", function() {
-        Streamlit.setFrameHeight(document.documentElement.scrollHeight);
-      });
-      const resizeObserver = new ResizeObserver(() => {
-        Streamlit.setFrameHeight(document.documentElement.scrollHeight);
-      });
-      resizeObserver.observe(document.body);
+        // Função para enviar a altura para o Streamlit
+        const sendHeight = () => {
+            const height = document.documentElement.scrollHeight;
+            Streamlit.setFrameHeight(height);
+        }
+
+        // Envia a altura quando o componente é carregado
+        Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, sendHeight);
+
+        // Usa ResizeObserver para detectar mudanças de tamanho do conteúdo
+        const resizeObserver = new ResizeObserver(sendHeight);
+        resizeObserver.observe(document.body);
+
+        // Executa algumas vezes no início para garantir a altura correta
+        let attempts = 0;
+        const interval = setInterval(() => {
+            sendHeight();
+            attempts++;
+            if (attempts > 4) { // Para após 5 execuções (2 segundos)
+                clearInterval(interval);
+            }
+        }, 400);
     </script>
 
 </body>
@@ -396,6 +414,5 @@ full_html_code = """
 """
 
 # 5. RENDERIZAR o site completo usando components.html
-# O height inicial é 1500px para evitar um "pulo" na tela, mas o script ajustará para o tamanho exato.
-# scrolling=False é importante para que a barra de rolagem principal da página controle tudo.
-components.html(full_html_code, height=1500, scrolling=False)
+# scrolling=True permite a rolagem dentro do iframe, que terá a altura correta.
+components.html(full_html_code, height=1500, scrolling=True)```
