@@ -3,7 +3,7 @@ import streamlit as st
 # 1. Configurar a página para usar a largura total e o tema claro
 st.set_page_config(
     page_title="Doing Work",
-    page_icon="doingworkiconefinal_icone.ico", # Certifique-se que este arquivo existe
+    page_icon="doingworkiconefinal_icone.ico",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -45,9 +45,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-# 4. String contendo apenas o CSS do site
-site_css = """
+# 4. String ÚNICA contendo todo o site (CSS, HTML e JavaScript)
+full_site_html = """
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
     :root {
@@ -225,10 +224,7 @@ site_css = """
     @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
     @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
 </style>
-"""
 
-# 5. String contendo o Corpo HTML
-site_body = """
 <header>
     <nav class="container">
         <div class="logo">DoingWork</div>
@@ -351,10 +347,7 @@ site_body = """
         <div class="footer-bottom animate-on-scroll" style="--delay: 0.5s;"><p>&copy; 2025 DoingWork. Todos os direitos reservados.</p><div class="sminex-logo"><p>Um produto da</p><span class="sminex-text">SMINEX ENTERPRISE</span></div></div>
     </div>
 </footer>
-"""
 
-# 6. String contendo apenas o JavaScript
-site_js = """
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -372,7 +365,5 @@ site_js = """
 </script>
 """
 
-# 7. Renderizar as partes do site na ordem correta
-st.markdown(site_css, unsafe_allow_html=True)
-st.markdown(site_body, unsafe_allow_html=True)
-st.markdown(site_js, unsafe_allow_html=True)
+# 5. Renderizar o site completo em um único bloco
+st.markdown(full_site_html, unsafe_allow_html=True)
