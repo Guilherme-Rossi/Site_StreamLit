@@ -46,13 +46,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS (Preços + Mobile Fix)
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DoingWork - Gestão de projetos, sem a complexidade</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -67,7 +67,24 @@ html_string = """
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--white) !important; color: var(--text-gray); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        /* --- TRAVA DE ROLAGEM HORIZONTAL --- */
+        html, body { 
+            margin: 0; 
+            padding: 0;
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--white) !important; 
+            color: var(--text-gray); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden !important; /* A Mágica acontece aqui */
+            width: 100%;
+            max-width: 100vw;
+        }
+        /* Trava também o container do Streamlit */
+        .stApp {
+            overflow-x: hidden !important;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -230,6 +247,11 @@ html_string = """
             .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #fff !important; }
             .feature-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; }
             .feature-showcase { height: 450px !important; padding: 15px; }
+            
+            /* Correção do estouro lateral nos Grids */
+            .pricing-grid, .team-grid, .features-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
         @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
