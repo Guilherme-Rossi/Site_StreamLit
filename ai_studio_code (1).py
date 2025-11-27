@@ -33,9 +33,10 @@ st.markdown("""
             background-color: white !important;
         }
         
-        /* REMOVER ESPAÇO PADRÃO DO STREAMLIT NO TOPO */
+        /* --- CORREÇÃO DO CORTE NO DESKTOP --- */
+        /* No PC, damos um espaço para o cabeçalho não cortar */
         .block-container {
-            padding-top: 0 !important;
+            padding-top: 3rem !important; 
             padding-bottom: 2rem !important;
         }
 
@@ -245,44 +246,49 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* --- CORREÇÃO FINAL E ABSOLUTA PARA MOBILE (Hero e Layout) --- */
+        /* --- CORREÇÃO FINAL PARA MOBILE (HEADER REMOVIDO + ADJUST HERO) --- */
         @media (max-width: 992px) {
             
             /* 1. Remover Header */
             header { display: none !important; }
 
-            /* 2. Arrumar o Hero (Topo) */
+            /* 2. Devolver o padding no topo para não ficar colado (já que tiramos o header) */
+            .block-container {
+                padding-top: 2rem !important; 
+            }
+
+            /* 3. Arrumar o Hero (Topo) */
             #hero {
-                padding: 40px 0 60px 0 !important; /* Menos padding */
+                padding: 40px 0 60px 0 !important; 
             }
             .hero-content {
-                flex-direction: column !important; /* Texto em cima, imagem em baixo */
+                flex-direction: column !important; 
                 gap: 2rem !important;
                 text-align: center !important;
             }
             .hero-text {
-                max-width: 100% !important; /* Ocupa a largura toda */
+                max-width: 100% !important; 
                 width: 100% !important;
                 margin-bottom: 2rem !important;
             }
             .hero-text h1 {
-                font-size: 2.5rem !important; /* Fonte menor para caber na tela */
+                font-size: 2.5rem !important; 
                 line-height: 1.2 !important;
             }
             .hero-text p {
                 font-size: 1.1rem !important;
             }
             
-            /* 3. Arrumar a imagem do Hero */
+            /* 4. Arrumar a imagem do Hero */
             .hero-mockup {
                 width: 100% !important;
-                max-width: 350px !important; /* Limite para não estourar */
+                max-width: 350px !important; 
                 height: auto !important;
                 min-height: 300px !important;
-                margin: 0 auto !important; /* Centralizar */
+                margin: 0 auto !important; 
             }
 
-            /* 4. Funcionalidades Interativas */
+            /* 5. Funcionalidades Interativas */
             #showcase-default, #showcase-1, #showcase-2, #showcase-3 { display: none !important; }
             #showcase-4 { display: flex !important; justify-content: center; align-items: center; }
             
@@ -300,12 +306,11 @@ html_string = """
             .feature-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; }
             .feature-showcase { height: 450px !important; padding: 15px; }
             
-            /* 5. Correção dos Grids */
+            /* 6. Correção dos Grids */
             .pricing-grid, .team-grid, .features-grid {
                 grid-template-columns: 1fr !important;
             }
         }
-        
         @media (max-width: 768px) { .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
