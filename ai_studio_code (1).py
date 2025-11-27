@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS E MOBILE
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
