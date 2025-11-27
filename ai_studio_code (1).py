@@ -32,6 +32,13 @@ st.markdown("""
         .stApp {
             background-color: white !important;
         }
+        
+        /* REMOVER ESPAÇO PADRÃO DO STREAMLIT NO TOPO */
+        .block-container {
+            padding-top: 0 !important;
+            padding-bottom: 2rem !important;
+        }
+
         @media (min-width: 992px) {
             [data-testid="stSidebar"] { display: none !important; }
             button[data-testid="stSidebarNavToggler"] { display: none !important; }
@@ -88,7 +95,7 @@ html_string = """
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* ESTILOS DO HEADER (Visível apenas no Desktop agora) */
+        /* HEADER (DESKTOP) */
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
         nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
@@ -238,28 +245,68 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* --- CORREÇÃO FINAL PARA MOBILE --- */
+        /* --- CORREÇÃO FINAL E ABSOLUTA PARA MOBILE (Hero e Layout) --- */
         @media (max-width: 992px) {
             
-            /* 1. OCULTAR O CABEÇALHO NO MOBILE (CORREÇÃO PEDIDA) */
+            /* 1. Remover Header */
             header { display: none !important; }
 
-            /* 2. Configurações de layout interativo */
-            #showcase-default { display: none !important; }
+            /* 2. Arrumar o Hero (Topo) */
+            #hero {
+                padding: 40px 0 60px 0 !important; /* Menos padding */
+            }
+            .hero-content {
+                flex-direction: column !important; /* Texto em cima, imagem em baixo */
+                gap: 2rem !important;
+                text-align: center !important;
+            }
+            .hero-text {
+                max-width: 100% !important; /* Ocupa a largura toda */
+                width: 100% !important;
+                margin-bottom: 2rem !important;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem !important; /* Fonte menor para caber na tela */
+                line-height: 1.2 !important;
+            }
+            .hero-text p {
+                font-size: 1.1rem !important;
+            }
+            
+            /* 3. Arrumar a imagem do Hero */
+            .hero-mockup {
+                width: 100% !important;
+                max-width: 350px !important; /* Limite para não estourar */
+                height: auto !important;
+                min-height: 300px !important;
+                margin: 0 auto !important; /* Centralizar */
+            }
+
+            /* 4. Funcionalidades Interativas */
+            #showcase-default, #showcase-1, #showcase-2, #showcase-3 { display: none !important; }
             #showcase-4 { display: flex !important; justify-content: center; align-items: center; }
-            #showcase-1, #showcase-2, #showcase-3 { display: none !important; }
-            .features-interactive-wrapper:has(#card-1:hover) #showcase-1, .features-interactive-wrapper:has(#card-2:hover) #showcase-2, .features-interactive-wrapper:has(#card-3:hover) #showcase-3, .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: none !important; }
-            .features-interactive-wrapper:has(#card-1:hover) #showcase-4, .features-interactive-wrapper:has(#card-2:hover) #showcase-4, .features-interactive-wrapper:has(#card-3:hover) #showcase-4, .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex !important; }
+            
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-1, 
+            .features-interactive-wrapper:has(#card-2:hover) #showcase-2, 
+            .features-interactive-wrapper:has(#card-3:hover) #showcase-3, 
+            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: none !important; }
+            
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-4, 
+            .features-interactive-wrapper:has(#card-2:hover) #showcase-4, 
+            .features-interactive-wrapper:has(#card-3:hover) #showcase-4, 
+            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex !important; }
+
             .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #fff !important; }
             .feature-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; }
             .feature-showcase { height: 450px !important; padding: 15px; }
             
-            /* Correção do estouro lateral nos Grids */
+            /* 5. Correção dos Grids */
             .pricing-grid, .team-grid, .features-grid {
                 grid-template-columns: 1fr !important;
             }
         }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
+        
+        @media (max-width: 768px) { .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
 <body>
