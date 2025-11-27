@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS (Preços + Mobile Fix)
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,7 +67,8 @@ html_string = """
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        /* --- TRAVA DE ROLAGEM HORIZONTAL --- */
+        
+        /* TRAVA DE ROLAGEM HORIZONTAL GERAL */
         html, body { 
             margin: 0; 
             padding: 0;
@@ -76,19 +77,18 @@ html_string = """
             color: var(--text-gray); 
             line-height: 1.7; 
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden !important; /* A Mágica acontece aqui */
+            overflow-x: hidden !important; 
             width: 100%;
             max-width: 100vw;
         }
-        /* Trava também o container do Streamlit */
-        .stApp {
-            overflow-x: hidden !important;
-        }
+        .stApp { overflow-x: hidden !important; }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* ESTILOS DO HEADER (Visível apenas no Desktop agora) */
         header { padding: 1.5rem 0; border-bottom: 1px solid #e0e1dd; }
         nav.container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; }
         .logo { justify-self: start; }
@@ -112,6 +112,7 @@ html_string = """
         .btn { padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; border: none; font-size: 0.9rem;}
         .btn-gradient { background: var(--primary-gradient); color: var(--white) !important; box-shadow: var(--shadow-sm); }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        
         #hero { padding: 100px 0 120px 0; opacity: 0; animation: fadeInUp 1.2s ease-out forwards; }
         .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 4rem; }
         .hero-text { max-width: 50%; }
@@ -239,6 +240,11 @@ html_string = """
         
         /* --- CORREÇÃO FINAL PARA MOBILE --- */
         @media (max-width: 992px) {
+            
+            /* 1. OCULTAR O CABEÇALHO NO MOBILE (CORREÇÃO PEDIDA) */
+            header { display: none !important; }
+
+            /* 2. Configurações de layout interativo */
             #showcase-default { display: none !important; }
             #showcase-4 { display: flex !important; justify-content: center; align-items: center; }
             #showcase-1, #showcase-2, #showcase-3 { display: none !important; }
