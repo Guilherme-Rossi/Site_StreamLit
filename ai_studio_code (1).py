@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com a seção de Prova Social REMOVIDA
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -116,6 +116,8 @@ html_string = """
         .feature-showcase { width: 100%; max-width: 900px; height: 500px; margin: 0 auto; background: #fff; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid #e0e1dd; display: flex; justify-content: center; align-items: center; padding: 25px; transition: background-color 0.3s ease; }
         .showcase-content { display: none; width: 100%; height: 100%; animation: fadeInUp 0.5s ease-out forwards; }
         #showcase-default { display: flex; }
+        
+        /* INTERATIVIDADE PADRÃO (DESKTOP) */
         .features-interactive-wrapper:has(#card-1:hover) #showcase-default, .features-interactive-wrapper:has(#card-2:hover) #showcase-default, .features-interactive-wrapper:has(#card-3:hover) #showcase-default, .features-interactive-wrapper:has(#card-4:hover) #showcase-default { display: none; }
         .features-interactive-wrapper:has(#card-2:hover) #showcase-2 { display: block; }
         .features-interactive-wrapper:has(#card-3:hover) #showcase-3 { display: grid; }
@@ -123,10 +125,11 @@ html_string = """
         #showcase-1.showcase-content { padding: 0; display: none; flex-direction: column; width: 100%; }
         .features-interactive-wrapper:has(#card-1:hover) #showcase-1 { display: flex; }
         .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #f8f9fa; }
-        .kanban-group + .kanban-group { margin-top: 1.25rem; }
+        
+        .kanban-group + .kanban-group { margin-top: 1.5rem; }
         .kanban-group h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-gray); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e1dd; }
         .kanban-task { display: flex; align-items: center; justify-content: space-between; background-color: var(--white); padding: 1rem; border-radius: 8px; box-shadow: var(--shadow-sm); gap: 1rem; }
-        .kanban-task + .kanban-task { margin-top: 0.5rem; }
+        .kanban-task + .kanban-task { margin-top: 0.75rem; }
         .kanban-task-title { font-weight: 600; color: var(--medium-blue); }
         .kanban-task-details { display: flex; align-items: center; gap: 1rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
@@ -217,7 +220,50 @@ html_string = """
         .sminex-logo p { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-gray) !important; }
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } .feature-showcase { height: auto; padding: 15px; } #showcase-1 { flex-direction: column; } }
+        
+        /* --- CORREÇÃO FINAL PARA MOBILE (CSS QUE DESATIVA O HOVER E CORRIGE BUGS) --- */
+        @media (max-width: 992px) {
+            /* 1. Forçar a tela padrão (Logo) a ficar sempre visível */
+            #showcase-default {
+                display: flex !important;
+            }
+
+            /* 2. Esconder todas as telas interativas (Kanban, Chat, etc) */
+            #showcase-1, #showcase-2, #showcase-3, #showcase-4 {
+                display: none !important;
+            }
+
+            /* 3. Desativar a lógica de troca de tela ao tocar nos cards */
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-default,
+            .features-interactive-wrapper:has(#card-2:hover) #showcase-default,
+            .features-interactive-wrapper:has(#card-3:hover) #showcase-default,
+            .features-interactive-wrapper:has(#card-4:hover) #showcase-default {
+                display: flex !important;
+            }
+
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-1,
+            .features-interactive-wrapper:has(#card-2:hover) #showcase-2,
+            .features-interactive-wrapper:has(#card-3:hover) #showcase-3,
+            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 {
+                display: none !important;
+            }
+            
+            .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
+                background-color: #fff !important;
+            }
+
+            /* 4. Remover o efeito de "pulo" (transform) dos cards */
+            .feature-card:hover {
+                transform: none !important;
+                box-shadow: var(--shadow-sm) !important;
+            }
+            
+            /* Ajuste de altura para mobile */
+            .feature-showcase { height: 250px; padding: 15px; }
+        }
+        /* --- FIM DA CORREÇÃO MOBILE --- */
+        
+        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
 <body>
@@ -262,19 +308,43 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
+                        <!-- KANBAN FINAL -->
                         <div id="showcase-1" class="showcase-content">
                             <div class="kanban-group">
                                 <h3>A Fazer</h3>
-                                <div class="kanban-task"><span class="kanban-task-title">Desenhar a nova tela de login</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div>
-                                <div class="kanban-task"><span class="kanban-task-title">Criar endpoint da API de usuários</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Desenhar a nova tela de login</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Criar endpoint da API de usuários</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="kanban-group">
                                 <h3>Em Andamento</h3>
-                                <div class="kanban-task"><span class="kanban-task-title">Implementar a interface do dashboard</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Implementar a interface do dashboard</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
+                                        <div class="task-avatars"><div class="avatar"></div></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="kanban-group">
                                 <h3>Concluído</h3>
-                                <div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div>
+                                <div class="kanban-task">
+                                    <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
+                                    <div class="kanban-task-details">
+                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
