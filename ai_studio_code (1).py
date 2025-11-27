@@ -223,55 +223,15 @@ html_string = """
         
         /* --- CORREÇÃO FINAL PARA MOBILE --- */
         @media (max-width: 992px) {
-            /* 1. Esconder a tela de texto padrão */
-            #showcase-default {
-                display: none !important;
-            }
-
-            /* 2. FORÇAR A EXIBIÇÃO DO MOCKUP MOBILE PERMANENTEMENTE */
-            #showcase-4 {
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
-            }
-
-            /* 3. Esconder as outras telas interativas (Kanban, Chat, Dashboard) */
-            #showcase-1, #showcase-2, #showcase-3 {
-                display: none !important;
-            }
-
-            /* 4. Desativar a lógica de troca de tela ao tocar nos cards */
-            .features-interactive-wrapper:has(#card-1:hover) #showcase-1,
-            .features-interactive-wrapper:has(#card-2:hover) #showcase-2,
-            .features-interactive-wrapper:has(#card-3:hover) #showcase-3,
-            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 {
-                display: none !important;
-            }
-            
-            /* Garantir que o showcase-4 continue aparecendo mesmo se tocar nos cards */
-            .features-interactive-wrapper:has(#card-1:hover) #showcase-4,
-            .features-interactive-wrapper:has(#card-2:hover) #showcase-4,
-            .features-interactive-wrapper:has(#card-3:hover) #showcase-4,
-            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 {
-                display: flex !important;
-            }
-
-            .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
-                background-color: #fff !important;
-            }
-
-            /* 5. Remover o efeito de "pulo" (transform) dos cards */
-            .feature-card:hover {
-                transform: none !important;
-                box-shadow: var(--shadow-sm) !important;
-            }
-            
-            /* Ajuste de altura para mobile */
+            #showcase-default { display: none !important; }
+            #showcase-4 { display: flex !important; justify-content: center; align-items: center; }
+            #showcase-1, #showcase-2, #showcase-3 { display: none !important; }
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-1, .features-interactive-wrapper:has(#card-2:hover) #showcase-2, .features-interactive-wrapper:has(#card-3:hover) #showcase-3, .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: none !important; }
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-4, .features-interactive-wrapper:has(#card-2:hover) #showcase-4, .features-interactive-wrapper:has(#card-3:hover) #showcase-4, .features-interactive-wrapper:has(#card-4:hover) #showcase-4 { display: flex !important; }
+            .features-interactive-wrapper:has(#card-1:hover) .feature-showcase { background-color: #fff !important; }
+            .feature-card:hover { transform: none !important; box-shadow: var(--shadow-sm) !important; }
             .feature-showcase { height: 450px !important; padding: 15px; }
         }
-        /* --- FIM DA CORREÇÃO MOBILE --- */
-        
-        @media (max-width: 768px) { #hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .footer-column p { margin-left: auto; margin-right: auto; } .social-icons { text-align: center; } .footer-bottom { flex-direction: column; gap: 1rem; } .sminex-logo { text-align: center; } }
     </style>
 </head>
 <body>
@@ -283,19 +243,9 @@ html_string = """
                 <li><a href="#for-who">Para Quem?</a></li>
                 <li><a href="#pricing">Preços</a></li>
                 <li><a href="#">Integrações</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Recursos <span class="arrow">▾</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Central de Ajuda</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle">Recursos <span class="arrow">▾</span></a><ul class="dropdown-menu"><li><a href="#">Blog</a></li><li><a href="#">Central de Ajuda</a></li><li><a href="#">Contato</a></li></ul></li>
             </ul>
-            <div class="nav-actions">
-                <a href="#" class="login-link">Login</a>
-                <a href="#final-cta" class="btn btn-gradient">Começar Grátis</a>
-            </div>
+            <div class="nav-actions"><a href="#" class="login-link">Login</a><a href="#final-cta" class="btn btn-gradient">Começar Grátis</a></div>
         </nav>
     </header>
     <main>
@@ -316,45 +266,7 @@ html_string = """
                 <div class="features-interactive-wrapper">
                     <div class="feature-showcase">
                         <div id="showcase-default" class="showcase-content showcase-default-content"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.09V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11"/><path d="m22 12-7 7-4-4-3 3"/></svg><h1 class="logo">DoingWork</h1><p class="prompt-text">Selecione um card abaixo para ver a funcionalidade.</p></div>
-                        <!-- KANBAN FINAL -->
-                        <div id="showcase-1" class="showcase-content">
-                            <div class="kanban-group">
-                                <h3>A Fazer</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Desenhar a nova tela de login</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Criar endpoint da API de usuários</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="kanban-group">
-                                <h3>Em Andamento</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Implementar a interface do dashboard</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-ui">UI Design</span></div>
-                                        <div class="task-avatars"><div class="avatar"></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="kanban-group">
-                                <h3>Concluído</h3>
-                                <div class="kanban-task">
-                                    <span class="kanban-task-title">Definir arquitetura do banco de dados</span>
-                                    <div class="kanban-task-details">
-                                        <div class="task-tags"><span class="tag-backend">Backend</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="showcase-1" class="showcase-content"><div class="kanban-group"><h3>A Fazer</h3><div class="kanban-task"><span class="kanban-task-title">Desenhar a nova tela de login</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div><div class="kanban-task"><span class="kanban-task-title">Criar endpoint da API de usuários</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div><div class="task-avatars"><div class="avatar"></div><div class="avatar"></div></div></div></div></div><div class="kanban-group"><h3>Em Andamento</h3><div class="kanban-task"><span class="kanban-task-title">Implementar a interface do dashboard</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-ui">UI Design</span></div><div class="task-avatars"><div class="avatar"></div></div></div></div></div><div class="kanban-group"><h3>Concluído</h3><div class="kanban-task"><span class="kanban-task-title">Definir arquitetura do banco de dados</span><div class="kanban-task-details"><div class="task-tags"><span class="tag-backend">Backend</span></div></div></div></div></div>
                         <div id="showcase-2" class="showcase-content chat-container"><div class="task-header"><h1>Revisar proposta de novo cliente</h1><div class="attachment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg><span>proposta_final.pdf</span></div></div><div class="comments-section"><div class="comment"><div class="avatar comment-avatar"></div><div class="comment-body"><span class="comment-author">Ana</span><p class="comment-text">Pessoal, adicionei o anexo com a versão final. Por favor, revisem o mais rápido possível.</p></div></div><div class="comment"><div class="avatar comment-avatar" style="background-color: #adb5bd;"></div><div class="comment-body"><span class="comment-author">Bruno</span><p class="comment-text">Perfeito, Ana! Dei uma olhada e fiz um pequeno ajuste na cláusula 3. Fora isso, está ótimo.</p></div></div><input type="text" class="comment-input" placeholder="Escreva um comentário..."></div></div>
                         <div id="showcase-3" class="showcase-content dashboard-grid"><div class="widget kpi-widget"><div class="kpi-item"><div class="kpi-value">142</div><div class="kpi-label">Tarefas Concluídas</div></div><div class="kpi-item"><div class="kpi-value">23</div><div class="kpi-label">Em Andamento</div></div><div class="kpi-item"><div class="kpi-value">8</div><div class="kpi-label">Atrasadas</div></div></div><div class="widget chart-widget"><h2 class="widget-title">Tarefas por Status</h2><div class="bar-chart"><div class="bar" style="height: 60%;"></div><div class="bar" style="height: 90%;"></div><div class="bar" style="height: 40%;"></div><div class="bar" style="height: 75%;"></div></div></div><div class="widget donut-widget"><h2 class="widget-title">Progresso do Projeto</h2><div class="donut-chart"><div class="donut-center"><div class="kpi-value" style="font-size: 1.5rem;">75%</div><div class="kpi-label">Concluído</div></div></div></div></div>
                         <div id="showcase-4" class="showcase-content"><div class="mobile-mockup"><div class="mobile-screen"><div class="mobile-content"><h1 class="mobile-header">Projeto Alpha</h1><div class="task-card"><p class="task-title">Desenhar a nova tela de login</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Implementar a interface do dashboard</p><div class="task-tags"><span class="tag-ui">UI Design</span></div></div><div class="task-card"><p class="task-title">Corrigir bug na autenticação</p></div><div class="task-card"><p class="task-title">Definir arquitetura do banco de dados</p><div class="task-tags"><span class="tag-backend">Backend</span></div></div><div class="task-card"><p class="task-title">Reunião de alinhamento com stakeholders</p></div></div><div class="mobile-nav"><div class="nav-item"><div class="nav-icon" style="border-radius: 50%;"></div><span class="nav-label">Início</span></div><div class="nav-item active"><div class="nav-icon"></div><span class="nav-label">Tarefas</span></div><div class="nav-item"><div class="nav-icon"></div><span class="nav-label">Perfil</span></div></div></div></div></div>
@@ -373,21 +285,9 @@ html_string = """
                 <h2 class="section-title">Perfeito para equipes como a sua</h2>
                 <p class="section-subtitle">Seja qual for o seu setor, o DoingWork se adapta ao seu fluxo de trabalho para otimizar processos e maximizar resultados.</p>
                 <div class="team-grid">
-                    <div class="team-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
-                        <h3>Marketing</h3>
-                        <p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos, tudo em um só lugar para manter os prazos em dia.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
-                        <h3>Engenharia</h3>
-                        <p>Organize sprints, rastreie bugs e gerencie o roadmap do produto com quadros Kanban flexíveis e integrações com o GitHub.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div>
-                        <h3>Startups</h3>
-                        <p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p>
-                    </div>
+                    <div class="team-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div><h3>Marketing</h3><p>Planeje campanhas, gerencie calendários de conteúdo e colabore em criativos, tudo em um só lugar para manter os prazos em dia.</p></div>
+                    <div class="team-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3>Engenharia</h3><p>Organize sprints, rastreie bugs e gerencie o roadmap do produto com quadros Kanban flexíveis e integrações com o GitHub.</p></div>
+                    <div class="team-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div><h3>Startups</h3><p>Mova-se rápido e de forma organizada. Centralize ideias, tarefas e comunicação para escalar seu negócio com agilidade e foco.</p></div>
                 </div>
             </div>
         </section>
@@ -396,9 +296,59 @@ html_string = """
                 <h2 class="section-title">Planos flexíveis para cada equipe</h2>
                 <p class="section-subtitle">Comece com um teste gratuito de 1 mês. Sem compromisso. Escolha o plano ideal para você após o período de avaliação.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card"><h3>Básico</h3><div class="price">R$50<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerenciamento de tarefas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Notificações por e-mail</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Relatórios básicos</li></ul><a href="#" class="btn btn-outline">Começar Teste</a></div>
-                    <div class="pricing-card popular"><span class="popular-badge">Mais Popular</span><h3>Premium</h3><div class="price">R$150<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Básico</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações com ferramentas</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte prioritário</li></ul><a href="#" class="btn btn-gradient">Começar Teste</a></div>
-                    <div class="pricing-card"><h3>Enterprise</h3><div class="price">R$500<span>/mês</span></div><ul><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Usuários ilimitados</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Tudo do plano Premium</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gerente de conta dedicado</li><li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO)</li></ul><a href="#" class="btn btn-outline">Fale Conosco</a></div>
+                    <!-- Básico -->
+                    <div class="pricing-card">
+                        <h3>Básico</h3>
+                        <div class="price">R$50<span>/mês</span></div>
+                        <p style="color: #778da9; font-size: 0.9rem; margin-bottom: 20px;">Para quem está começando a organizar a casa.</p>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 3 usuários</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Quadros Kanban ilimitados</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gestão de tarefas e subtarefas</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Armazenamento de arquivos (5GB)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>App iOS e Android</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte via Comunidade</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Começar Grátis</a>
+                    </div>
+
+                    <!-- Premium -->
+                    <div class="pricing-card popular">
+                        <span class="popular-badge">O Mais Escolhido</span>
+                        <h3>Premium</h3>
+                        <div class="price">R$150<span>/mês</span></div>
+                        <p style="color: #778da9; font-size: 0.9rem; margin-bottom: 20px;">Acelerando o ritmo com automação e dados.</p>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 10 usuários</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Tudo do plano Básico</strong></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Visualização de Cronograma (Gantt)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Automações de fluxo (100/mês)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Dashboards de produtividade</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Integrações (Slack, Google, etc)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Armazenamento ilimitado</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Suporte via Chat</li>
+                        </ul>
+                        <a href="#" class="btn btn-gradient">Quero esse plano</a>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">R$500<span>/mês</span></div>
+                        <p style="color: #778da9; font-size: 0.9rem; margin-bottom: 20px;">Governança, segurança e escala total.</p>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Até 50 usuários</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Tudo do plano Premium</strong></li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segurança avançada (SSO/SAML)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Controle de permissões granular</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Automações ilimitadas</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>API de acesso total</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Gestor de conta dedicado</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Onboarding e treinamento personalizado</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>SLA de 99.9% de uptime</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Falar com Consultor</a>
+                    </div>
                 </div>
             </div>
         </section>
