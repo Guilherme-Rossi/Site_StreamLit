@@ -46,7 +46,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS E MOBILE
+# 4. Armazenar todo o código HTML e CSS com as CORREÇÕES FINAIS
 html_string = """
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -221,26 +221,26 @@ html_string = """
         .sminex-logo .sminex-text { font-weight: 700; font-size: 1.2rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         @media (max-width: 992px) { .nav-links, .nav-actions { display: none; } nav.container { display: flex; justify-content: space-between; } .hero-content { flex-direction: column; text-align: center; } .hero-text { max-width: 100%; } .hero-mockup { width: 100%; margin-top: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } .feature-showcase { height: 350px; } }
         
-        /* --- CORREÇÃO FINAL PARA MOBILE (CSS QUE DESATIVA O HOVER E CORRIGE BUGS) --- */
+        /* --- CORREÇÃO FINAL PARA MOBILE --- */
         @media (max-width: 992px) {
-            /* 1. Forçar a tela padrão (Logo) a ficar sempre visível */
+            /* 1. Esconder a tela de texto padrão */
             #showcase-default {
-                display: flex !important;
-            }
-
-            /* 2. Esconder todas as telas interativas (Kanban, Chat, etc) */
-            #showcase-1, #showcase-2, #showcase-3, #showcase-4 {
                 display: none !important;
             }
 
-            /* 3. Desativar a lógica de troca de tela ao tocar nos cards */
-            .features-interactive-wrapper:has(#card-1:hover) #showcase-default,
-            .features-interactive-wrapper:has(#card-2:hover) #showcase-default,
-            .features-interactive-wrapper:has(#card-3:hover) #showcase-default,
-            .features-interactive-wrapper:has(#card-4:hover) #showcase-default {
+            /* 2. FORÇAR A EXIBIÇÃO DO MOCKUP MOBILE PERMANENTEMENTE */
+            #showcase-4 {
                 display: flex !important;
+                justify-content: center;
+                align-items: center;
             }
 
+            /* 3. Esconder as outras telas interativas (Kanban, Chat, Dashboard) */
+            #showcase-1, #showcase-2, #showcase-3 {
+                display: none !important;
+            }
+
+            /* 4. Desativar a lógica de troca de tela ao tocar nos cards */
             .features-interactive-wrapper:has(#card-1:hover) #showcase-1,
             .features-interactive-wrapper:has(#card-2:hover) #showcase-2,
             .features-interactive-wrapper:has(#card-3:hover) #showcase-3,
@@ -248,18 +248,26 @@ html_string = """
                 display: none !important;
             }
             
+            /* Garantir que o showcase-4 continue aparecendo mesmo se tocar nos cards */
+            .features-interactive-wrapper:has(#card-1:hover) #showcase-4,
+            .features-interactive-wrapper:has(#card-2:hover) #showcase-4,
+            .features-interactive-wrapper:has(#card-3:hover) #showcase-4,
+            .features-interactive-wrapper:has(#card-4:hover) #showcase-4 {
+                display: flex !important;
+            }
+
             .features-interactive-wrapper:has(#card-1:hover) .feature-showcase {
                 background-color: #fff !important;
             }
 
-            /* 4. Remover o efeito de "pulo" (transform) dos cards */
+            /* 5. Remover o efeito de "pulo" (transform) dos cards */
             .feature-card:hover {
                 transform: none !important;
                 box-shadow: var(--shadow-sm) !important;
             }
             
             /* Ajuste de altura para mobile */
-            .feature-showcase { height: 250px; padding: 15px; }
+            .feature-showcase { height: 450px !important; padding: 15px; }
         }
         /* --- FIM DA CORREÇÃO MOBILE --- */
         
